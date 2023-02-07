@@ -8,13 +8,26 @@ datasource db {
 }
 
 model User {
-  id       Int       @id @default(autoincrement())
-  name     String
-  surname  String
-  email    String    @unique
-  password String
-  userInfo UserInfo?
-  Wishes   Wish[]
+  id          Int       @id @default(autoincrement())
+  name        String
+  surname     String
+  email       String    @unique
+  password    String
+  userInfo    UserInfo?
+  Wishes      Wish[]
+  sendBy      Present[] @relation("sender")
+  receiveFrom Present[] @relation("receiver")
+}
+
+model Present {
+  id          Int     @id @default(autoincrement())
+  send        Boolean
+  received    Boolean
+  sender_id   Int
+  receiver_id Int
+  room_id     Int
+  sender      User?   @relation("sender", fields: [sender_id], references: [id])
+  receiver    User?   @relation("receiver", fields: [receiver_id], references: [id])
 }
 
 model UserInfo {
@@ -33,13 +46,4 @@ model Wish {
   like   Boolean
   userId Int     @unique
   user   User    @relation(fields: [userId], references: [id])
-}
-
-model Present {
-  id          Int     @id @default(autoincrement())
-  send        Boolean
-  received    Boolean
-  sender_id   Int
-  received_id Int
-  room_id     Int
 }
