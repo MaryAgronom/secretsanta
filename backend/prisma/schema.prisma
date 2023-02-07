@@ -14,6 +14,7 @@ model User {
   email    String    @unique
   password String
   userInfo UserInfo?
+  Wishes   Wish[]
 }
 
 model UserInfo {
@@ -24,4 +25,21 @@ model UserInfo {
   allergy String
   userId  Int    @unique
   user    User   @relation(fields: [userId], references: [id])
+}
+
+model Wish {
+  id     Int     @id @default(autoincrement())
+  item   String
+  like   Boolean
+  userId Int     @unique
+  user   User    @relation(fields: [userId], references: [id])
+}
+
+model Present {
+  id          Int     @id @default(autoincrement())
+  send        Boolean
+  received    Boolean
+  sender_id   Int
+  received_id Int
+  room_id     Int
 }
