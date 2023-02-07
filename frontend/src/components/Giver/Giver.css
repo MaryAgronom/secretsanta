@@ -1,0 +1,98 @@
+.container-giver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card-giver {
+    background-color: #9f3e3ee2;
+    width: 500px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: -160px;
+    margin-left: -230px;
+    border-radius: 30px;
+    margin-right: 50px;
+  }
+  
+  .avatar-container-giver {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .avatar-giver {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+  
+  .lists-giver {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .list-giver {
+    width: 45%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .info-giver {
+      height: 500px;
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .info-item {
+    font-size: 22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .counter {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: -140px;
+  }
+  .btn-giver {
+    margin-left: 40px;
+    background-color: #9f3e3ee2;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+    height: 70px;
+    width: 250px;
+    font-size: 22px;
+    border: none;
+    border-radius: 18px;
+  }
+  .btn-giver:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 9px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.1);
+  }
