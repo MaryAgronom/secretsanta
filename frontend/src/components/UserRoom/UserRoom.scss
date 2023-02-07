@@ -1,0 +1,140 @@
+@import '../../mix.scss';
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.userRoom {
+  width: 80%;
+  margin: 0 auto;
+  @include flex();
+  li {
+    list-style-type: none;
+  }
+
+  .userMenu {
+    width: 100%;
+    padding: 10px;
+    @include border();
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      li {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .userInfo {
+    width: 80%;
+    max-width: 700px;
+    margin: 3vh 0;
+    padding: 25px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @include border();
+
+    .userInfoImg {
+      width: 75px;
+      height: 75px;
+      @include border();
+      border-radius: 10px;
+    }
+
+    .userInfoAbout {
+      ul > *:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .userWishes {
+    width: 80%;
+    margin-bottom: 2vh;
+    display: flex;
+    justify-content: center;
+    //@include border();
+    & > div:not(:last-child) {
+      margin-right: 3.3vh;
+    }
+
+    .wishes {
+      width: 225px;
+      min-height: 250px;
+      max-height: 350px;
+      overflow: overlay;
+
+      @include scroll();
+
+      font-size: 19px;
+      text-align: center;
+      position: relative;
+
+      .wishName {
+        font-size: 21px;
+        top: 5px;
+        font-weight: 600;
+        left: 50%;
+        transform: translate(-50%);
+        position: absolute;
+      }
+      ul {
+        height: fit-content;
+        margin-top: 37px;
+        padding-bottom: 15px;
+        @include flex();
+        //justify-content: center;
+
+        & > *:not(:last-child) {
+          margin-bottom: 10px;
+        }
+
+        & > li {
+          border-bottom: 1px solid black;
+        }
+      }
+
+      .addWish {
+        position: absolute;
+        right: 10px;
+        top: 2px;
+        cursor: pointer;
+
+        color: rgb(119, 119, 119);
+        font-size: 23px;
+      }
+      input {
+        margin-bottom: 12px;
+        width: 75%;
+        padding: 5px;
+
+        height: 15px;
+        text-align: center;
+        font-size: 16px;
+      }
+
+      @include border();
+    }
+  }
+
+  button {
+    padding: 5px 7px;
+    font-size: 15.5px;
+
+    cursor: pointer;
+
+    transition: 0.15s all ease-in-out;
+    border-radius: 3px;
+    background-color: white;
+    border: 1px solid black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
