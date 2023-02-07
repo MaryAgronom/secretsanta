@@ -52,13 +52,13 @@ model Present {
 }
 
 model UserInfo {
-  id      Int    @id @default(autoincrement())
-  avatar  String
-  adresss String
-  size    String
-  allergy String
-  userId  Int    @unique
-  user    User   @relation(fields: [userId], references: [id])
+  id      Int     @id @default(autoincrement())
+  avatar  String?
+  adresss String?
+  size    String?
+  allergy String?
+  userId  Int     @unique
+  user    User    @relation(fields: [userId], references: [id])
 }
 
 model Wish {

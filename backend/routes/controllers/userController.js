@@ -12,6 +12,8 @@ const getUser = async (req, res) => {
         id: true,
         name: true,
         surname: true,
+        userInfo: true,
+        Wishes: true,
       },
     });
     res.json(user);

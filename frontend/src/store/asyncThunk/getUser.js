@@ -1,16 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const getUser = createAsyncThunk(
   'user/getUser',
   async (_, { dispatch, rejectWithValue }) => {
     try {
-      const res = await fetch('http://localhost:5005/user', {
-        method: 'GET',
-        credentials: 'include',
+      const { data } = await axios.get('http://localhost:5005/user', {
+        withCredentials: true,
       });
-      // {id, name,surname}
-      const data = await res.json();
-      console.log('getUser thunk', data);
       return data;
     } catch (err) {
       console.log(err);
