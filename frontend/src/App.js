@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Check from './components/Check/Check';
 import Room from './components/Room/Room';
@@ -7,8 +7,18 @@ import Adminroom from './components/Adminroom/Adminroom';
 import UserRoom from './components/UserRoom/UserRoom';
 import Registration from './components/Registration/Registration';
 import Login from './components/Login/Login';
+import { getUser } from './store/asyncThunk/getUser';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.login);
+
+  useEffect(() => {
+    console.log('use effect');
+    dispatch(getUser());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
@@ -16,7 +26,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="check" element={<Check />} />
       </Route>
-      <Route path="/rooms" element={<Room />} />
+      <Route path="/rooms" element={user ? <Room /> : <div>NoRoom</div>} />
       <Route path="/adminroom" element={<Adminroom />} />
       <Route path="/user/room" element={<UserRoom />} />
       <Route path="*" element={<div>Error</div>} />

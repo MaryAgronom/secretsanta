@@ -16,9 +16,7 @@ const Login = async (req, res) => {
 
   const checked = await bcrypt.compare(password, logUser.password);
   if (checked) {
-    req.session.user = {
-      id: logUser.id,
-    };
+    req.session.userId = logUser.id;
     req.session.save(() => {
       res.json({ logUser, logged: true });
     });
