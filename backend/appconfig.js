@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const cors = require('cors');
 
 function config(app) {
   const { SESSION_SECRET } = process.env;
@@ -15,11 +16,17 @@ function config(app) {
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 1000*60*60*24*7,
+      maxAge: 1000 * 60 * 60 * 24 * 7,
       httpOnly: true,
     },
   };
   //статика
+  app.use(
+    cors({
+      credentials: true,
+      origin: 'http://localhost:3000',
+    })
+  );
   app.use(express.json());
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.urlencoded({ extended: true }));
