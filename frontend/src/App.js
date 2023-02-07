@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Check from './components/Check/Check';
-
+import Room from './components/Room/Room';
 import Layout from './components/Layout/Layout';
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="check" element={<Check />} />
       </Route>
+      <Route path="/rooms" element={<Room />}/>
       <Route path="*" element={<div>Error</div>} />
     </Routes>
   );
