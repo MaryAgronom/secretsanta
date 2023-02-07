@@ -1,0 +1,19 @@
+.room-info {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 200px;
+    margin-bottom: 100px;
+  }
+
+  .userlist {
+    display: flex;
+    justify-content: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    width: 400px;
+    
+  }
