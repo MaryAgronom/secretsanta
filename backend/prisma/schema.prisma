@@ -32,11 +32,12 @@ model UserAndRoom {
 
 model Room {
   id          Int           @id @default(autoincrement())
-  name        String
-  money       Int
-  data_closed DateTime
-  background  String
-  admin_id    Int
+  title        String
+  description  String
+  money       Int?
+  data_closed DateTime?
+  background  String?
+  admin_id    Int?
   Users       UserAndRoom[]
 }
 
