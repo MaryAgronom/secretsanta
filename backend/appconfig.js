@@ -4,8 +4,10 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const cors = require('cors');
 
 function config(app) {
+
   const { SESSION_SECRET } = process.env;
   //cookie + сессии
   const sessionConfig = {
@@ -20,6 +22,10 @@ function config(app) {
     },
   };
   //статика
+  app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000',
+  }));
   app.use(express.json());
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.urlencoded({ extended: true }));
