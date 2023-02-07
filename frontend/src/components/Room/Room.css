@@ -1,17 +1,17 @@
 .room-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn-container-room {
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-top: 200px;
-    margin-bottom: 100px;
-  }
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
 .btns {
     margin-left: 40px;
     background-color: rgba(119, 14, 14, 0.949);
@@ -43,7 +43,7 @@
     width: 60%;
   }
   
-  input[type="text"] {
+  .input-container-room input[type="text"] {
     height: 55px;
     width: 90%;
     text-align: start;
@@ -55,7 +55,7 @@
     font-size: 24px;
   }
   
-  img {
+  .img-container img {
     border-radius: 50%;
     height: 250px;
     width: 250px;

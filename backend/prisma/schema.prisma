@@ -8,12 +8,47 @@ datasource db {
 }
 
 model User {
-  id       Int       @id @default(autoincrement())
-  name     String
-  surname  String
-  email    String    @unique
-  password String
-  userInfo UserInfo?
+  id          Int           @id @default(autoincrement())
+  name        String
+  surname     String
+  email       String        @unique
+  password    String
+  userInfo    UserInfo?
+  Wishes      Wish[]
+  sendBy      Present[]     @relation("sender")
+  receiveFrom Present[]     @relation("receiver")
+  FeedBack    FeedBack?
+  Rooms       UserAndRoom[]
+}
+
+model UserAndRoom {
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+  room   Room @relation(fields: [roomId], references: [id])
+  roomId Int
+
+  @@id([userId, roomId])
+}
+
+model Room {
+  id          Int           @id @default(autoincrement())
+  name        String
+  money       Int
+  data_closed DateTime
+  background  String
+  admin_id    Int
+  Users       UserAndRoom[]
+}
+
+model Present {
+  id          Int     @id @default(autoincrement())
+  send        Boolean
+  received    Boolean
+  sender_id   Int
+  receiver_id Int
+  room_id     Int
+  sender      User?   @relation("sender", fields: [sender_id], references: [id])
+  receiver    User?   @relation("receiver", fields: [receiver_id], references: [id])
 }
 
 model UserInfo {
@@ -22,6 +57,22 @@ model UserInfo {
   adresss String
   size    String
   allergy String
+  userId  Int    @unique
+  user    User   @relation(fields: [userId], references: [id])
+}
+
+model Wish {
+  id     Int     @id @default(autoincrement())
+  item   String
+  like   Boolean
+  userId Int     @unique
+  user   User    @relation(fields: [userId], references: [id])
+}
+
+model FeedBack {
+  id      Int    @id @default(autoincrement())
+  picture String
+  text    String
   userId  Int    @unique
   user    User   @relation(fields: [userId], references: [id])
 }

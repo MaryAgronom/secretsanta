@@ -1,8 +1,7 @@
 import React from 'react';
 import roomimg from '../../images/IMG_4096.PNG';
 import './Room.css';
-
-function Room() {
+const Room = () => {
   return (
     <>
       <div className="btn-container-room">
@@ -15,11 +14,15 @@ function Room() {
         </div>
         <div className="input-container-room">
           <input type="text" placeholder="Название комнаты" />
-          <input type="text" placeholder="Описание комнаты" style={{ height: '200px' }} />
+          <input
+            type="text"
+            placeholder="Описание комнаты"
+            style={{ height: '200px' }}
+          />
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Room;
