@@ -1,19 +1,41 @@
-.room-info {
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-top: 200px;
-    margin-bottom: 100px;
-  }
+.container-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .userlist {
-    display: flex;
-    justify-content: center;
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-top: 200px;
-    margin-bottom: 100px;
-    width: 400px;
-    
-  }
+.btns-admin {
+  margin-left: 40px;
+  background-color: lightcoral;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  border: none;
+  border-radius: 18px;
+}
+
+.btns-admin:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-admin {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.userlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  border: 2px solid red;
+}
