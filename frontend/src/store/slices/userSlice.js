@@ -5,6 +5,7 @@ const initialState = {
   login: false,
   name: '',
   surname: '',
+  wishes: [],
   status: null,
   error: null,
 };
