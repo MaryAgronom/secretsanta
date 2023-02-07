@@ -6,20 +6,24 @@ const Adminroom = () => {
   return (
     <div>
       <div className="container-top">
-        <button className="btns">Комната</button>
-        <button className="btns">Анкета</button>
+        <button className="btns-admin">Комната</button>
+        <button className="btns-admin">Анкета</button>
       </div>
 
-      <div className="room-info">
+      <div className="content-admin">
         <div className="img-container">
           <img src={roomimg} alt="" className="img-house" />
+          <div className="btns-other">
+            <input type="text" placeholder="Назначить цену" />
+            <input type="text" placeholder="Дата окончания" />
+            <button className="btns-admin">Назначить пары</button>
+          </div>
         </div>
-        <button className="btns">Стоимость</button>
-        <button className="btns">Назначить пары</button>
+      </div>
+      <div>
         <p>Комната барсиков</p>
         <a href="URL">Пригласить</a>
       </div>
-
       <div className="userlist">
         <table border="1">
           <tr>
@@ -42,6 +46,7 @@ const Adminroom = () => {
           </tr>
         </table>
       </div>
+      <button className="btns-admin">Закрыть комнату</button>
     </div>
   );
 };
