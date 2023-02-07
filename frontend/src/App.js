@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Check from './components/Check/Check';
-
+import Room from './components/Room/Room';
 import Layout from './components/Layout/Layout';
 import UserRoom from './components/UserRoom/UserRoom';
 
@@ -12,6 +12,7 @@ function App() {
         <Route path="check" element={<Check />} />
       </Route>
       <Route path="/user/room" element={<UserRoom />} />
+      <Route path="/rooms" element={<Room />}/>
       <Route path="*" element={<div>Error</div>} />
     </Routes>
   );
