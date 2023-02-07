@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Check from './components/Check/Check';
 import Room from './components/Room/Room';
+import Giver from './components/Giver/Giver';
 import Layout from './components/Layout/Layout';
 import Adminroom from './components/Adminroom/Adminroom';
 import UserRoom from './components/UserRoom/UserRoom';
@@ -29,6 +30,7 @@ function App() {
       <Route path="/rooms" element={user ? <Room /> : <div>NoRoom</div>} />
       <Route path="/adminroom" element={<Adminroom />} />
       <Route path="/user/room" element={<UserRoom />} />
+      <Route path="/giver" element={<Giver />}/>
       <Route path="*" element={<div>Error</div>} />
     </Routes>
   );
