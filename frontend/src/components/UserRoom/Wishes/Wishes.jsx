@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addWish } from '../../../store/asyncThunk/addWish';
+import Wish from './Wish/Wish';
 
 export default function Wishes({ wishes, status }) {
-  const [wishList, setWishList] = useState(wishes);
+  console.log('Wishes.jsx', wishes);
+
   const [wishInput, setWishInput] = useState(false);
   const [wishInputText, setWishInputText] = useState('');
+  const dispatch = useDispatch();
 
   function addWishHandler() {
     if (wishInputText.trim()) {
-      setWishList((prev) => [
-        ...prev,
-        { id: wishList.length + 1, like: status, item: wishInputText },
-      ]);
+      dispatch(addWish({ item: wishInputText, like: status }));
       setWishInputText('');
       setWishInput(false);
     } else {
@@ -24,8 +26,8 @@ export default function Wishes({ wishes, status }) {
         {!wishInput ? '⊕' : '✓'}
       </div>
       <div className="wishName">{status ? 'Хачу' : 'Ни хачу'}</div>
-      <ul className={wishList.length <= 5 ? 'wishCenter' : 'hey'}>
-        {wishList && wishList.map((wish) => <li key={wish.id}>{wish.item}</li>)}
+      <ul className={wishes.length <= 5 ? 'wishCenter' : 'hey'}>
+        {wishes && wishes.map((wish) => <Wish wish={wish} key={wish.id} />)}
       </ul>
       {wishInput && (
         <input

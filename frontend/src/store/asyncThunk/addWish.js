@@ -1,11 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getUser = createAsyncThunk(
+export const addWish = createAsyncThunk(
   'user/addWish',
-  async (_, { dispatch, rejectWithValue }) => {
+  async (item, { dispatch, rejectWithValue }) => {
     try {
-      const { data } = await axios.post('http://localhost:5005/user/wish', {
+      const { data } = await axios({
+        method: 'post',
+        url: 'http://localhost:5005/user/wish',
+        data: item,
         withCredentials: true,
       });
       return data;

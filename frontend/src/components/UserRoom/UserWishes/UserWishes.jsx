@@ -4,6 +4,7 @@ import Wishes from '../Wishes/Wishes';
 
 export default function UserWishes() {
   const wishes = useSelector((state) => state.user.wishes);
+  console.log('UserWishes.jsx', wishes);
   return (
     <div className="userWishes">
       <Wishes
