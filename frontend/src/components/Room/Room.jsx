@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import roomimg from '../../images/IMG_4096.PNG';
+import roomimg from '../../images/12.png';
 import Logout from '../Logout/Logout';
 import './Room.css';
 
@@ -32,6 +33,10 @@ const Room = () => {
     }
   }
   console.log(inputs)
+
+  const rooms = useSelector((state) => state.user.adminRooms)
+  console.log(rooms)
+
   return (
     <>
       <div className="btn-container-room">
@@ -39,6 +44,14 @@ const Room = () => {
         <button type="button" onClick={addHandler} className="btns">Создать комнату</button>
       </div>
       <div className="room-container">
+    <div className='room-card'>
+  <h3>Комнаты</h3>
+  <ul>
+    {rooms.map((room) => (
+      <li><a href={`/all/${room.id}`}>{room.title}</a></li>
+    ))}
+  </ul>
+</div>
         <div className="img-container">
           <img src={roomimg} alt="" className="img-house" />
         </div>

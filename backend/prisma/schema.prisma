@@ -68,7 +68,7 @@ model Wish {
   id     Int     @id @default(autoincrement())
   item   String
   like   Boolean
-  userId Int     @unique
+  userId Int
   user   User    @relation(fields: [userId], references: [id])
 }
 

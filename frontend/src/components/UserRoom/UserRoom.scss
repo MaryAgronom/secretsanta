@@ -35,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-
+    position: relative;
     @include border();
 
     .userInfoImg {
@@ -46,9 +46,34 @@
     }
 
     .userInfoAbout {
+      // width: 150px;
       ul > *:not(:last-child) {
         margin-bottom: 5px;
       }
+
+      li {
+        display: flex;
+      }
+
+      li > *:not(:last-child) {
+        margin-right: 5px;
+      }
+      input {
+        width: 100px;
+        border: none;
+        border-bottom: 1px solid black;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .userInfoEdit {
+      position: absolute;
+      right: 11px;
+      top: 7px;
+      font-size: 21px;
+
+      cursor: pointer;
     }
   }
 
@@ -91,10 +116,6 @@
 
         & > *:not(:last-child) {
           margin-bottom: 10px;
-        }
-
-        & > li {
-          border-bottom: 1px solid black;
         }
       }
 
