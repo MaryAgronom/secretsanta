@@ -59,9 +59,10 @@
   
   .img-container img {
     border-radius: 50%;
-    height: 270px;
-    width: 270px;
+    height: 210px;
+    width: 210px;
     margin-left: 55%;
+    border: none !important;
   }
 
   #logoutbtn {
