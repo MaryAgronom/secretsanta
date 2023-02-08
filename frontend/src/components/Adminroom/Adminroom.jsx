@@ -1,8 +1,25 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
+
 import roomimg from "../../images/IMG_4096.PNG";
 import "./Adminroom.css";
 
-const Adminroom = () => {
+export default function Adminroom() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    try {
+      const res = fetch("http://localhost:5005/adminroom", {
+        method: "GET",
+        credentials: "include",
+      });
+      const data = res.json();
+      // setUsers(data);
+      // console.log(data);
+    } catch (error) {
+      // console.log(error);
+    }
+  }, []);
+
   return (
     <div>
       <div className="container-top">
@@ -26,29 +43,14 @@ const Adminroom = () => {
       </div>
       <div className="userlist">
         <table border="1">
+          {users.map((el) =>
           <tr>
-            <th>User</th>
+            <th>{el}</th>
           </tr>
-          <tr>
-            <th>User</th>
-          </tr>
-          <tr>
-            <th>User</th>
-          </tr>
-          <tr>
-            <th>User</th>
-          </tr>
-          <tr>
-            <th>User</th>
-          </tr>
-          <tr>
-            <th>User</th>
-          </tr>
+          )}
         </table>
       </div>
       <button className="btns-admin">Закрыть комнату</button>
     </div>
   );
-};
-
-export default Adminroom;
+}
