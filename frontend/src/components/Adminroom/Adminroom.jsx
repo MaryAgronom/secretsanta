@@ -1,10 +1,12 @@
 import React from "react";
 import roomimg from "../../images/IMG_4096.PNG";
+import Logout from "../Logout/Logout";
 import "./Adminroom.css";
 
 const Adminroom = () => {
   return (
     <div className="fullContainer">
+      <Logout />
       <div className="container-top">
         <button className="btns-top-admin">Комната</button>
         <button className="btns-top-admin">Анкета</button>

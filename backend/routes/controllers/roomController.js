@@ -7,9 +7,6 @@ const Room = async (req, res) => {
   console.log(admin_id, 'ADMIN');
   const { title, description } = req.body;
   console.log(req.body);
-  // const Allrooms = await prisma.userandroom.findMany();
-  // const room_id = Allrooms.length + 1;
-  // console.log('ROOOMS', room_id)
   const rooms = await prisma.room.create({
     data: {
       title,
