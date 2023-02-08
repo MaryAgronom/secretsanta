@@ -15,14 +15,16 @@ const Room = async (req, res) => {
       title,
       description,
       admin_id,
-      user: {
-        connect: {
-          userId: 1,
-          // roomId: 1,
-        },
-      },
     },
   });
+  const roomId = rooms.id;
+  const userAndRoom = await prisma.userAndRoom.create({
+    data: {
+      userId: admin_id,
+      roomId,
+    },
+  });
+  console.log('ROOOM', userAndRoom);
   res.json({
     created: true,
   });
