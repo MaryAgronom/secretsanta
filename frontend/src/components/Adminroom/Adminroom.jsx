@@ -1,23 +1,14 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState } from 'react';
 
-import roomimg from "../../images/IMG_4096.PNG";
-import "./Adminroom.css";
+import roomimg from '../../images/IMG_4096.PNG';
+import './Adminroom.css';
+import { getUsers } from './functions';
 
 export default function Adminroom() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    try {
-      const res = fetch("http://localhost:5005/adminroom", {
-        method: "GET",
-        credentials: "include",
-      });
-      const data = res.json();
-      // setUsers(data);
-      // console.log(data);
-    } catch (error) {
-      // console.log(error);
-    }
+    getUsers();
   }, []);
 
   return (
@@ -43,11 +34,11 @@ export default function Adminroom() {
       </div>
       <div className="userlist">
         <table border="1">
-          {users.map((el) =>
-          <tr>
-            <th>{el}</th>
-          </tr>
-          )}
+          {users.map((el) => (
+            <tr>
+              <th>{el}</th>
+            </tr>
+          ))}
         </table>
       </div>
       <button className="btns-admin">Закрыть комнату</button>
