@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addWish } from '../asyncThunk/addWish';
+import { deleteWish } from '../asyncThunk/deleteWish';
 import { getUser } from '../asyncThunk/getUser';
 import { logoutUser } from '../asyncThunk/logoutUser';
 
@@ -17,7 +19,17 @@ const initialState = {
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    changeAddress(state, action) {
+      state.userInfo.address = action.payload;
+    },
+    changeSize(state, action) {
+      state.userInfo.size = action.payload;
+    },
+    changeAllergy(state, action) {
+      state.userInfo.allergy = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     // pending
     builder.addCase(getUser.pending, (state) => {
@@ -65,8 +77,20 @@ const userSlice = createSlice({
 
       state.status = 'fulfilled';
     });
+    // add wish
+    builder.addCase(addWish.fulfilled, (state, action) => {
+      console.log(action.payload);
+      state.wishes.push(action.payload);
+    });
+
+    // delete wish
+    builder.addCase(deleteWish.fulfilled, (state, action) => {
+      state.wishes = state.wishes.filter(
+        (wish) => wish.id !== action.payload.id
+      );
+    });
   },
 });
 
 export default userSlice.reducer;
-export const {} = userSlice.actions;
+export const { changeAddress, changeSize, changeAllergy } = userSlice.actions;

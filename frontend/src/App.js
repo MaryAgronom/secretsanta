@@ -29,8 +29,8 @@ function App() {
       </Route>
       <Route path="/rooms" element={user ? <Room /> : <div>NoRoom</div>} />
       <Route path="/adminroom" element={<Adminroom />} />
-      <Route path="/user/room" element={<UserRoom />} />
-      <Route path="/giver" element={<Giver />}/>
+      <Route path="/account" element={<UserRoom />} />
+      <Route path="/giver" element={<Giver />} />
       <Route path="*" element={<div>Error</div>} />
     </Routes>
   );
