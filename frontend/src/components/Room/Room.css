@@ -60,3 +60,9 @@
     height: 250px;
     width: 250px;
   }
+
+  #logoutbtn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
