@@ -10,6 +10,7 @@ const regRouter = require('./routes/regRouter');
 const loginRouter = require('./routes/loginRouter');
 const userRouter = require('./routes/userRouter');
 const roomRouter = require('./routes/roomRouter');
+const feedBackRouter = require('./routes/feedBackRouter');
 const logoutRouter = require('./routes/logoutRouter');
 
 const app = express();
@@ -23,6 +24,7 @@ app.use('/', indexRouter);
 app.use('/registration', regRouter);
 app.use('/login', loginRouter);
 app.use('/user', userRouter);
+app.use('/feedback', feedBackRouter)
 app.use('/room', roomRouter);
 app.use('/logout', logoutRouter);
 
