@@ -1,5 +1,5 @@
 import React from "react";
-import roomimg from "../../images/IMG_4096.PNG";
+import roomimg from "../../images/12.png";
 import Logout from "../Logout/Logout";
 import "./Adminroom.css";
 
@@ -21,9 +21,9 @@ const Adminroom = () => {
           </div>
           </div>
           <div className="btns-other">
-            <input id='forpadding' type="text" placeholder="Назначить цену" />
-            <input id='forpadding' type="text" placeholder="Дата начала" />
-            <input id='forpadding' type="text" placeholder="Дата окончания" />
+            <input className='forpadding' type="text" placeholder="Назначить цену" />
+            <input className='forpadding' type="text" placeholder="Дата начала" />
+            <input className='forpadding' type="text" placeholder="Дата окончания" />
             <button className="btns-admin">Назначить пары</button>
           
         </div>
@@ -55,7 +55,7 @@ const Adminroom = () => {
           </tr>
         </table>
         <div className="btn-close " >
-        <button className="btns-admin">Закрыть комнату</button>
+        <button className="btns-admin-close">Закрыть комнату</button>
         </div>
       </div>
       </div>
