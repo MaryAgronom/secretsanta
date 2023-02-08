@@ -10,6 +10,7 @@ const regRouter = require('./routes/regRouter');
 const loginRouter = require('./routes/loginRouter');
 const userRouter = require('./routes/userRouter');
 const roomRouter = require('./routes/roomRouter');
+const feedBackRouter = require('./routes/feedBackRouter');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -23,5 +24,6 @@ app.use('/registration', regRouter);
 app.use('/login', loginRouter);
 app.use('/user', userRouter);
 app.use('/room', roomRouter)
+app.use('/feedback', feedBackRouter)
 
 app.listen(PORT, () => console.log(`port started on ${PORT}`));
