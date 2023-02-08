@@ -1,9 +1,11 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { getUser } from '../../store/asyncThunk/getUser';
 import styles from './Login.module.css';
 export default function Login() {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const initialState = { email: '', password: '' };
   const [inputs, setInputs] = useState(initialState);
@@ -27,9 +29,9 @@ export default function Login() {
       const data = await res.json();
       console.log('FRONT', data);
       if (data.logged) {
-        // dispatch({ type: 'USER', payload: inputs });
         setInputs(initialState);
-        navigate('/checked');
+        navigate('/rooms');
+        dispatch(getUser());
       }
     } catch (e) {
       console.log('ERRROEEO', e);

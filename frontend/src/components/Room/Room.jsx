@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import roomimg from '../../images/IMG_4096.PNG';
+import Logout from '../Logout/Logout';
 import './Room.css';
 
 
@@ -52,6 +53,9 @@ const Room = () => {
             style={{ height: '200px' }}
           />
         </div>
+      </div>
+      <div id='logoutbtn'>
+      <Logout />
       </div>
     </>
   );

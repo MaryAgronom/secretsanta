@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getUser } from '../asyncThunk/getUser';
+import { logoutUser } from '../asyncThunk/logoutUser';
+
 const initialState = {
   id: null,
   login: false,
   name: '',
   surname: '',
+  userInfo: null,
   wishes: [],
+  adminRooms: [],
   status: null,
   error: null,
 };
@@ -23,12 +27,15 @@ const userSlice = createSlice({
     // fulfilled
     builder.addCase(getUser.fulfilled, (state, action) => {
       console.log('user slice', action.payload);
-      const { id, name, surname } = action.payload;
+      const { id, name, surname, Wishes, adminRooms, userInfo } =
+        action.payload;
       state.id = id;
       state.name = name;
       state.login = true;
       state.surname = surname;
-
+      state.wishes = Wishes;
+      state.adminRooms = adminRooms;
+      state.userInfo = userInfo;
       state.status = 'fulfilled';
     });
 
@@ -36,6 +43,27 @@ const userSlice = createSlice({
     builder.addCase(getUser.rejected, (state, action) => {
       state.error = action.payload;
       state.status = 'rejected';
+    });
+
+    //rejected
+    builder.addCase(logoutUser.rejected, (state, action) => {
+      state.error = action.payload;
+      state.status = 'rejected';
+    });
+    // pending
+    builder.addCase(logoutUser.pending, (state) => {
+      state.status = 'loading';
+    });
+
+    // fulfilled
+    builder.addCase(logoutUser.fulfilled, (state, action) => {
+      console.log('logout slice', action.payload);
+      state.id = null;
+      state.name = '';
+      state.login = false;
+      state.surname = '';
+
+      state.status = 'fulfilled';
     });
   },
 });
