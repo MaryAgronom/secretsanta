@@ -40,7 +40,7 @@ const Room = () => {
   return (
     <>
       <div className="btn-container-room">
-        <button type="button" className="btns">Мои комнаты</button>
+        <button onClick={() => navigate('/all')} type="button" className="btns">Мои комнаты</button>
         <button type="button" onClick={addHandler} className="btns">Создать комнату</button>
       </div>
       <div className="room-container">

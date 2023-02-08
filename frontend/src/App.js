@@ -10,6 +10,8 @@ import Registration from './components/Registration/Registration';
 import Login from './components/Login/Login';
 import { getUser } from './store/asyncThunk/getUser';
 import { useDispatch, useSelector } from 'react-redux';
+import ListRooms from './components/ListRooms/ListRooms';
+import OneRoom from './components/OneRoom/OneRoom';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,8 +31,14 @@ function App() {
       </Route>
       <Route path="/rooms" element={user ? <Room /> : <div>NoRoom</div>} />
       <Route path="/adminroom" element={<Adminroom />} />
+      <Route path="/user/room" element={<UserRoom />} />
+      <Route path="/all">
+      <Route index element={<ListRooms />} />
+      <Route path=":id" element={<OneRoom />} />
+      </Route>
       <Route path="/account" element={<UserRoom />} />
       <Route path="/giver" element={<Giver />} />
+
       <Route path="*" element={<div>Error</div>} />
     </Routes>
   );
