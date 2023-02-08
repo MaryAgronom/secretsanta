@@ -53,7 +53,7 @@ const Room = () => {
   </ul>
 </div>
         <div className="img-container">
-          <img src={roomimg} alt="" className="img-house" />
+          <img src={roomimg} alt="" className="img-house" style={{width: '300px', height: '300px'}} />
         </div>
         <div className="input-container-room">
           <input onChange={roomHandler} name='title' value={inputs.title} type="text" placeholder="Название комнаты" />
