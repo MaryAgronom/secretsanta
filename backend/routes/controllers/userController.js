@@ -55,7 +55,25 @@ const getUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser };
+const addWish = async (req, res) => {
+  const userId = req.session.userId;
+  const { item, like } = req.body;
+  try {
+    const newWish = await prisma.wish.create({
+      data: {
+        item,
+        like,
+        user_id: userId,
+      },
+    });
+    res.json(newWish);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
+};
+
+module.exports = { getUser, addWish };
 
 // const user = await prisma.user.findUnique({
 //   where: {
