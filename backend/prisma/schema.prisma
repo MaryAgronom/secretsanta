@@ -15,6 +15,7 @@ model User {
   password    String
   userInfo    UserInfo?
   Wishes      Wish[]
+  adminRooms  Room[]
   sendBy      Present[]     @relation("sender")
   receiveFrom Present[]     @relation("receiver")
   FeedBack    FeedBack?
@@ -32,12 +33,13 @@ model UserAndRoom {
 
 model Room {
   id          Int           @id @default(autoincrement())
-  title        String
-  description  String
+  title       String
+  description String
   money       Int?
   data_closed DateTime?
   background  String?
-  admin_id    Int?
+  admin_id    Int
+  admin       User          @relation(fields: [admin_id], references: [id])
   Users       UserAndRoom[]
 }
 
@@ -55,7 +57,7 @@ model Present {
 model UserInfo {
   id      Int     @id @default(autoincrement())
   avatar  String?
-  adresss String?
+  address String?
   size    String?
   allergy String?
   userId  Int     @unique
