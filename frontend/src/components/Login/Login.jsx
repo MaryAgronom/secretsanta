@@ -29,7 +29,6 @@ export default function Login() {
       const data = await res.json();
       console.log('FRONT', data);
       if (data.logged) {
-        // dispatch({ type: 'USER', payload: inputs });
         setInputs(initialState);
         navigate('/rooms');
         dispatch(getUser());
