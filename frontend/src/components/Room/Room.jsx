@@ -55,7 +55,7 @@ const Room = () => {
           <h3>Комнаты</h3>
           <ul>
             {rooms.map((room) => (
-              <li>
+              <li className='room-li-btn'>
                 <Link to={'/all/' + room.id}>{room.title}</Link>
               </li>
             ))}
