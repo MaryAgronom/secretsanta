@@ -78,7 +78,7 @@ const Room = () => {
             type="text"
             placeholder="Название комнаты"
           />
-          <input
+          <textarea
             onChange={roomHandler}
             value={inputs.description}
             name="description"

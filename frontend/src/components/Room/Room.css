@@ -46,7 +46,7 @@
     height: 90%;
   }
   
-  .input-container-room input[type="text"] {
+  .input-container-room input, textarea[type="text"] {
     height: 70px;
     width: 60%;
     text-align: start;
