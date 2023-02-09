@@ -1,0 +1,19 @@
+@import '../.././mix.scss';
+
+.present {
+  @include flex();
+  & > *:not(:last-child) {
+    margin-bottom: 1vh;
+  }
+}
+
+.presentBox {
+  margin-top: 1vh;
+  padding: 0px 5px;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  @include flex();
+  @include border();
+  justify-content: center;
+}

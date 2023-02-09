@@ -41,6 +41,7 @@ model Room {
   admin_id    Int
   admin       User          @relation(fields: [admin_id], references: [id])
   Users       UserAndRoom[]
+  presents    Present[]
 }
 
 model Present {
@@ -52,6 +53,7 @@ model Present {
   room_id     Int
   sender      User?   @relation("sender", fields: [sender_id], references: [id])
   receiver    User?   @relation("receiver", fields: [receiver_id], references: [id])
+  room        Room    @relation(fields: [room_id], references: [id])
 }
 
 model UserInfo {
