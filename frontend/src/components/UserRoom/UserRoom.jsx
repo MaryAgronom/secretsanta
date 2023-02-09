@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Giver from '../Giver/Giver';
+import Presents from '../Presents/Presents';
 import BackBtn from './BackBtn/BackBtn';
 import UserInfo from './UserInfo/UserInfo';
 import UserMenu from './UserMenu/UserMenu';
@@ -22,7 +23,7 @@ export default function UserRoom() {
             case 'sender info':
               return <Giver />;
             case 'presents':
-              return <div>Present for you</div>;
+              return <Presents />;
             default:
               return <UserInfo />;
           }

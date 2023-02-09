@@ -10,7 +10,7 @@ import Modal from 'react-bootstrap/Modal';
 import './UserInfo.css';
 
 export default function UserInfo() {
-  const userInfo = useSelector((state) => state.user.userInfo);
+  const { userInfo, name, surname } = useSelector((state) => state.user);
   const [change, setChange] = useState(false);
   const dispatch = useDispatch();
   const [selectedAvatar, setSelectedAvatar] = useState("");
@@ -63,6 +63,10 @@ export default function UserInfo() {
       <div className="userInfoAbout">
         <ul>
           <li>
+            <div>Имя :</div>
+            <div> {name + ' ' + surname}</div>
+          </li>
+          <li>
             <div>Адрес:</div>
             {change ? (
               <input className='editInfoInput'
@@ -75,6 +79,7 @@ export default function UserInfo() {
               ) : (
                 <li>{userInfo?.address || 'Твой адрес'}</li>
                 )}
+
           </li>
           <li>
             <div>Размер одежды:</div>

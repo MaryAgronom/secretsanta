@@ -41,17 +41,19 @@ model Room {
   admin_id    Int
   admin       User          @relation(fields: [admin_id], references: [id])
   Users       UserAndRoom[]
+  presents    Present[]
 }
 
 model Present {
   id          Int     @id @default(autoincrement())
-  send        Boolean
-  received    Boolean
+  send        Boolean?
+  received    Boolean?
   sender_id   Int
-  receiver_id Int
-  room_id     Int
+  receiver_id Int?
+  room_id     Int?
   sender      User?   @relation("sender", fields: [sender_id], references: [id])
   receiver    User?   @relation("receiver", fields: [receiver_id], references: [id])
+  room        Room    @relation(fields: [room_id], references: [id])
 }
 
 model UserInfo {
