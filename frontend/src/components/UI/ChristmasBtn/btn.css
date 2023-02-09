@@ -57,8 +57,9 @@
 	box-shadow:
 		inset 1px 1px 0px rgba(255,255,255,0.25), /* highlight */
 		inset 0 0 6px #da3b2c, /* inner glow */
-		inset 0 80px 80px -40px #dd4330, /* gradient */
-		0px 1px 0px rgba(255,255,255,0.25); /* shadow */
+		inset 0 80px 80px -40px #dd4330, 
+		
+		0px 1px 0px rgba(255,255,255,0.25); 
 		
 	-webkit-transition: 50ms linear;
 	   -moz-transition: 50ms linear;
