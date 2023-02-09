@@ -23,6 +23,29 @@ const Shuffle = async (req, res) => {
 
   const allObj = console.log('obj------------', senderObj, receiverObj);
 
+  const data = [];
+  for (let i = 0; i < senderObj.length; i++) {
+    data.push({
+      send: false,
+      received: false,
+      sender_id: senderObj[0],
+      receiver_id: receiverObj[0],
+      room_id,
+    });
+  }
+
+  // data: [
+  //   {
+  //     send: false,
+  //     received: false,
+  //     sender_id: senderObj[0],
+  //     receiver_id: receiverObj[0],
+  //     room_id,
+  //   },
+  //   { send: false, received: false, sender_id, receiver_id, room_id },
+  //   { send: false, received: false, sender_id, receiver_id, room_id },
+  //   { send: false, received: false, sender_id, receiver_id, room_id },
+  // ];
 
   // function mapper() {
   //   const commonObj = [];
