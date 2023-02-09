@@ -1,4 +1,5 @@
 
+
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,14 +51,22 @@ const Adminroom = () => {
   // }, [dispatch])
  
   console.log(users)
+
   return (
     
     <div className="fullContainer">
       <Logout />
       <div className="container-top">
-        <button className="christmas-btn">Комната</button>
-        <button className="christmas-btn">Анкета</button>
-
+        <button
+          className="btns-top-admin"
+          onClick={() => {
+            navigate('/rooms');
+          }}
+        >
+          Все Комнаты
+        </button>
+        {/* <button className="btns-top-admin">Анкета</button> */}
+      </div>
       <div className="content-Admin">
         <div className="img-Container">
           <img src={roomimg} alt="" className="img-House" />
@@ -75,13 +84,9 @@ const Adminroom = () => {
             <span>дарим подарки в</span>
             <input onChange={formHandler} name="data_closed" value={input.data_closed} id='forpadding' type="date" placeholder="Дата окончания" />
             <button onClick={shuffleHandler} type="button" className="btns-Admin">Назначить пары</button>
-
-          
         </div>
       </div>
       <div>
-        
-        
       </div>
       <div className="userList-container" >
       <div className="userlist">
@@ -103,9 +108,35 @@ const Adminroom = () => {
         </table>
         <div className="btn-close " >
         <button className="btns-Admin">Закрыть комнату</button>
-
         </div>
       </div>
+      <div></div>
+      <div className="userList-container">
+        <div className="userlist">
+          <table border="1">
+            <tr>
+              <th>User</th>
+            </tr>
+            <tr>
+              <th>User</th>
+            </tr>
+            <tr>
+              <th>User</th>
+            </tr>
+            <tr>
+              <th>User</th>
+            </tr>
+            <tr>
+              <th>User</th>
+            </tr>
+            <tr>
+              <th>User</th>
+            </tr>
+          </table>
+          <div className="btn-close ">
+            <button className="btns-admin-close">Закрыть комнату</button>
+          </div>
+        </div>
       </div>
     </div>
   );
