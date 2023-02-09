@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const shuffle = createAsyncThunk(
-  'user/addWish',
-  async (item, { dispatch, rejectWithValue }) => {
+export const getShuffle = createAsyncThunk(
+  'user/shuffle',
+  async ({input, users}, { dispatch, rejectWithValue }) => {
     try {
       const { data } = await axios({
         method: 'post',
-        url: 'http://localhost:5005/user/wish',
-        data: item,
+        url: 'http://localhost:5005/shuffle',
+        data: {input, users},
         withCredentials: true,
       });
       return data;
