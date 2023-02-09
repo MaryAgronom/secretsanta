@@ -61,6 +61,7 @@ const Room = () => {
             ))}
           </ul>
         </div>
+
         <div className="img-container">
           <img
             src={roomimg}

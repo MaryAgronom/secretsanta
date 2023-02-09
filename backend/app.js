@@ -13,6 +13,7 @@ const roomRouter = require('./routes/roomRouter');
 const feedBackRouter = require('./routes/feedBackRouter');
 const logoutRouter = require('./routes/logoutRouter');
 const cabinetRouter = require('./routes/adminCabinetRouter');
+const shuffleRouter = require('./routes/shuffleRouter');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -29,5 +30,6 @@ app.use('/feedback', feedBackRouter);
 app.use('/room', roomRouter);
 app.use('/logout', logoutRouter);
 app.use('/cabinet', cabinetRouter);
+app.use('/shuffle', shuffleRouter);
 
 app.listen(PORT, () => console.log(`port started on ${PORT}`));
