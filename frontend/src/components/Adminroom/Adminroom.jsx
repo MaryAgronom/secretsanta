@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import roomimg from "../../images/IMG_4096.PNG";
 import { getCabinet } from "../../store/asyncThunk/getCabinet";
+import { getShuffle } from "../../store/asyncThunk/getShuffle";
 import Logout from '../Logout/Logout'
 
 import "./Adminroom.css";
@@ -28,6 +29,18 @@ const Adminroom = () => {
 
   const users = useSelector(state => state.cabinet.Users)
   const cabinet = useSelector(state => state.cabinet.title)
+
+  const formHandler = (e) => {
+    console.log(input);
+    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const shuffleHandler = (e) => {
+    e.preventDefault();
+    console.log("click")
+    dispatch(getShuffle({input, users}))
+  }
+
   // if(users) {
   
   // }
@@ -58,12 +71,12 @@ const Adminroom = () => {
 
           <div className="btns-Other">
           <span>сумма подарка </span>
-            <input name="money" value={input.money} id='forpadding' type="number" placeholder="Назначить цену" />
+            <input onChange={formHandler} name="money" value={input.money} id='forpadding' type="number" placeholder="Назначить цену" />
             {/* <span>стартуем с</span>
             <input id='forpadding' type="date" placeholder="Дата начала" /> */}
             <span>дарим подарки в</span>
-            <input name="data_closed" value={input.data_closed} id='forpadding' type="date" placeholder="Дата окончания" />
-            <button className="btns-Admin">Назначить пары</button>
+            <input onChange={formHandler} name="data_closed" value={input.data_closed} id='forpadding' type="date" placeholder="Дата окончания" />
+            <button onClick={shuffleHandler} type="button" className="btns-Admin">Назначить пары</button>
 
           
         </div>
