@@ -5,13 +5,13 @@ export const getShuffle = createAsyncThunk(
   'user/shuffle',
   async ({input, users}, { dispatch, rejectWithValue }) => {
     try {
-      const { data } = await axios({
+      const { info } = await axios({
         method: 'post',
         url: 'http://localhost:5005/shuffle',
         data: {input, users},
         withCredentials: true,
       });
-      return data;
+      return info;
     } catch (err) {
       console.log(err);
       return rejectWithValue(err.message);
