@@ -12,7 +12,7 @@ const Shuffle = async (req, res) => {
 
    function shuffle(unsorted) {
     const arr = []
-    for (let i = unsorted.length - 1; i > 0; i--) {
+    for (let i = unsorted.length; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
   
       // поменять элементы местами
