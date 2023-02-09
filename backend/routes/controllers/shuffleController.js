@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 const Shuffle = async (req, res) => {
   //   console.log(req.body);
   const { input, users, id } = req.body;
+  // console.log('USERS', users)
   const unsorted = users.map((el) => el.user.id);
 
   const sorted = [...unsorted];
@@ -21,6 +22,7 @@ const Shuffle = async (req, res) => {
   const receiverObj = sorted.map((el) => ({ receiver_id: el }));
 
   const allObj = console.log('obj------------', senderObj, receiverObj);
+
 
   // function mapper() {
   //   const commonObj = [];
