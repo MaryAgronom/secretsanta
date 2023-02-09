@@ -33,8 +33,8 @@ function App() {
       <Route path="/adminroom" element={<Adminroom />} />
       <Route path="/user/room" element={<UserRoom />} />
       <Route path="/all">
-      <Route index element={<ListRooms />} />
-      <Route path=":id" element={<OneRoom />} />
+        <Route index element={<ListRooms />} />
+        <Route path=":id" element={<OneRoom />} />
       </Route>
       <Route path="/account" element={<UserRoom />} />
       <Route path="/giver" element={<Giver />} />
