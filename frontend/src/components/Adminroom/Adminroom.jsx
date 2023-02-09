@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import roomimg from '../../images/IMG_4096.PNG';
+import roomimg from '../../images/12.png';
 import { getCabinet } from '../../store/asyncThunk/getCabinet';
 import { getShuffle } from '../../store/asyncThunk/getShuffle';
 import Logout from '../Logout/Logout';
@@ -66,7 +66,7 @@ const Adminroom = () => {
       </div>
       <div className="content-Admin">
         <div className="img-Container">
-          <img src={roomimg} alt="" className="img-House" />
+          <img src={roomimg} alt="" className="img-House" style={{height: '200px', width: '200px'}}/>
           <div className="textUnderImg">
             <p>{cabinet} </p>
             <a href="URL">Пригласить</a>
