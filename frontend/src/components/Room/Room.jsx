@@ -39,13 +39,13 @@ const Room = () => {
   return (
     <>
       <div className="btn-container-room">
-        <button onClick={() => navigate('/all')} type="button" className="btns">
+        <button onClick={() => navigate('/all')} type="button" className="christmas-btn">
           Мои комнаты
         </button>
         <button
           type="button"
           onClick={() => navigate('/account')}
-          className="btns"
+          className="christmas-btn"
         >
           Аккаунт
         </button>
@@ -89,7 +89,7 @@ const Room = () => {
           <button
             type="button"
             onClick={addHandler}
-            className="btns"
+            className="christmas-btn"
             style={{ width: '200px', fontSize:"30px" }}
           >
             Создать комнату
