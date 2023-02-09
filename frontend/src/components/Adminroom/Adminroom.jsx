@@ -8,8 +8,8 @@ const Adminroom = () => {
     <div className="fullContainer">
       <Logout />
       <div className="container-top">
-        <button className="btns-top-admin">Комната</button>
-        <button className="btns-top-admin">Анкета</button>
+        <button className="christmas-btn">Комната</button>
+        <button className="christmas-btn">Анкета</button>
       </div>
 
       <div className="content-admin">
