@@ -1,30 +1,66 @@
-import React from "react";
+import { Button } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import roomimg from "../../images/IMG_4096.PNG";
-import Logout from "../Logout/Logout";
+import { getCabinet } from "../../store/asyncThunk/getCabinet";
+import Logout from '../Logout/Logout'
 import "./Adminroom.css";
 
 const Adminroom = () => {
+  const initState = { data_closed:'', money: ''}
+  const [input, setInput] = useState(initState)
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
+
+  const backHandler = () => {
+    navigate(-1);
+  }
+  const { id } = useParams();
+  console.log("params", id);
+
+  useEffect(() => {
+    console.log('use effect');
+    dispatch(getCabinet(id));
+  }, [dispatch]);
+
+  const users = useSelector(state => state.cabinet.Users)
+  const cabinet = useSelector(state => state.cabinet.title)
+  // if(users) {
+  
+  // }
+  // useEffect(() => {
+  //   const shuffledUsers = users.sort(() => Math.random() - 0.5);
+  // console.log('SHUFFLE', shuffledUsers)
+  // }, [dispatch])
+ 
+  console.log(users)
   return (
+    
     <div className="fullContainer">
       <Logout />
-      <div className="container-top">
-        <button className="btns-top-admin">Комната</button>
-        <button className="btns-top-admin">Анкета</button>
+      <Button onClick={backHandler} size="small">Назад</Button>
+      <div className="container-Top">
+        <button className="btns-Top-admin">Комната</button>
+        <button className="btns-Top-admin">Анкета</button>
       </div>
 
-      <div className="content-admin">
-        <div className="img-container">
-          <img src={roomimg} alt="" className="img-house" />
+      <div className="content-Admin">
+        <div className="img-Container">
+          <img src={roomimg} alt="" className="img-House" />
           <div className="textUnderImg">
-          <p>Комната барсиков</p>
+          <p>{cabinet} </p>
           <a href="URL">Пригласить</a>
           </div>
           </div>
-          <div className="btns-other">
-            <input id='forpadding' type="text" placeholder="Назначить цену" />
-            <input id='forpadding' type="text" placeholder="Дата начала" />
-            <input id='forpadding' type="text" placeholder="Дата окончания" />
-            <button className="btns-admin">Назначить пары</button>
+          <div className="btns-Other">
+          <span>сумма подарка </span>
+            <input name="money" value={input.money} id='forpadding' type="number" placeholder="Назначить цену" />
+            {/* <span>стартуем с</span>
+            <input id='forpadding' type="date" placeholder="Дата начала" /> */}
+            <span>дарим подарки в</span>
+            <input name="data_closed" value={input.data_closed} id='forpadding' type="date" placeholder="Дата окончания" />
+            <button className="btns-Admin">Назначить пары</button>
           
         </div>
       </div>
@@ -35,27 +71,23 @@ const Adminroom = () => {
       <div className="userList-container" >
       <div className="userlist">
         <table border="1">
-          <tr>
-            <th>User</th>
+          {users && users.map((user) => (
+            <tr key={user.user.id}>
+            <th>{user.user.name} {user.user.surname}</th>
+            <th>{user.user.name} {user.user.surname}</th>
           </tr>
-          <tr>
-            <th>User</th>
+          ))}
+          
+          {/* {users && users.map((user) => (
+            <tr key={user.user.id}>
+            <th>{user.user.name} {user.user.surname}</th>
           </tr>
-          <tr>
-            <th>User</th>
-          </tr>
-          <tr>
-            <th>User</th>
-          </tr>
-          <tr>
-            <th>User</th>
-          </tr>
-          <tr>
-            <th>User</th>
-          </tr>
+          ))} */}
+          
+        
         </table>
         <div className="btn-close " >
-        <button className="btns-admin">Закрыть комнату</button>
+        <button className="btns-Admin">Закрыть комнату</button>
         </div>
       </div>
       </div>
