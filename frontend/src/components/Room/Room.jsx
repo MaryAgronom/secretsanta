@@ -40,15 +40,15 @@ const Room = () => {
   return (
     <>
       <div className="btn-container-room">
-        <button onClick={() => navigate('/all')} type="button" className="btns">Мои комнаты</button>
-        <button type="button" onClick={addHandler} className="btns">Создать комнату</button>
+        <button onClick={() => navigate('/all')} type="button" className="christmas-btn">Мои комнаты</button>
+        <button type="button" onClick={addHandler} className="christmas-btn">Создать комнату</button>
       </div>
       <div className="room-container">
     <div className='room-card'>
   <h3>Комнаты</h3>
-  <ul>
+  <ul className='room-spisok'>
     {rooms.map((room) => (
-      <li><a href={`/all/${room.id}`}>{room.title}</a></li>
+    <li><button className="room-li-btn"> <a href={`/all/${room.id}`}>{room.title}</a></button></li>
     ))}
   </ul>
 </div>

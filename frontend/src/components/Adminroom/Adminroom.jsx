@@ -54,11 +54,9 @@ const Adminroom = () => {
     
     <div className="fullContainer">
       <Logout />
-      <Button onClick={backHandler} size="small">Назад</Button>
-      <div className="container-Top">
-        <button className="btns-Top-admin">Комната</button>
-        <button className="btns-Top-admin">Анкета</button>
-      </div>
+      <div className="container-top">
+        <button className="christmas-btn">Комната</button>
+        <button className="christmas-btn">Анкета</button>
 
       <div className="content-Admin">
         <div className="img-Container">

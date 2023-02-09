@@ -95,9 +95,44 @@
   margin: 0;
 }
 
-.room-card a {
-  color: white;
+.room-card li {
+  color: rgba(255, 255, 255, 0);
   text-decoration: none;
+}
+.room-card a{
+  color: azure;
+  text-decoration: none;
+}
+.room-spisok {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.room-li-btn {
+  height: 40px;
+  width: 300px;
+  margin: 1%;
+  border: none;
+  border-radius: 10px;
+  background-color: #89141458;
+  font-size: 20px;
+  overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 100px 0 #FFF,1px 76px 10px #000;
+    color: #FFF;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.room-li-btn:hover {
+  text-shadow: 0 50px 0 #FFF, 1px 51px 20px #FFF;
+  background: rgb(74, 8, 8);
 }
 
 @media (max-width: 767px) {
