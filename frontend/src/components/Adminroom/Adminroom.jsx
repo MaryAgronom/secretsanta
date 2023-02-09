@@ -37,7 +37,7 @@ const Adminroom = () => {
   const shuffleHandler = (e) => {
     e.preventDefault();
     console.log('click');
-    dispatch(getShuffle({ input, users }));
+    dispatch(getShuffle({ input, users, id }));
   };
 
   // if(users) {
@@ -123,34 +123,6 @@ const Adminroom = () => {
           </table>
           <div className="btn-close ">
             <button className="btns-Admin">Закрыть комнату</button>
-          </div>
-        </div>
-        <div></div>
-        <div className="userList-container">
-          <div className="userlist">
-            <table border="1">
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-            </table>
-            <div className="btn-close ">
-              <button className="btns-admin-close">Закрыть комнату</button>
-            </div>
           </div>
         </div>
       </div>
