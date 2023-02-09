@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInfo } from '../../../store/asyncThunk/updateUserInfo';
 import {
@@ -6,13 +6,17 @@ import {
   changeAllergy,
   changeSize,
 } from '../../../store/slices/userSlice';
+import Modal from 'react-bootstrap/Modal';
+import './UserInfo.css';
 
 export default function UserInfo() {
   const userInfo = useSelector((state) => state.user.userInfo);
   const [change, setChange] = useState(false);
   const dispatch = useDispatch();
   const [selectedAvatar, setSelectedAvatar] = useState("");
-  
+  const [showModal, setShowModal] = useState(false);
+  const [avatars, setAvatars] = useState([]);
+
   const handleAvatarSelection = (event) => {
     setSelectedAvatar(event.target.src);
   };
@@ -20,6 +24,14 @@ export default function UserInfo() {
   const handleFileUpload = (event) => {
     setSelectedAvatar(URL.createObjectURL(event.target.files[0]));
   };
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+  useEffect(() => {
+    fetch('../../../images/avatars')
+      .then(response => response.json())
+      .then(data => setAvatars(data));
+  }, []);
 
   
   function editHandler() {
@@ -34,7 +46,16 @@ export default function UserInfo() {
         <div>
         <input type="file" onChange={handleFileUpload} />
           <h3>Поменять аватар:</h3>
-          {/* <SelectedAvatar avatar={selectedAvatar} /> */}
+          {showModal && (
+            <Modal onClose={handleModalClose}>
+              <div className="avatar-selector">
+                {avatars.map(avatar => (
+                  <img src={avatar} onClick={handleAvatarSelection} />
+                ))}
+              </div>
+            </Modal>
+          )}
+
         </div>
       <div className="userInfoEdit" onClick={editHandler}>
         {!change ? '✎' : '✓'}

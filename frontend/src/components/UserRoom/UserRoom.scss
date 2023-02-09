@@ -15,7 +15,7 @@
   .userMenu {
     width: 100%;
     padding: 10px;
-    @include border();
+    // @include border();
     ul {
       width: 100%;
       display: flex;
@@ -36,12 +36,12 @@
     align-items: center;
     justify-content: space-evenly;
     position: relative;
-    @include border();
+    // @include border();
 
     .userInfoImg {
       width: 75px;
       height: 75px;
-      @include border();
+      // @include border();
       border-radius: 10px;
     }
 
@@ -61,7 +61,7 @@
       input {
         width: 100px;
         border: none;
-        border-bottom: 1px solid black;
+        // border-bottom: 1px solid black;
         &:focus {
           outline: none;
         }
@@ -92,7 +92,7 @@
       min-height: 250px;
       max-height: 350px;
       overflow: overlay;
-
+      border: none;
       @include scroll();
 
       font-size: 19px;
