@@ -55,7 +55,7 @@ const Adminroom = () => {
       <Logout />
       <div className="container-top">
         <button
-          className="btns-top-admin"
+          className="christmas-btn"
           onClick={() => {
             navigate('/rooms');
           }}
@@ -74,7 +74,7 @@ const Adminroom = () => {
         </div>
 
         <div className="btns-Other">
-          <span>сумма подарка </span>
+          <span>Ограничение на стоимость подарка:</span>
           <input
             onChange={formHandler}
             name="money"
@@ -85,7 +85,7 @@ const Adminroom = () => {
           />
           {/* <span>стартуем с</span>
             <input id='forpadding' type="date" placeholder="Дата начала" /> */}
-          <span>дарим подарки в</span>
+          <span>Подарками нужно обменяться до:</span>
           <input
             onChange={formHandler}
             name="data_closed"
@@ -94,7 +94,7 @@ const Adminroom = () => {
             type="date"
             placeholder="Дата окончания"
           />
-          <button onClick={shuffleHandler} type="button" className="btns-Admin">
+          <button onClick={shuffleHandler} type="button" className="christmas-btn">
             Назначить пары
           </button>
         </div>
@@ -114,46 +114,14 @@ const Adminroom = () => {
                   </th>
                 </tr>
               ))}
-
-            {/* {users && users.map((user) => (
-            <tr key={user.user.id}>
-            <th>{user.user.name} {user.user.surname}</th>
-          </tr>
-          ))} */}
           </table>
-          <div className="btn-close ">
-            <button className="btns-Admin">Закрыть комнату</button>
-          </div>
         </div>
-        <div></div>
-        <div className="userList-container">
-          <div className="userlist">
-            <table border="1">
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-              <tr>
-                <th>User</th>
-              </tr>
-            </table>
-            <div className="btn-close ">
-              <button className="btns-admin-close">Закрыть комнату</button>
-            </div>
-          </div>
-        </div>
+
+
       </div>
+          <div className="btn-close ">
+            <button className="christmas-btn">Закрыть комнату</button>
+          </div>
     </div>
   );
 };
