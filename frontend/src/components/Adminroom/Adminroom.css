@@ -23,6 +23,7 @@
   width: 200px;
   font-size: 20px;
   border: none;
+  cursor: pointer;
   border-radius: 18px;
 }
 .btns-admin {
@@ -66,7 +67,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width:fit-content;
+  width: fit-content;
   height: fit-content;
 }
 
@@ -76,11 +77,11 @@
   border-radius: 15px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 20px;
-  border: 2px solid rgb(138, 24, 24)
+  border: 2px solid rgb(138, 24, 24);
 }
 
 .img-house {
-  box-sizing:border-box;
+  box-sizing: border-box;
   /* object-fit: contain; */
 }
 .userlist tr {
@@ -94,7 +95,7 @@
   align-items: center;
   padding: 5px;
   margin: 5px;
-  max-width:fit-content;
+  max-width: fit-content;
 }
 
 .userList-container {
