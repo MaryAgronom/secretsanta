@@ -1,3 +1,4 @@
+
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -5,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import roomimg from "../../images/IMG_4096.PNG";
 import { getCabinet } from "../../store/asyncThunk/getCabinet";
 import Logout from '../Logout/Logout'
+
 import "./Adminroom.css";
 
 const Adminroom = () => {
@@ -53,6 +55,7 @@ const Adminroom = () => {
           <a href="URL">Пригласить</a>
           </div>
           </div>
+
           <div className="btns-Other">
           <span>сумма подарка </span>
             <input name="money" value={input.money} id='forpadding' type="number" placeholder="Назначить цену" />
@@ -61,6 +64,7 @@ const Adminroom = () => {
             <span>дарим подарки в</span>
             <input name="data_closed" value={input.data_closed} id='forpadding' type="date" placeholder="Дата окончания" />
             <button className="btns-Admin">Назначить пары</button>
+
           
         </div>
       </div>
@@ -88,6 +92,7 @@ const Adminroom = () => {
         </table>
         <div className="btn-close " >
         <button className="btns-Admin">Закрыть комнату</button>
+
         </div>
       </div>
       </div>

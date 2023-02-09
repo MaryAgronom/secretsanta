@@ -59,9 +59,10 @@
   
   .img-container img {
     border-radius: 50%;
-    height: 270px;
-    width: 270px;
-    margin-left: 55%;
+    height: 210px;
+    width: 210px;
+    margin: 30%;
+    border: none !important;
   }
 
   #logoutbtn {
@@ -79,9 +80,9 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   margin-left: 15%;
   border-radius: 15%;
+  box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.3),4px 4px 4px 4px rgba(0,0,0,0.3);
 }
 
 .room-card h3 {
@@ -98,3 +99,60 @@
   color: white;
   text-decoration: none;
 }
+
+@media (max-width: 767px) {
+  .room-container {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  }
+  .btn-container-room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 20%;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  flex-direction: column;
+  }
+  .btns {
+  margin-bottom: 10%;
+  width: 90%;
+  height: 50px;
+  font-size: 100%;
+  }
+  .img-container {
+  width: 100%;
+  }
+  .img-container img {
+  height: 150px;
+  width: 150px;
+  margin: 7%;
+  }
+  .input-container-room {
+  width: 90%;
+  }
+  .input-container-room input[type="text"] {
+  width: 90%;
+  height: 50px;
+  font-size: 16px;
+  }
+  .room-card {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  margin: 10%;
+  width: 80%;
+  height: auto;
+  margin-left: 10%;
+  border-radius: 20px;
+  }
+  #logoutbtn {
+  position: static;
+  margin-top: 20px;
+  text-align: right;
+  }
+  }

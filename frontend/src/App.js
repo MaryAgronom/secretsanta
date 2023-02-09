@@ -35,6 +35,7 @@ function App() {
       <Route path="/all">
       <Route index element={<ListRooms />} />
       <Route path=":id" element={<Adminroom />} />
+
       </Route>
       <Route path="/account" element={<UserRoom />} />
       <Route path="/giver" element={<Giver />} />
