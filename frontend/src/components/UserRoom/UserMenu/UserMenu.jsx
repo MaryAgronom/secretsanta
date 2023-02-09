@@ -1,13 +1,18 @@
 import React from 'react';
 
-export default function UserMenu() {
+export default function UserMenu({ children, setAccountNav }) {
   return (
-    <div className="userMenu">
-      <ul>
-        <li>Инфа о тебе</li>
-        <li>Инфа о подопечных</li>
-        <li>Подарки</li>
-      </ul>
-    </div>
+    <>
+      <div className="userMenu">
+        <ul>
+          <li onClick={() => setAccountNav((prev) => 'about you')}>Инфа о тебе</li>
+          <li onClick={() => setAccountNav((prev) => 'sender info')}>
+            Инфа о подопечных
+          </li>
+          <li onClick={() => setAccountNav((prev) => 'presents')}>Подарки</li>
+        </ul>
+      </div>
+      {children}
+    </>
   );
 }

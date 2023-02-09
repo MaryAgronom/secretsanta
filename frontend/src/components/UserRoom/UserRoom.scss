@@ -147,6 +147,10 @@
     font-size: 15.5px;
 
     cursor: pointer;
+    a {
+      text-decoration: none;
+      color: black;
+    }
 
     transition: 0.15s all ease-in-out;
     border-radius: 3px;
@@ -155,7 +159,10 @@
 
     &:hover {
       background-color: black;
-      color: white;
+      a {
+        text-decoration: none;
+        color: white;
+      }
     }
   }
 }
