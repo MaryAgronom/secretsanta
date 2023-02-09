@@ -1,8 +1,9 @@
-import { Button } from '@mui/material'
-import React, { useEffect } from 'react'
+import { Button } from '@mui/material';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '../../store/asyncThunk/logoutUser';
+import { cleanPresents } from '../../store/slices/presentSlice';
 
 export default function Logout() {
   const navigate = useNavigate();
@@ -13,11 +14,14 @@ export default function Logout() {
   //   // dispatch();
   // }, []);
   const logoutHandle = () => {
-    console.log('OUT')
+    console.log('OUT');
+    dispatch(cleanPresents());
     dispatch(logoutUser());
-    navigate('/login')
-  }
+    navigate('/login');
+  };
   return (
-    <Button onClick={logoutHandle} variant="outlined" color="error">ВЫЙТИ</Button>
-  )
+    <Button onClick={logoutHandle} variant="outlined" color="error">
+      ВЫЙТИ
+    </Button>
+  );
 }

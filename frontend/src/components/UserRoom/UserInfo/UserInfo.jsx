@@ -8,7 +8,7 @@ import {
 } from '../../../store/slices/userSlice';
 
 export default function UserInfo() {
-  const userInfo = useSelector((state) => state.user.userInfo);
+  const { userInfo, name, surname } = useSelector((state) => state.user);
   const [change, setChange] = useState(false);
   const dispatch = useDispatch();
 
@@ -27,9 +27,14 @@ export default function UserInfo() {
       <div className="userInfoAbout">
         <ul>
           <li>
+            <div>Имя :</div>
+            <div> {name + ' ' + surname}</div>
+          </li>
+          <li>
             <div>Адрес:</div>
             {change ? (
-              <input className='editInfoInput'
+              <input
+                className="editInfoInput"
                 type="text"
                 value={userInfo.address || ''}
                 onChange={(e) => {
@@ -37,7 +42,7 @@ export default function UserInfo() {
                 }}
               />
             ) : (
-              <li>{userInfo?.address || 'Твой адрес'}</li>
+              <div> {userInfo?.address || 'Твой адрес'}</div>
             )}
           </li>
           <li>
@@ -51,7 +56,7 @@ export default function UserInfo() {
                 }}
               />
             ) : (
-              <li>{userInfo?.size || 'Размер одежды'}</li>
+              <div>{userInfo?.size || 'Размер одежды'}</div>
             )}
           </li>
           <li>
@@ -65,7 +70,7 @@ export default function UserInfo() {
                 }}
               />
             ) : (
-              <li>{userInfo?.allergy || 'твои аллергии'}</li>
+              <div>{userInfo?.allergy || 'твои аллергии'}</div>
             )}
           </li>
         </ul>

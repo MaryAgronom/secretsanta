@@ -134,7 +134,104 @@ const updateUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser, addWish, deleteWish, updateUser };
+const getPresents = async (req, res) => {
+  const userId = req.session.userId;
+  try {
+    const presents = await prisma.present.findMany({
+      where: {
+        OR: [
+          {
+            sender_id: userId,
+          },
+          {
+            receiver_id: userId,
+          },
+        ],
+      },
+      select: {
+        id: true,
+        send: true,
+        received: true,
+        room: {
+          select: {
+            id: true,
+            title: true,
+            description: true,
+            money: true,
+            data_closed: true,
+            background: true,
+          },
+        },
+        receiver: {
+          select: {
+            id: true,
+            name: true,
+            surname: true,
+            Wishes: {
+              select: {
+                id: true,
+                item: true,
+                like: true,
+              },
+            },
+            userInfo: true,
+          },
+        },
+      },
+    });
+    console.log(presents);
+    res.json(presents);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const sendPresent = async (req, res) => {
+  const { presentId } = req.body;
+  try {
+    await prisma.present.update({
+      where: {
+        id: presentId,
+      },
+      data: {
+        send: true,
+      },
+    });
+    res.sendStatus(200);
+  } catch (err) {
+    res.sendStatus(500);
+    console.log(err);
+  }
+};
+
+const receivedPresent = async (req, res) => {
+  console.log('received present' ,req.body);
+  const { presentId } = req.body;
+  try {
+    await prisma.present.update({
+      where: {
+        id: presentId,
+      },
+      data: {
+        received: true,
+      },
+    });
+    res.sendStatus(200);
+  } catch (err) {
+    res.sendStatus(500);
+    console.log(err);
+  }
+};
+
+module.exports = {
+  getUser,
+  addWish,
+  deleteWish,
+  updateUser,
+  getPresents,
+  sendPresent,
+  receivedPresent,
+};
 
 // const user = await prisma.user.findUnique({
 //   where: {

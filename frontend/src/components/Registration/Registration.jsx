@@ -1,11 +1,11 @@
-import { Button, TextField } from "@mui/material";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "../Registration/Registration.module.css";
+import { Button, TextField } from '@mui/material';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import styles from '../Registration/Registration.module.css';
 export default function Registration() {
   // const dispatch = useDispatch()
   const navigate = useNavigate();
-  const initialState = { name: "", surname: "", email: "", password: "" };
+  const initialState = { name: '', surname: '', email: '', password: '' };
   const [inputs, setInputs] = useState(initialState);
 
   const formHandler = (e) => {
@@ -16,23 +16,23 @@ export default function Registration() {
   const addHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5005/registration", {
-        method: "POST",
+      const res = await fetch('http://localhost:5005/registration', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        credentials: "include",
+        credentials: 'include',
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
-      console.log("FRONT", data);
+      console.log('FRONT', data);
       if (data.created) {
         // dispatch({ type: 'USER', payload: inputs });
         setInputs(initialState);
-        navigate("/login");
+        navigate('/login');
       }
     } catch (e) {
-      console.log("ERRROEEO", e);
+      console.log('ERRROEEO', e);
     }
   };
 
@@ -92,6 +92,18 @@ export default function Registration() {
                 Регистрация
               </Button>
             </div>
+            <p
+              style={{
+                margin: '5px auto 0',
+                width: 'fit-content',
+                fontSize: '17px',
+              }}
+            >
+              <Link to="/login" style={{ color: 'black' }}>
+                {' '}
+                Логин
+              </Link>
+            </p>
           </form>
         </div>
       </div>
