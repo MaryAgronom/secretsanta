@@ -38,15 +38,15 @@ const Adminroom = () => {
     e.preventDefault();
     console.log('click');
     dispatch(getShuffle({ input, users, id }));
+      // console.log('SENDER FRONT', sender)
+   
   };
 
-  // if(users) {
 
-  // }
-  // useEffect(() => {
-  //   const shuffledUsers = users.sort(() => Math.random() - 0.5);
-  // console.log('SHUFFLE', shuffledUsers)
-  // }, [dispatch])
+  const receiver = useSelector((state) => state.shuffle.receiver);
+
+    // console.log('SENDER FRONT', sender[0].sender.name)
+
 
   console.log(users);
 
@@ -109,12 +109,14 @@ const Adminroom = () => {
                   <th>
                     {user.user.name} {user.user.surname}
                   </th>
-                  <th>
-                    {user.user.name} {user.user.surname}
-                  </th>
+                  
                 </tr>
               ))}
-
+              <div className='shuffling'>
+              {receiver && receiver.map((el) => (
+                <h1>{el.receiver.name}</h1>
+              ))}
+              </div>
             {/* {users && users.map((user) => (
             <tr key={user.user.id}>
             <th>{user.user.name} {user.user.surname}</th>

@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 const Shuffle = async (req, res) => {
   //   console.log(req.body);
   const { input, users, id } = req.body;
-  // console.log('USERS', users)
+  console.log('USERS', input);
   const unsorted = users.map((el) => el.user.id);
 
   const sorted = [...unsorted];
@@ -23,83 +23,54 @@ const Shuffle = async (req, res) => {
 
   const allObj = console.log('obj------------', senderObj, receiverObj);
 
-  const data = [];
+  const obj = [];
   for (let i = 0; i < senderObj.length; i++) {
-    data.push({
+    obj.push({
       send: false,
       received: false,
-      sender_id: senderObj[0],
-      receiver_id: receiverObj[0],
-      room_id,
+      sender_id: unsorted[i],
+      receiver_id: sorted[i],
+      room_id: Number(id),
     });
   }
 
-  // data: [
-  //   {
-  //     send: false,
-  //     received: false,
-  //     sender_id: senderObj[0],
-  //     receiver_id: receiverObj[0],
-  //     room_id,
-  //   },
-  //   { send: false, received: false, sender_id, receiver_id, room_id },
-  //   { send: false, received: false, sender_id, receiver_id, room_id },
-  //   { send: false, received: false, sender_id, receiver_id, room_id },
-  // ];
-
-  // function mapper() {
-  //   const commonObj = [];
-  //   for (let i = 0; i < sorted.length; i++) {
-  //     commonObj = { receiverObj[i], senderObj[i] };
-  //   }
-  //   return commonObj;
-  // }
-
-  // console.log(mapper());
-  // const imgFromDB = arrayofimg?.map(
-  //     ((img, i) => Work_Photo.create({
-  //       user_id,
-  //       img: arrayofimg[i].path.replace('public', ''),
-  //     })),
-
-  //   );
+  // console.log('DATA', obj);
 
   // const addShuffle = await prisma.present.createMany({
-  //     data: obj
+  //   data: obj,
+  // });
 
-  //     // data: {
-  //     //     sender_id: unsorted[0],
-  //     //     receiver_id: sorted[0],
-  //     //     send: false,
-  //     //     received: false,
-  //     //     room_id: Number(id)
-  //     //     }
-  // })
+  // const updateRoom = await prisma.room.update({
+  //   where: {
+  //     id: Number(id),
+  //   },
+  //   data: {
+  //     money: Number(input.money),
+  //     data_closed: new Date(input.data_closed),
+  //   },
+  // });
 
   // res.json(addShuffle)
 
-  //   const room = await prisma.room.findUnique({
-  //     where: {
-  //       id: Number(id),
-  //     },
-  //     select: {
-  //       title: true,
-  //       description: true,
-  //       Users: {
-  //         select: {
-  //           user: {
-  //             select: {
-  //               name: true,
-  //               surname: true,
-  //               email: true,
-  //             },
-  //           },
-  //         },
-  //       },
-  //     },
-
-  //   });
-  //   console.log(room);
+  const present = await prisma.present.findMany({
+    where: {
+      room_id: Number(id),
+      
+    },
+    // select: {
+    //   sender: true,
+      select: {
+        receiver: {
+          select: {
+          name: true,
+        },
+        
+      },
+    // },
+  }
+  });
+  res.json(present);
+    console.log('THUUUUUUNK===>', present);
 };
 
 module.exports = { Shuffle };
