@@ -37,7 +37,7 @@ const Adminroom = () => {
   const shuffleHandler = (e) => {
     e.preventDefault();
     console.log('click');
-    dispatch(getShuffle({ input, users }));
+    dispatch(getShuffle({ input, users, id }));
   };
 
   // if(users) {
@@ -115,8 +115,8 @@ const Adminroom = () => {
                 </tr>
               ))}
           </table>
-        </div>
 
+        </div>
 
       </div>
           <div className="btn-clos">

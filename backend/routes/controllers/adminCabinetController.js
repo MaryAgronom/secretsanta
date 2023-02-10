@@ -19,6 +19,7 @@ const Cabinet = async (req, res) => {
               name: true,
               surname: true,
               email: true,
+              id: true,
             },
           },
         },

@@ -10,6 +10,7 @@ import OneRoom from './components/OneRoom/OneRoom';
 import Registration from './components/Registration/Registration';
 import Room from './components/Room/Room';
 import UserRoom from './components/UserRoom/UserRoom';
+import { getPresents } from './store/asyncThunk/getPresents';
 import { getUser } from './store/asyncThunk/getUser';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getUser());
+    dispatch(getPresents());
   }, [dispatch]);
 
   return (
