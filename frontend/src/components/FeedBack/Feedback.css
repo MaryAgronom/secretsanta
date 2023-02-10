@@ -9,13 +9,18 @@
   }
 .feedback-btn {
     margin-top: 600px;
+    /* margin-right: 40%; */
 }
   .gift-box-container {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     perspective: 400px;
   }
-  
+.knopa {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
   .gift-box {
     --gift-box-color: #e63946;
     --gift-box-edge-color: #590b11;
@@ -23,8 +28,8 @@
     --wrap-ribbon-color: #c0e4e6;
     --wrap-top-color: #d8efef;
   
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 350px;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 1s;

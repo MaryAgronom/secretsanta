@@ -111,9 +111,10 @@ export default function FeedBack() {
     <div className="ribbon-r-end"></div>
   </div>
 </div>
+     <div className="knopa">
 
-      <Button variant="primary" onClick={handleShow} className="feedback-btn">
-              Launch demo modal
+      <Button variant="danger" onClick={handleShow} className="feedback-btn">
+              Получил подарок!
           </Button><Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                   <Modal.Title>Modal heading</Modal.Title>
@@ -145,6 +146,7 @@ export default function FeedBack() {
                   </Button>
               </Modal.Footer>
           </Modal>
+</div>
           </div>
   );
 }
