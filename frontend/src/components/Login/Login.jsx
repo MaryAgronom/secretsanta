@@ -1,11 +1,11 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getUser } from '../../store/asyncThunk/getUser';
 import styles from './Login.module.css';
 export default function Login() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const initialState = { email: '', password: '' };
   const [inputs, setInputs] = useState(initialState);
@@ -71,6 +71,18 @@ export default function Login() {
                 Войти
               </Button>
             </div>
+            <p
+              style={{
+                margin: '5px auto 0px',
+                width: 'fit-content',
+                fontSize: '17px',
+              }}
+            >
+              <Link to="/registration" style={{ color: 'black' }}>
+                {' '}
+                Регистрация
+              </Link>
+            </p>
           </form>
         </div>
       </div>
