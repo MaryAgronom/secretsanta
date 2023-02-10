@@ -119,7 +119,7 @@ const Adminroom = () => {
         </div>
 
       </div>
-          <div className="btn-close ">
+          <div className="btn-clos">
             <button className="christmas-btn">Закрыть комнату</button>
           </div>
     </div>

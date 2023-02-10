@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Adminroom from './components/Adminroom/Adminroom';
 import Giver from './components/Giver/Giver';
+import Feedback from './components/FeedBack/Feedback.jsx'
 import ListRooms from './components/ListRooms/ListRooms';
 import Login from './components/Login/Login';
 import OneRoom from './components/OneRoom/OneRoom';
@@ -36,6 +37,7 @@ function App() {
           </Route>
           <Route path="/account" element={<UserRoom />} />
           <Route path="/giver" element={<Giver />} />
+          <Route path="/user/feedback" element={<Feedback />} />
           <Route path="*" element={<div>Error</div>} />
         </>
       ) : (
