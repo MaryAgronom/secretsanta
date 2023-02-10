@@ -5,17 +5,17 @@ const prisma = new PrismaClient();
 const Shuffle = async (req, res) => {
   //   console.log(req.body);
   const { input, users, id } = req.body;
-  console.log('USERS', input);
+  // console.log('USERS', input);
   const unsorted = users.map((el) => el.user.id);
 
   const sorted = [...unsorted];
   const lastName = sorted.pop();
   sorted.unshift(lastName);
   // идет в sender
-  console.log('unsorted====>', unsorted);
-  // идет в receiver
-  console.log('sorted====>', sorted);
-  console.log('id====>', id);
+  // console.log('unsorted====>', unsorted);
+  // // идет в receiver
+  // console.log('sorted====>', sorted);
+  // console.log('id====>', id);
 
   const senderObj = unsorted.map((el) => ({ sender_id: el }));
 
@@ -50,27 +50,21 @@ const Shuffle = async (req, res) => {
   //   },
   // });
 
-  // res.json(addShuffle)
-
   const present = await prisma.present.findMany({
     where: {
       room_id: Number(id),
-      
     },
-    // select: {
-    //   sender: true,
-      select: {
-        receiver: {
-          select: {
+    select: {
+      receiver: {
+        select: {
           name: true,
+          surname: true,
         },
-        
       },
-    // },
-  }
+    },
   });
   res.json(present);
-    console.log('THUUUUUUNK===>', present);
+  console.log('THUUUUUUNK===>', present);
 };
 
 module.exports = { Shuffle };

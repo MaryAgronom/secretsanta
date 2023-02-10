@@ -45,6 +45,10 @@ const Adminroom = () => {
 
   const receiver = useSelector((state) => state.shuffle.receiver);
 
+  // useEffect(() => {
+  //   receiver ? dispatch(getShuffle({ users })) : console.log('use shuffle effect');
+  // }, [dispatch]);
+
     // console.log('SENDER FRONT', sender[0].sender.name)
 
 
@@ -102,7 +106,7 @@ const Adminroom = () => {
       <div></div>
       <div className="userList-container">
         <div className="userlist">
-          <table border="1">
+          {/* <table border="1">
             {users &&
               users.map((user) => (
                 <tr key={user.user.id}>
@@ -112,21 +116,31 @@ const Adminroom = () => {
                   
                 </tr>
               ))}
-              <div className='shuffling'>
-              {receiver && receiver.map((el) => (
-                <h1>{el.receiver.name}</h1>
-              ))}
-              </div>
+              </table> */}
+              
             {/* {users && users.map((user) => (
             <tr key={user.user.id}>
             <th>{user.user.name} {user.user.surname}</th>
           </tr>
           ))} */}
-          </table>
+          
 
         </div>
 
       </div>
+      <div className='shuffling'>
+        <div className='before'>
+        {users &&
+              users.map((user) => (
+                    <h1>{user.user.name} {user.user.surname}</h1>
+              ))}
+        </div>
+        <div className='after'>
+              {receiver && receiver.map((el) => (
+                <h1>{el.receiver.name} {el.receiver.surname}</h1>
+              ))}
+              </div>
+              </div>
           <div className="btn-close ">
             <button className="christmas-btn">Закрыть комнату</button>
           </div>
