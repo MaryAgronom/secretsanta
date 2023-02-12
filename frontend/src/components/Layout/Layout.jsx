@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import aboutImg from '../../images/about.png';
 import sugrob from '../../images/sugrob.png';
 import './Layout.css';
+import './layout.scss';
 
 function Layout() {
   const [showDescription, setShowDescription] = useState(false);
@@ -115,6 +116,50 @@ const downscroll = useSpring({
 
     {/* // )} */}
 
+        <ul class="lightrope">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
     <section className='about'>
       <div className='container-about'>
         <div className='about-content grid'>
