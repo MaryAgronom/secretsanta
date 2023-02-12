@@ -1,23 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;700&family=Lilita+One&family=Philosopher:ital,wght@0,400;0,700;1,700&display=swap');
-/* 
-.slide {
-  animation: slide-down 0.5s forwards;
-}
 
-@keyframes slide {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-} */
-
-.descriotion-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .main-container {
     background-color: #ff6860;
     display: flex;
@@ -182,5 +164,40 @@
   a{
     font-size: 14px;
      padding:5px 8px 5px 8px;
+  }
+}
+
+.about{
+  padding: 3rem 0;
+  height: 100vh;
+}
+.container-about {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+.about-content{
+  gap: 4rem;
+}
+.about-title{
+  margin: 1rem 0;
+}
+.about-img img{
+  max-width: 520px;
+}
+.about-text p{
+  margin: 1.8rem 0;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 800px){
+  .about-content{
+      grid-template-columns: repeat(2, 1fr);
+  }
+  .about-title{
+      margin-top: 0;
+  }
+  .about-img img{
+      margin-left: 0;
   }
 }

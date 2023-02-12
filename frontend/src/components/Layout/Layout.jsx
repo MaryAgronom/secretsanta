@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { Link } from 'react-router-dom';
+import aboutImg from '../../images/about.png';
 import './Layout.css';
 
 function Layout() {
@@ -39,7 +40,7 @@ const downscroll = useSpring({
           transform: "translateX(-50%)"
         }}
       >
-        <button onClick={handleScroll} className="scroll-btn">Scroll down</button>
+        {/* <button onClick={handleScroll} className="scroll-btn">Scroll down</button> */}
       </div>
       <div className="container-santa">
   <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="350" height="400">
@@ -112,24 +113,23 @@ const downscroll = useSpring({
 
     {/* // )} */}
 
-    <div className="descriotion-container" >
-      <animated.div
-        ref={descriptionRef}
-        style={{
-          ...descriptionAnimation,
-          position: "relative",
-          height: "100vh",
-          width: "100%",
-          backgroundColor: "white"
-        }}
-      >
-        <h1 style={{ textAlign: "center" }}>Description of the app</h1>
-        <p style={{ textAlign: "center" }}>
-          This is a sample description of the app.
-        </p>
-        {/* <button onClick={handleScroll} className="scroll-btn">Scroll down</button> */}
-      </animated.div>
-    </div>
+    <section className='about'>
+      <div className='container-about'>
+        <div className='section-title'>
+          <h2>About</h2>
+        </div>
+
+        <div className='about-content grid'>
+          <div className='about-img'>
+            <img src = {aboutImg} alt = "" />
+          </div>
+          <div className='about-text'>
+            <h2 className='about-title fs-26 ls-1'>About Faust</h2>
+            <p className='fs-17'>Faust was invented by people for people so you can easily find your favorite book. Gayasha struggled with React for a long time to get such a beautiful application. It still has little functionality, but over time, when I stop being afraid of components, and they are afraid of me, our application will become even better!</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </>
   );
 }
