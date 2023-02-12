@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;700&family=Lilita+One&family=Philosopher:ital,wght@0,400;0,700;1,700&display=swap');
+/* 
+.slide {
+  animation: slide-down 0.5s forwards;
+}
+
+@keyframes slide {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+} */
+
+.descriotion-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-container {
+    background-color: #ff6860;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: "relative";
+    height: 100vh;
+}
+.scroll-btn {
+    background-color: lightgreen;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transform: rotate(90deg); */
+    color: white;
+    border: none;
+    border-radius: 50%;
+  }
+  
+  .scroll-btn:before {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+    display: block;
+  }
+.head-text {
+    font-family: 'Lilita One', cursive;;
+    text-align: center;
+    width: 320px;
+    margin: 0px auto;
+    color: white;
+    font-size: 98px;
+    letter-spacing: 5px;
+    top: 50%;
+    position: absolute;
+    margin-top: -410px;
+    
+    text-shadow: -1px -1px 0px #be4c46,
+      3px 3px 0px #be4c46,
+      6px 6px 0px #be4c46;
+      
+  }
+.btn-container {
+    margin-top: 470px;
+    display: flex;
+    justify-content: space-between;
+    width: 490px;
+    margin-left: -40px;
+}
+  
+.reglogbtn {
+    background-color: rgb(77, 215, 169);
+    border: none;
+    border-radius: 20px;
+    height: 55px;
+    width: 180px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-bottom: 10px;
+    margin-right: 40px;
+}
+.reglogbtn:hover {
+    box-shadow: none;
+    border: none;
+    top: 1px;
+    color: #333;
+  }
+.laylink {
+    color: aliceblue;
+    text-decoration: none;
+}
+.container-santa{
+  height: 480px;
+  width: 350px;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.container-santa svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.plane{
+  position: relative;
+  -webkit-animation: float 3s infinite;
+          animation: float 3s infinite;
+}
+@-webkit-keyframes float{
+  50%{
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px);
+  }
+}
+@keyframes float{
+  50%{
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px);
+  }
+}
+.hand{
+  -webkit-transform: rotate(10deg);
+      -ms-transform: rotate(10deg);
+          transform: rotate(10deg);
+  -webkit-animation: wave 1.5s infinite;
+          animation: wave 1.5s infinite;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center; 
+}
+.blade{
+  -webkit-animation:spin 1s infinite linear;
+          animation:spin 1s infinite linear;
+  -webkit-transform-origin: 50% 54%;
+      -ms-transform-origin: 50% 54%;
+          transform-origin: 50% 54%;
+}
+@-webkit-keyframes spin{
+  100%{
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+@keyframes spin{
+  100%{
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+@-webkit-keyframes wave{
+  50%{
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+}
+@keyframes wave{
+  50%{
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+}
+
+@media screen and (min-width: 451px) {
+  a{
+    font-size: 20px;
+     padding:8px 12px 8px 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  a{
+    font-size: 14px;
+     padding:5px 8px 5px 8px;
+  }
+}

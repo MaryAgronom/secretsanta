@@ -9,6 +9,7 @@ import OneRoom from './components/OneRoom/OneRoom';
 import Registration from './components/Registration/Registration';
 import Room from './components/Room/Room';
 import UserRoom from './components/UserRoom/UserRoom';
+import Layout from './components/Layout/Layout';
 import { getPresents } from './store/asyncThunk/getPresents';
 import { getUser } from './store/asyncThunk/getUser';
 
@@ -25,7 +26,7 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/registration" element={<Registration />} />
-      <Route path="/" element={user ? <Navigate to="/rooms" /> : <Login />} />
+      <Route path="/" element={<Layout />} />
       {user ? (
         <>
           <Route path="/rooms" element={<Room />} />
