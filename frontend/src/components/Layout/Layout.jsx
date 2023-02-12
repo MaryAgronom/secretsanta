@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { Link } from 'react-router-dom';
 import aboutImg from '../../images/about.png';
+import sugrob from '../../images/sugrob.png';
 import './Layout.css';
 
 function Layout() {
@@ -115,19 +117,16 @@ const downscroll = useSpring({
 
     <section className='about'>
       <div className='container-about'>
-        <div className='section-title'>
-          <h2>About</h2>
-        </div>
-
         <div className='about-content grid'>
           <div className='about-img'>
-            <img src = {aboutImg} alt = "" />
+            <img src = {aboutImg} style={{height: "450px", width: '600px'}}/>
           </div>
           <div className='about-text'>
-            <h2 className='about-title fs-26 ls-1'>About Faust</h2>
-            <p className='fs-17'>Faust was invented by people for people so you can easily find your favorite book. Gayasha struggled with React for a long time to get such a beautiful application. It still has little functionality, but over time, when I stop being afraid of components, and they are afraid of me, our application will become even better!</p>
+            <h2 className='about-title fs-26 ls-1'>О нашем проекте</h2>
+            <p className='fs-17'>Описание проекта</p>
           </div>
         </div>
+        <img src={sugrob} className='sugrobchik'></img>
       </div>
     </section>
   </>
