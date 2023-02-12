@@ -3,32 +3,42 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const Cabinet = async (req, res) => {
-  const { id } = req.params;
-  console.log(Number(id));
-  const room = await prisma.room.findUnique({
-    where: {
-      id: Number(id),
-    },
-    select: {
-      title: true,
-      description: true,
-      Users: {
+  const { link } = req.params;
+  console.log('PARAMS IN CABINET', req.params);
+  // console.log('ADMIN CABINET ID', Number(id));
+  if (link) {
+    try {
+      const room = await prisma.room.findFirst({
+        where: {
+          link: link,
+        },
         select: {
-          user: {
+          title: true,
+          description: true,
+          isShuffled: true,
+          id: true,
+          Users: {
             select: {
-              name: true,
-              surname: true,
-              email: true,
-              id: true,
+              user: {
+                select: {
+                  name: true,
+                  surname: true,
+                  email: true,
+                  id: true,
+                },
+              },
             },
           },
         },
-      },
-    },
-
-  });
-  res.json(room);
-  console.log(room);
+      });
+      res.json(room);
+      console.log('ADMIN CABINET', room);
+    } catch (e) {
+      console.log('ADMINCABINETERRRR', e);
+    }
+  } else {
+    res.sendStatus(400);
+  }
 };
 
 module.exports = { Cabinet };

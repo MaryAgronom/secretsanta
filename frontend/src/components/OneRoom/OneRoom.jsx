@@ -12,12 +12,12 @@ export default function OneRoom() {
   const backHandler = () => {
     navigate(-1);
   }
-  const { id } = useParams();
-  console.log("params", id);
+  const { link } = useParams();
+  console.log("params", link);
 
   useEffect(() => {
     console.log('use effect');
-    dispatch(getCabinet(id));
+    dispatch(getCabinet(link));
   }, [dispatch]);
   return (
     <>
