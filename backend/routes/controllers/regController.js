@@ -53,12 +53,12 @@ const Invite = async (req, res) => {
     // });
     // console.log('INVITE IN CONTROLLER', regUser);
 
-    const room = await prisma.room.findFirst({
+    const room = await prisma.room.findUnique({
       where: {
         link,
       },
     });
-
+    console.log(room);
     res.json(room);
   } catch (e) {
     console.log(e);
