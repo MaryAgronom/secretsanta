@@ -8,9 +8,9 @@ const Cabinet = async (req, res) => {
   // console.log('ADMIN CABINET ID', Number(id));
   if (link) {
     try {
-      const room = await prisma.room.findFirst({
+      const room = await prisma.room.findUnique({
         where: {
-          link: link,
+          link,
         },
         select: {
           title: true,

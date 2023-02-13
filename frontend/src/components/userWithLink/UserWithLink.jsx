@@ -15,28 +15,6 @@ export default function Login() {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // const loginHandler = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await fetch('http://localhost:5005/login', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       credentials: 'include',
-  //       body: JSON.stringify(inputs),
-  //     });
-  //     const data = await res.json();
-  //     console.log('FRONT', data);
-  //     if (data.logged) {
-  //       setInputs(initialState);
-  //       navigate('/rooms');
-  //       dispatch(getUser());
-  //     }
-  //   } catch (e) {
-  //     console.log('ERRROEEO', e);
-  //   }
-  // };
   const { link } = useParams();
   console.log('USERLINK', link)
 

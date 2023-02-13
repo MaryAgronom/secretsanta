@@ -35,31 +35,47 @@ const Invite = async (req, res) => {
       name, surname, email, password,
     } = req.body;
     const { link } = req.params;
-
-    // const hashed = await bcrypt.hash(password, 10);
-    // const regUser = await prisma.user.create({
-    //   include: {
-    //     userInfo: true,
-    //   },
-    //   data: {
-    //     name,
-    //     surname,
-    //     email,
-    //     password: hashed,
-    //     userInfo: {
-    //       create: {},
-    //     },
-    //   },
-    // });
-    // console.log('INVITE IN CONTROLLER', regUser);
-
-    const room = await prisma.room.findUnique({
+    const isExist = await prisma.user.findUnique({
       where: {
-        link,
+        email,
       },
     });
-    console.log(room);
-    res.json(room);
+
+    if (!isExist) {
+      const hashed = await bcrypt.hash(password, 10);
+      const regUser = await prisma.user.create({
+        include: {
+          userInfo: true,
+        },
+        data: {
+          name,
+          surname,
+          email,
+          password: hashed,
+          userInfo: {
+            create: {},
+          },
+        },
+      });
+      console.log('INVITE IN CONTROLLER', regUser);
+
+      const room = await prisma.room.findUnique({
+        where: {
+          link,
+        },
+      });
+      console.log(room);
+      res.json(room);
+      const userToRoom = await prisma.userandroom.create({
+        data: {
+          userId: regUser.id,
+          roomId: room.id,
+        },
+      });
+      console.log('userAndRoom', userToRoom);
+    } else {
+      console.log('Person is exist');
+    }
   } catch (e) {
     console.log(e);
   }
