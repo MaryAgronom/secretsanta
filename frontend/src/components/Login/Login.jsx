@@ -1,7 +1,7 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getUser } from '../../store/asyncThunk/getUser';
 import styles from './Login.module.css';
 export default function Login() {
@@ -37,6 +37,8 @@ export default function Login() {
       console.log('ERRROEEO', e);
     }
   };
+  const { id } = useParams();
+  console.log('LOGINID', id)
 
   return (
     <>

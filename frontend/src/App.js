@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import Adminroom from './components/Adminroom/Adminroom';
 import AfterShuffle from './components/AfterShuffle/AfterShuffle';
 import Giver from './components/Giver/Giver';
@@ -10,6 +10,7 @@ import OneRoom from './components/OneRoom/OneRoom';
 import Registration from './components/Registration/Registration';
 import Room from './components/Room/Room';
 import UserRoom from './components/UserRoom/UserRoom';
+import UserWithLink from './components/userWithLink/UserWithLink'
 import { getPresents } from './store/asyncThunk/getPresents';
 import { getUser } from './store/asyncThunk/getUser';
 
@@ -45,10 +46,19 @@ function App() {
           <Route path="/giver" element={<Giver />} />
           <Route path="/shufler" element={<AfterShuffle />} />
           <Route path="*" element={<div>Error</div>} />
+          <Route path="/one">
+            <Route index element={<ListRooms />} />
+            <Route path=":link" element={<UserWithLink />} />
+          </Route>
+          
         </>
       ) : (
         <>
           <Route path="*" element={<Login />} />
+          <Route path="/one">
+            <Route index element={<ListRooms />} />
+            <Route path=":link" element={<UserWithLink />} />
+          </Route>
         </>
       )}
     </Routes>

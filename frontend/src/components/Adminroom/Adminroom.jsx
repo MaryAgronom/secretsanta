@@ -109,7 +109,7 @@ const Adminroom = () => {
           <div className="textUnderImg">
             <p>{cabinet} </p>
             <Tooltip title="скопируйте ссылку для приглашения" arrow>
-            <Chip label="Ссылка на комнату" variant="outlined" color="success" size="big" onClick={() => copyToClipBoard(`http://localhost:3000/all/${link}`)} />
+            <Chip label="Ссылка на комнату" variant="outlined" color="success" size="big" onClick={() => copyToClipBoard(`http://localhost:3000/one/${link}`)} />
             </Tooltip>
             {copySuccess}
             {/* <a href="URL">Пригласить</a> */}

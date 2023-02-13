@@ -1,8 +1,11 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import styles from '../Registration/Registration.module.css';
-export default function Registration() {
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { acceptInvite } from '../../store/asyncThunk/acceptInvite';
+import styles from './UserWithLink.module.css';
+export default function Login() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const initialState = { name: '', surname: '', email: '', password: '' };
   const [inputs, setInputs] = useState(initialState);
@@ -12,36 +15,48 @@ export default function Registration() {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const addHandler = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch('http://localhost:5005/registration', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify(inputs),
-      });
-      const data = await res.json();
-      console.log('FRONT', data);
-      if (data.created) {
-        setInputs(initialState);
-        navigate('/login');
-      }
-    } catch (e) {
-      console.log('ERRROEEO', e);
-    }
-  };
+  // const loginHandler = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const res = await fetch('http://localhost:5005/login', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       credentials: 'include',
+  //       body: JSON.stringify(inputs),
+  //     });
+  //     const data = await res.json();
+  //     console.log('FRONT', data);
+  //     if (data.logged) {
+  //       setInputs(initialState);
+  //       navigate('/rooms');
+  //       dispatch(getUser());
+  //     }
+  //   } catch (e) {
+  //     console.log('ERRROEEO', e);
+  //   }
+  // };
+  const { link } = useParams();
+  console.log('USERLINK', link)
 
-  
-
+  const inviteHandler = async (e) => {
+    e.preventDefault()
+    console.log('click', link, inputs)
+    dispatch(acceptInvite({link, inputs}))
+    console.log('after dispatch')
+  }
   return (
     <>
-      <div>Registration</div>
+      <div>USER</div>
       <div className={styles.container}>
+      Зарегестрируйтесь что бы принять участие
         <div className={styles.postsList}>
-          <form onSubmit={addHandler}>
+        
+        <form
+         onSubmit={inviteHandler}
+        >
+
             <div className={styles.postsList_item}>
               <TextField
                 onChange={formHandler}
@@ -89,7 +104,7 @@ export default function Registration() {
             </div>
             <div className={styles.btn}>
               <Button type="submit" variant="contained" color="success">
-                Регистрация
+              участвовать
               </Button>
             </div>
             <p
@@ -99,10 +114,10 @@ export default function Registration() {
                 fontSize: '17px',
               }}
             >
-              <Link to="/login" style={{ color: 'black' }}>
+              {/* <Link to="/login" style={{ color: 'black' }}>
                 {' '}
                 Логин
-              </Link>
+              </Link> */}
             </p>
           </form>
         </div>

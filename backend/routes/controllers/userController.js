@@ -58,7 +58,9 @@ const getUser = async (req, res) => {
       console.log(err);
     }
   } else {
+    console.log(req.params, req.body);
     res.sendStatus(400);
+    console.log('No user');
   }
 };
 

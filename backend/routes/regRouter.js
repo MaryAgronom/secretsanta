@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const { Registration } = require('./controllers/regController');
+const { Registration, Invite } = require('./controllers/regController');
 
-router.post('/', Registration);
+router
+  .post('/', Registration)
+  .post('/:link', Invite);
 
 module.exports = router;
