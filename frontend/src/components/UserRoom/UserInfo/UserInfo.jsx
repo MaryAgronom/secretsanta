@@ -107,7 +107,7 @@ export default function UserInfo() {
               }}
               />
               ) : (
-                <li>{userInfo?.allergy || 'твои аллергии'}</li>
+                <li>{userInfo?.allergy || 'Твои аллергии'}</li>
                 )}
           </li>
         </ul>

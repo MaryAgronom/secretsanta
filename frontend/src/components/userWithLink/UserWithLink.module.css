@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     max-width: 100%;
     justify-content: center;
     height: 100%;
@@ -17,7 +17,7 @@
     padding: 10px;
     flex-wrap: wrap;
     justify-content: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
   }
   .postsList_item {
     
