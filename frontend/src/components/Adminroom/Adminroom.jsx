@@ -177,8 +177,10 @@ const Adminroom = () => {
         )}   
       
 
+
               
           <div className="btn-close ">
+
             <button className="christmas-btn">Закрыть комнату</button>
           </div>
     </div>

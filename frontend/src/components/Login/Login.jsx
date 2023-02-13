@@ -41,8 +41,7 @@ export default function Login() {
   console.log('LOGINID', id)
 
   return (
-    <>
-      <div>Login</div>
+    <section className={styles.regcont} >
       <div className={styles.container}>
         <div className={styles.postsList}>
           <form onSubmit={loginHandler}>
@@ -53,7 +52,7 @@ export default function Login() {
                 // required
                 name="email"
                 id="outlined-required"
-                label="почта"
+                label="Почта"
                 value={inputs.email}
               />
             </div>
@@ -62,16 +61,17 @@ export default function Login() {
                 onChange={formHandler}
                 fullWidth
                 // required
+                type="password"
                 name="password"
                 id="outlined-required"
-                label="пароль"
+                label="Пароль"
                 value={inputs.password}
               />
             </div>
             <div className={styles.btn}>
-              <Button type="submit" variant="contained" color="success">
+              <button type="submit" variant="contained" className={styles.knopa}>
                 Войти
-              </Button>
+              </button>
             </div>
             <p
               style={{
@@ -80,14 +80,14 @@ export default function Login() {
                 fontSize: '17px',
               }}
             >
-              <Link to="/registration" style={{ color: 'black' }}>
+              <Link to="/registration" style={{ color: 'white', fontFamily: 'Gill Sans', fontSize: '24px' }}>
                 {' '}
-                Регистрация
+                Ещё не зарегестрированы? Переходите по ссылке и присоединяйтесь к нам!
               </Link>
             </p>
           </form>
         </div>
       </div>
-    </>
+    </section>
   );
 }

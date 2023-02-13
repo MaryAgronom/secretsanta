@@ -66,6 +66,7 @@ const Shuffle = async (req, res) => {
   } else {
     res.sendStatus(400);
   }
+
 };
 
 module.exports = { Shuffle };

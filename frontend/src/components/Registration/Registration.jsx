@@ -2,6 +2,8 @@ import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from '../Registration/Registration.module.css';
+
+
 export default function Registration() {
   const navigate = useNavigate();
   const initialState = { name: '', surname: '', email: '', password: '' };
@@ -37,8 +39,7 @@ export default function Registration() {
   
 
   return (
-    <>
-      <div>Registration</div>
+    <section className={styles.regcont} >
       <div className={styles.container}>
         <div className={styles.postsList}>
           <form onSubmit={addHandler}>
@@ -88,9 +89,9 @@ export default function Registration() {
               />
             </div>
             <div className={styles.btn}>
-              <Button type="submit" variant="contained" color="success">
+              <button type="submit" variant="contained" className={styles.knopa}>
                 Регистрация
-              </Button>
+              </button>
             </div>
             <p
               style={{
@@ -99,14 +100,14 @@ export default function Registration() {
                 fontSize: '17px',
               }}
             >
-              <Link to="/login" style={{ color: 'black' }}>
+              <Link to="/login" style={{ color: 'white', fontFamily: 'Gill Sans', fontSize: '24px' }}>
                 {' '}
-                Логин
+                Уже зарегестрированы? С возвращением ❄️
               </Link>
             </p>
           </form>
         </div>
       </div>
-    </>
+    </section>
   );
 }
