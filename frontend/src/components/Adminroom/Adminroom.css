@@ -174,3 +174,24 @@
   border: 2px solid black;
 }
 
+.shuffling {
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+}
+
+.before {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.after {
+  padding: 10px;
+  border: 2px solid black;
+}

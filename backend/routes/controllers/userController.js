@@ -32,6 +32,7 @@ const getUser = async (req, res) => {
             select: {
               id: true,
               title: true,
+              link: true,
               description: true,
               money: true,
               data_closed: true,
@@ -57,7 +58,9 @@ const getUser = async (req, res) => {
       console.log(err);
     }
   } else {
+    console.log(req.params, req.body);
     res.sendStatus(400);
+    console.log('No user');
   }
 };
 
@@ -86,7 +89,7 @@ const addWish = async (req, res) => {
 };
 
 const deleteWish = async (req, res) => {
-  const userId = req.session.userId;
+  const userId = req.session?.userId;
   const { id } = req.body;
   try {
     const wishDelete = await prisma.wish.findFirst({

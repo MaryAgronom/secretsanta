@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Chip, Tooltip } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -18,15 +18,32 @@ const Adminroom = () => {
   const backHandler = () => {
     navigate(-1);
   };
-  const { id } = useParams();
-  console.log('params', id);
+  const { link } = useParams();
+  console.log('params', link);
+  
+  const users = useSelector((state) => state.cabinet.Users);
 
+  const isShuffled = useSelector((state) => state.cabinet.isShuffled)
+  console.log('iS Shuffled b4', isShuffled)
   useEffect(() => {
     console.log('use effect');
-    dispatch(getCabinet(id));
+    if(link) {
+      dispatch(getCabinet(link));
+    }
+    
   }, [dispatch]);
 
-  const users = useSelector((state) => state.cabinet.Users);
+  useEffect(() => {
+    console.log('use effect k shaflu');
+    
+    if(isShuffled) {
+      console.log('SANKA K SHAFFLU')
+      setTimeout(() => {
+      dispatch(getShuffle({ input, users, link }));
+      }, 1000)
+    }
+  }, [users]);
+  
   const cabinet = useSelector((state) => state.cabinet.title);
 
   const formHandler = (e) => {
@@ -37,18 +54,40 @@ const Adminroom = () => {
   const shuffleHandler = (e) => {
     e.preventDefault();
     console.log('click');
-    dispatch(getShuffle({ input, users, id }));
+    dispatch(getShuffle({ input, users, link }));
+      // console.log('SENDER FRONT', sender)
+   
   };
 
-  // if(users) {
 
-  // }
+  const receiver = useSelector((state) => state.shuffle.receiver);
+
   // useEffect(() => {
-  //   const shuffledUsers = users.sort(() => Math.random() - 0.5);
-  // console.log('SHUFFLE', shuffledUsers)
-  // }, [dispatch])
+  //   receiver ? dispatch(getShuffle({ users })) : console.log('use shuffle effect');
+  // }, [dispatch]);
+
+    // console.log('SENDER FRONT', sender[0].sender.name)
+
 
   console.log(users);
+
+  
+  console.log('isShuffle', isShuffled)
+
+  const [copySuccess, setCopySuccess] = useState('');
+
+  const copyToClipBoard = async copyMe => {
+    try {
+      await navigator.clipboard.writeText(copyMe);
+      setCopySuccess('Copied!');
+    } catch (err) {
+      setCopySuccess('Failed to copy!');
+    }
+  };
+
+  const handleClick = () => {
+    console.info('You clicked the Chip.');
+  };
 
   return (
     <div className="fullContainer">
@@ -69,7 +108,11 @@ const Adminroom = () => {
           <img src={roomimg} alt="" className="img-House" style={{height: '200px', width: '200px'}}/>
           <div className="textUnderImg">
             <p>{cabinet} </p>
-            <a href="URL">Пригласить</a>
+            <Tooltip title="скопируйте ссылку для приглашения" arrow>
+            <Chip label="Ссылка на комнату" variant="outlined" color="success" size="big" onClick={() => copyToClipBoard(`http://localhost:3000/one/${link}`)} />
+            </Tooltip>
+            {copySuccess}
+            {/* <a href="URL">Пригласить</a> */}
           </div>
         </div>
 
@@ -83,8 +126,7 @@ const Adminroom = () => {
             type="number"
             placeholder="Назначить цену"
           />
-          {/* <span>стартуем с</span>
-            <input id='forpadding' type="date" placeholder="Дата начала" /> */}
+          
           <span>Подарками нужно обменяться до:</span>
           <input
             onChange={formHandler}
@@ -102,24 +144,43 @@ const Adminroom = () => {
       <div></div>
       <div className="userList-container">
         <div className="userlist">
-          <table border="1">
-            {users &&
-              users.map((user) => (
-                <tr key={user.user.id}>
-                  <th>
-                    {user.user.name} {user.user.surname}
-                  </th>
-                  <th>
-                    {user.user.name} {user.user.surname}
-                  </th>
-                </tr>
-              ))}
-          </table>
-
+        
         </div>
 
       </div>
-          <div className="btn-clos">
+
+       {isShuffled ? (
+        <div className='shuffling'>
+        <div className='before'>
+        {users &&
+              users.map((user) => (
+                
+                    <h1 key={user.user.id} >{user.user.name} {user.user.surname}</h1>
+              ))}
+        </div>
+        
+        <div className='after'>
+              {receiver && receiver.map((el) => (
+                <h1 key={el.receiver.id}>{el.receiver.name} {el.receiver.surname}</h1>
+              ))}
+              </div>
+              </div>
+        ) : (
+          <div className='before'>
+        {users &&
+              users.map((user) => (
+                    <h1 key={user.user.id} >{user.user.name}
+                     {/* {user.user.surname} */}
+                     </h1>
+              ))}
+        </div>
+        )}   
+      
+
+
+              
+          <div className="btn-close ">
+
             <button className="christmas-btn">Закрыть комнату</button>
           </div>
     </div>

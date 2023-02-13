@@ -36,6 +36,11 @@ const Room = () => {
   const rooms = useSelector((state) => state.user.adminRooms);
   console.log(rooms);
 
+  // useEffect(() => {
+  //   console.log('use effect shuffleSlice');
+  //   dispatch(getShuffle({ input, users, id }));
+  // }, [dispatch]);
+
   return (
     <>
       <div className="btn-container-room">
@@ -55,8 +60,8 @@ const Room = () => {
           <h3>Комнаты</h3>
           <ul>
             {rooms.map((room) => (
-              <li className='room-li-btn'>
-                <Link to={'/all/' + room.id}>{room.title}</Link>
+              <li key={room.id} className='room-li-btn'>
+                <Link to={'/all/' + room.link}>{room.title}</Link>
               </li>
             ))}
           </ul>

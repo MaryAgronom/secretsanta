@@ -18,13 +18,15 @@ const adminCabinetSlice = createSlice({
     // fulfilled
     builder.addCase(getCabinet.fulfilled, (state, action) => {
       console.log('user slice', action.payload);
-      const { title, description, Users } =
+      const { id, title, description, isShuffled, Users } =
         action.payload;
+        state.id = id;
       state.title = title;
       state.description = description;
-      // state.login = true;
+      state.isShuffled = isShuffled;
+      
       state.Users = Users;
-      // state.wishes = Wishes;
+      
       // state.adminRooms = adminRooms;
       // state.userInfo = userInfo;
       state.status = 'fulfilled';

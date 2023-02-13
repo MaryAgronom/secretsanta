@@ -3,6 +3,7 @@ import { addWish } from '../asyncThunk/addWish';
 import { deleteWish } from '../asyncThunk/deleteWish';
 import { getUser } from '../asyncThunk/getUser';
 import { logoutUser } from '../asyncThunk/logoutUser';
+import { acceptInvite } from '../asyncThunk/acceptInvite'
 
 const initialState = {
   id: null,
@@ -88,6 +89,28 @@ const userSlice = createSlice({
       state.wishes = state.wishes.filter(
         (wish) => wish.id !== action.payload.id
       );
+    });
+    // ACCEPT INVITE
+    //rejected
+    builder.addCase(acceptInvite.rejected, (state, action) => {
+      state.error = action.payload;
+      state.status = 'rejected';
+    });
+    // pending
+    builder.addCase(acceptInvite.pending, (state) => {
+      console.log('ACCEPT LOAD',)
+      state.status = 'loading';
+    });
+
+    // fulfilled
+    builder.addCase(acceptInvite.fulfilled, (state, action) => {
+      console.log('invite slice', action.payload);
+      state.id = null;
+      // state.name = '';
+      // state.login = false;
+      // state.surname = '';
+
+      state.status = 'fulfilled';
     });
   },
 });

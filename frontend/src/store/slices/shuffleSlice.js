@@ -18,11 +18,12 @@ const shuffleSlice = createSlice({
     // fulfilled
     builder.addCase(getShuffle.fulfilled, (state, action) => {
       console.log('getShuffle slice', action.payload);
-    //   const { title, description, Users } =
-    //     action.payload;
-    //   state.title = title;
-    //   state.description = description;
-      // state.login = true;
+      const { receiver } =
+        action.payload;
+        console.log(action.payload)
+      state.receiver = action.payload;
+      // state.surname = surname;
+      // state.email = email;
     //   state.Users = Users;
       // state.wishes = Wishes;
       // state.adminRooms = adminRooms;

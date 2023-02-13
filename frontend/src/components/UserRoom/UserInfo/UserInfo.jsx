@@ -1,3 +1,4 @@
+import { Modal } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserInfo } from '../../../store/asyncThunk/updateUserInfo';
@@ -6,7 +7,7 @@ import {
   changeAllergy,
   changeSize,
 } from '../../../store/slices/userSlice';
-import Modal from 'react-bootstrap/Modal';
+// import Modal from 'react-bootstrap/Modal';
 import './UserInfo.css';
 
 export default function UserInfo() {
