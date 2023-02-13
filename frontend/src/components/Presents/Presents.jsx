@@ -142,10 +142,10 @@ export default function Presents( present_id) {
       <Button variant="danger" onClick={handleShow} className="christmas-btn">
               Получил подарок!
           </Button><Modal show={show} onHide={handleClose} className='modalka' >
-              <Modal.Header closeButton style={{ backgroundColor: '#ead3ab', color: '#115e25' }}>
+              <Modal.Header closeButton style={{ backgroundColor: '#ead3abc4', color: '#115e25', textAlign: 'center' }}>
                   <Modal.Title>Передай привет тайному Санте!</Modal.Title>
               </Modal.Header>
-              <Modal.Body style={{ backgroundColor: '#ead3ab' }}>
+              <Modal.Body style={{ backgroundColor: '#ead3abc4' }}>
                   <Form>
                       <Form.Group
                           className="mb-3"
@@ -159,7 +159,7 @@ export default function Presents( present_id) {
                       </Form.Group>
                   </Form>
               </Modal.Body>
-              <Modal.Footer style={{ backgroundColor: '#ead3ab' }}>
+              <Modal.Footer style={{ backgroundColor: '#ead3abc4' }}>
                   <Button variant="secondary" onClick={handleClose}>
                       Закрыть
                   </Button>
