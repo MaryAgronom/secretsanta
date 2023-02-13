@@ -12,6 +12,7 @@ export default function FeedBack() {
 
   return (
   <div className="feedback-content">
+    <div className="korobka">
 <div className="gift-box-container">
   <div className="gift-box">
     <div className="gift-box__side gift-box__side--front"></div>
@@ -111,9 +112,10 @@ export default function FeedBack() {
     <div className="ribbon-r-end"></div>
   </div>
 </div>
-     <div className="knopa">
+</div>
+     <div className="knopachka">
 
-      <Button variant="danger" onClick={handleShow} className="feedback-btn">
+      <Button variant="danger" onClick={handleShow} className="christmas-btn">
               Получил подарок!
           </Button><Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>

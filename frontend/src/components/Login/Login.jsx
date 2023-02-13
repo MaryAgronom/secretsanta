@@ -51,7 +51,7 @@ export default function Login() {
                 fullWidth
                 // required
                 name="email"
-                id="outlined-required"
+                className="outlined-required"
                 label="Почта"
                 value={inputs.email}
               />
@@ -63,7 +63,7 @@ export default function Login() {
                 // required
                 type="password"
                 name="password"
-                id="outlined-required"
+                className="outlined-required"
                 label="Пароль"
                 value={inputs.password}
               />

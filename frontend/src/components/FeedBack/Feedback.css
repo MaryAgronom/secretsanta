@@ -1,39 +1,55 @@
 .feedback-content {
-    background: linear-gradient(-20deg, #a1875b 20%, #6b0c0cdd 20%, #6b0c0cdd 30%, #0b5513da 30%, #0b5513da 70%, #6b0c0cdd 70%, #6b0c0cdd 80%, #a1875b 80% );
+    /* background: linear-gradient(-20deg, #a1875b 20%, #6b0c0cdd 20%, #6b0c0cdd 30%, #0b5513da 30%, #0b5513da 70%, #6b0c0cdd 70%, #6b0c0cdd 80%, #a1875b 80% ); */
     min-height: 100vh;
-    min-width: 100%;
+    background: url('../../images/fonchik.png') no-repeat;
+    background-size: 100%;
+    /* min-width: 100%; */
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     /* margin: 20%; */
   }
 .feedback-btn {
-    margin-top: 600px;
+    /* margin-bottom: 450px; */
     /* margin-right: 40%; */
-}
+    /* position: relative; */
+  }
+  .korobka {
+    margin-bottom: 230px;
+    /* margin-left: 100px; */
+    position: relative;
+  }
   .gift-box-container {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     perspective: 400px;
   }
-.knopa {
-    display: flex;
+  .knopachka {
+  /* border: 2px solid red; */
+    /* display: flex;
     justify-content: center;
-    align-self: center;
+    align-self: center; */
+    /* width: 900px; */
+    /* height: 100px; */
+    margin-top: 500px;
+    margin-left: 80px;
+    position: fixed;
 }
   .gift-box {
-    --gift-box-color: #e63946;
-    --gift-box-edge-color: #590b11;
-    --wrap-color: #f1faee;
-    --wrap-ribbon-color: #c0e4e6;
-    --wrap-top-color: #d8efef;
+    --gift-box-color: #9c2b1e;
+    --gift-box-edge-color: #801d17;
+    --wrap-color: #fff;
+    --wrap-ribbon-color: #fff;
+    --wrap-top-color: #fff;
   
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s;
-    animation: rotation-3d 20s infinite linear;
+    transition: transform 0.5s;
+    animation: rotation-3d 10s infinite linear;
     margin-left: 60px;
   }
   
