@@ -18,7 +18,6 @@ model User {
   adminRooms  Room[]
   sendBy      Present[]     @relation("sender")
   receiveFrom Present[]     @relation("receiver")
-  FeedBack    FeedBack?
   Rooms       UserAndRoom[]
 }
 
@@ -53,6 +52,7 @@ model Present {
   sender_id   Int
   receiver_id Int?
   room_id     Int?
+  feedback    FeedBack?
   sender      User?   @relation("sender", fields: [sender_id], references: [id])
   receiver    User?   @relation("receiver", fields: [receiver_id], references: [id])
   room        Room?    @relation(fields: [room_id], references: [id])
@@ -78,8 +78,7 @@ model Wish {
 
 model FeedBack {
   id      Int    @id @default(autoincrement())
-  picture String
   text    String
-  userId  Int    @unique
-  user    User   @relation(fields: [userId], references: [id])
+  present_id   Int    @unique
+  present Present @relation(fields: [present_id], references: [id])
 }

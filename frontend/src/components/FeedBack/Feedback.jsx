@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { useDispatch } from 'react-redux';
+import feedbackSlice, { addFeedback } from '../../store/slices/feedbackSlice';
 import './Feedback.css'
 
-export default function FeedBack() {
+export default function FeedBack({present_id}) {
   const [show, setShow] = useState(false);
-
+  const [inputText, setInputText] = useState('');
+  const dispatch = useDispatch()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const sendHandle = ((e) => {
+    console.log('vkhfjdb dfwkbhbv wfibdk')
+    dispatch(addFeedback({ present_id, inputText }))
+  })
   return (
   <div className="feedback-content">
     <div className="korobka">
@@ -117,34 +123,30 @@ export default function FeedBack() {
 
       <Button variant="danger" onClick={handleShow} className="christmas-btn">
               Получил подарок!
-          </Button><Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                  <Modal.Title>Modal heading</Modal.Title>
+          </Button><Modal show={show} onHide={handleClose} className='modalka' >
+              <Modal.Header closeButton style={{ backgroundColor: '#ead3ab', color: '#115e25' }}>
+                  <Modal.Title>Передай привет тайному Санте!</Modal.Title>
               </Modal.Header>
-              <Modal.Body>
+              <Modal.Body style={{ backgroundColor: '#ead3ab' }}>
                   <Form>
-                      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                          <Form.Label>Email address</Form.Label>
-                          <Form.Control
-                              type="email"
-                              placeholder="name@example.com"
-                              autoFocus />
-                      </Form.Group>
                       <Form.Group
                           className="mb-3"
                           controlId="exampleForm.ControlTextarea1"
+    
                       >
-                          <Form.Label>Example textarea</Form.Label>
-                          <Form.Control as="textarea" rows={3} />
+                          <Form.Label>Поделись впечатлениями о подарке в коротком письме 💌</Form.Label>
+                          <Form.Control as="textarea" rows={3}  onChange={(e) => {
+                            setInputText(e.target.value)
+                          }} />
                       </Form.Group>
                   </Form>
               </Modal.Body>
-              <Modal.Footer>
+              <Modal.Footer style={{ backgroundColor: '#ead3ab' }}>
                   <Button variant="secondary" onClick={handleClose}>
-                      Close
+                      Закрыть
                   </Button>
-                  <Button variant="primary" onClick={handleClose}>
-                      Save Changes
+                  <Button variant="primary" onClick={sendHandle}>
+                     Отправить
                   </Button>
               </Modal.Footer>
           </Modal>

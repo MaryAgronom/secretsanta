@@ -2,12 +2,12 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const FeedBack = async (req, res) => {
-const { picture, text } = req.body;
+const { present_id, text } = req.body;
 console.log(req.body)
-  const rooms = await prisma.room.create({
+  const feedback = await prisma.feedback.create({
     data: {
-        picture,
         text,
+        present_id
       },
   });
   res.json({
