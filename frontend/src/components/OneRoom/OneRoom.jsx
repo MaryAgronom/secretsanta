@@ -9,9 +9,6 @@ export default function OneRoom() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const backHandler = () => {
-    navigate(-1);
-  };
   const { link } = useParams();
   console.log('params', link);
 
@@ -19,5 +16,9 @@ export default function OneRoom() {
     console.log('use effect');
     dispatch(getCabinet(link));
   }, [dispatch]);
-  return <Adminroom />;
+  return (
+    <>
+    <Adminroom />
+    </>
+  )
 }
