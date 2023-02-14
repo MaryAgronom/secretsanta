@@ -88,9 +88,9 @@ const adminCabinetSlice = createSlice({
     builder.addCase(addCabinet.fulfilled, (state, action) => {
       console.log('ADD slice', action.payload);
       // state.delete = action.payload.deleted;
-      // const { id, title, description, isShuffled, Users } =
-      //   action.payload;
-      // state.id = null;
+      const { id, title, description, isShuffled } =
+        action.payload;
+      state.rooms.push(action.payload)
       // state.id = null;
       // state.title = '';
       // state.description = '';
