@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-export default function UserMenu({ children, setAccountNav }) {
+export default function Menu() {
   return (
     <>
-      <div className="userMenu">
+      {/* <div className="userMenu">
         <ul>
           
           <li onClick={() => setAccountNav((prev) => 'about you')}>Инфа о тебе</li>
@@ -13,7 +13,7 @@ export default function UserMenu({ children, setAccountNav }) {
           <li onClick={() => setAccountNav((prev) => 'presents')}>Подарки</li>
         </ul>
       </div>
-      {children}
+      {children} */}
     </>
-  );
+  )
 }

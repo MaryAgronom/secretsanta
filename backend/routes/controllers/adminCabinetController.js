@@ -76,4 +76,44 @@ const DeleteCabinet = async (req, res) => {
   }
 };
 
-module.exports = { Cabinet, DeleteCabinet };
+const statusController = async (req, res) => {
+  console.log('STATUS', req.params);
+  const { link } = req.params;
+  try {
+    const room = await prisma.room.findUnique({
+      where: {
+        link,
+      },
+    });
+    const finder = await prisma.present.findMany({
+      where: {
+        room_id: room.id,
+      },
+      select: {
+        send: true,
+        received: true,
+        receiver: {
+          select: {
+            name: true,
+            surname: true,
+          },
+        },
+      
+      
+        sender: {
+          select: {
+            name: true,
+            surname: true,
+          }
+        }
+      }
+
+    });
+    console.log(finder);
+    res.json(finder);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+module.exports = { Cabinet, DeleteCabinet, statusController };
