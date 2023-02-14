@@ -51,7 +51,20 @@ const DeleteCabinet = async (req, res) => {
   try {
     const { link } = req.params;
     console.log('PARAMS IN CABINET', req.params);
-    const room = await prisma.room.findUnique({
+
+    const findRoom = await prisma.room.findUnique({
+      where: {
+        link,
+      },
+    });
+    const userAndRoom = await prisma.UserAndRoom.deleteMany({
+      where: {
+        roomId: findRoom.id,
+      },
+    });
+    console.log('userAndRoom', userAndRoom);
+
+    const room = await prisma.room.delete({
       where: {
         link,
       },
