@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import roomimg from '../../images/12.png';
+import { getPresents } from '../../store/asyncThunk/getPresents';
 import Logout from '../Logout/Logout';
 import './Room.css';
 
 const Room = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const initialState = { title: '', description: '' };
   const [inputs, setInputs] = useState(initialState);
@@ -41,6 +43,12 @@ const Room = () => {
   //   console.log('use effect shuffleSlice');
   //   dispatch(getShuffle({ input, users, id }));
   // }, [dispatch]);
+  const accountHandler = (e) => {
+    e.preventDefault();
+
+    dispatch(getPresents());
+    navigate('/account')
+  }
 
   return (
     <>
@@ -50,7 +58,7 @@ const Room = () => {
         </button>
         <button
           type="button"
-          onClick={() => navigate('/account')}
+          onClick={accountHandler}
           className="christmas-btn"
         >
           Аккаунт
