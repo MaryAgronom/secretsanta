@@ -25,10 +25,10 @@ export default function Wishes({ wishes, status }) {
       <div className="addWish" onClick={addWishHandler}>
         {!wishInput ? '⊕' : '✓'}
       </div>
-      <div className="wishName">{status ? 'Письмо Санте' : 'Письмо Гринчу'}</div>
-      <ul className={wishes.length <= 5 ? 'wishCenter' : 'hey'}>
+      <div className="wishName">{status ? 'Санте' : 'Гринчу'}</div>
+      <div className={wishes.length <= 5 ? 'wishCenter' : 'hey'}>
         {wishes && wishes.map((wish) => <Wish wish={wish} key={wish.id} />)}
-      </ul>
+      </div>
       {wishInput && (
         <input
           type="text"

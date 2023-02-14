@@ -5,10 +5,12 @@
   @include flex();
   position: relative;
   cursor: pointer;
+  color: white;
 
   &:hover {
     .wishItemDelete {
       opacity: 1;
+      color: white;
     }
   }
 
@@ -20,7 +22,6 @@
     border: none;
   }
   .wishItemDelete {
-    
     position: absolute;
     right: 10px;
     top: 0;
