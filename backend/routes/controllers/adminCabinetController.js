@@ -69,8 +69,8 @@ const DeleteCabinet = async (req, res) => {
         link,
       },
     });
-    console.log(room);
-    res.json({ deleted: true });
+    console.log('ROOM TO DELETE', room);
+    res.json({ findRoom, deleted: true });
   } catch (e) {
     console.log(e);
   }

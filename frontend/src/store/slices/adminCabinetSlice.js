@@ -60,6 +60,9 @@ const adminCabinetSlice = createSlice({
       state.delete = action.payload.deleted;
       // const { id, title, description, isShuffled, Users } =
       //   action.payload;
+      state.rooms = state.rooms.filter(
+        (room) => room.id !== action.payload.id
+      );
       state.id = null;
       state.id = null;
       state.title = '';
@@ -90,6 +93,7 @@ const adminCabinetSlice = createSlice({
       // state.delete = action.payload.deleted;
       const { id, title, description, isShuffled } =
         action.payload;
+        console.log('ADDD CABINET', action.payload)
       state.rooms.push(action.payload)
       // state.id = null;
       // state.title = '';

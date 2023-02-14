@@ -12,19 +12,21 @@ export default function DeleteButton() {
 
   const deleted = useSelector((state) => state.cabinet.delete)
 
-  useEffect(() => {
-    if(deleted) {
-      console.log('Deleted true')
-      console.log('SANKA K SHAFFLU')
-      navigate('/rooms')
-      dispatch(getUser());
+  // useEffect(() => {
+  //     console.log('Deleted true')
+  //     console.log('SANKA K SHAFFLU')
+  //     navigate('/rooms')
+  //     dispatch(getUser());
 
-    }
-  }, [deleted]);
+  // }, [deleted]);
+  console.log(deleted)
 
   const deleteClick = () => {
     console.info('You clicked the Chip.');
     dispatch(deleteRoom(link));
+    // dispatch(getUser());
+    navigate('/rooms')
+
   };
   return (
     <div>

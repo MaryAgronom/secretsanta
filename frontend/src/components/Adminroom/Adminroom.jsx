@@ -10,6 +10,7 @@ import Logout from '../Logout/Logout';
 
 import './Adminroom.css';
 import CopyLink from './CopyLink/CopyLink';
+import ShuffleButton from './ShuffleButton/ShuffleButton';
 
 const Adminroom = () => {
   const initState = { data_closed: '', money: '' };
@@ -24,37 +25,30 @@ const Adminroom = () => {
   const cabinet = useSelector((state) => state.cabinet.title);
   const receiver = useSelector((state) => state.shuffle.receiver);
 
-  useEffect(() => {
-    console.log('use effect');
-    if (link) {
-      console.log('link exist', link);
-      dispatch(getCabinet(link));
-    }
-  }, []);
+  // useEffect(() => {
+  //   console.log('use effect');
+  //   if (link) {
+  //     console.log('link exist', link);
+  //     dispatch(getCabinet(link));
+  //   }
+  // }, []);
 
   console.log('iS Shuffled b4', isShuffled);
 
-  useEffect(() => {
-    console.log('use effect k shaflu');
+  // useEffect(() => {
+  //   console.log('use effect k shaflu');
 
-    if (isShuffled) {
-      console.log('SANKA K SHAFFLU');
-      // setTimeout(() => {
-      dispatch(getShuffle({ input, Users, link }));
-      // }, 1000)
-    }
-  }, [isShuffled, Users]);
+  //   if (isShuffled) {
+  //     console.log('SANKA K SHAFFLU');
+  //     // setTimeout(() => {
+  //     dispatch(getShuffle({ input, Users, link }));
+  //     // }, 1000)
+  //   }
+  // }, [isShuffled, Users]);
 
   const formHandler = (e) => {
     console.log(input);
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const shuffleHandler = (e) => {
-    e.preventDefault();
-    console.log('click');
-    dispatch(getShuffle({ input, Users, link }));
-    // console.log('SENDER FRONT', sender)
   };
 
   console.log(Users);
@@ -119,20 +113,7 @@ const Adminroom = () => {
               />
             </div>
           </div>
-          <button
-            onClick={shuffleHandler}
-            type="button"
-            className="christmas-btn"
-            style={{
-              width: '150px',
-              // height: '60px',
-              fontSize: '21px',
-              padding: '5px',
-              textAlign: 'center',
-            }}
-          >
-            Назначить пары
-          </button>
+          <ShuffleButton input={input} Users={Users} link={link}  />
         </div>
       </div>
       <div></div>
