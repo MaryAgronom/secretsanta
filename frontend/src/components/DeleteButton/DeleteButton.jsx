@@ -28,6 +28,5 @@ export default function DeleteButton() {
 
             <button type="button" onClick={deleteClick} className="christmas-btn">Закрыть комнату</button>
           </div>
-          
   )
 }
