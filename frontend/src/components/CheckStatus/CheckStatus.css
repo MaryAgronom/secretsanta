@@ -1,0 +1,13 @@
+.statusContainer {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.sender {
+  display: flex;
+  flex-direction: column;
+
+}

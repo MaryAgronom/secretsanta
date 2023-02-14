@@ -52,6 +52,14 @@ const Adminroom = () => {
         >
           Все Комнаты
         </button>
+        <button
+          className="christmas-btn"
+          onClick={() => {
+            navigate(`/status/${link}`)
+          }}
+        >
+          ОДМЕН
+        </button>
         {/* <button className="btns-top-admin">Анкета</button> */}
       </div>
       <div className="content-Admin">

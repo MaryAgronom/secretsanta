@@ -16,6 +16,7 @@ import Layout from './components/Layout/Layout';
 
 import { getPresents } from './store/asyncThunk/getPresents';
 import { getUser } from './store/asyncThunk/getUser';
+import CheckStatus from './components/CheckStatus/CheckStatus';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,10 @@ function App() {
             <Route path=":link" element={<OneRoom />} />
           </Route>
           <Route path="/account" element={<UserRoom />} />
+          <Route path="/status">
+          <Route index element={<ListRooms />} />
+          <Route path=":link" element={<CheckStatus />} />
+          </Route>
           <Route path="/giver" element={<Giver />} />
           <Route path="/shufler" element={<AfterShuffle />} />
           <Route path="/user/feedback" element={<Feedback />} />
