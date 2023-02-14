@@ -22,6 +22,8 @@
       display: flex;
       justify-content: space-evenly;
       li {
+        color: #5e0d0c;
+        font-size: 20px;
         cursor: pointer;
       }
     }
@@ -44,10 +46,14 @@
     @include mainColor();
 
     .userInfoImg {
-      width: 75px;
-      height: 75px;
-      @include border();
-      border-radius: 10px;
+      width: 100px;
+      height: 100px;
+      // @include border();
+      // border-radius: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .userInfoAbout {
