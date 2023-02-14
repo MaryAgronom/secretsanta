@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { deleteRoom } from '../../store/asyncThunk/deleteRoom';
+import { getUser } from '../../store/asyncThunk/getUser';
 
 export default function DeleteButton() {
   const { link } = useParams();
@@ -16,6 +17,7 @@ export default function DeleteButton() {
       console.log('Deleted true')
       console.log('SANKA K SHAFFLU')
       navigate('/rooms')
+      dispatch(getUser());
 
     }
   }, [deleted]);
