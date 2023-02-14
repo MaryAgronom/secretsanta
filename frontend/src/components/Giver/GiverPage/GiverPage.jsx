@@ -12,7 +12,7 @@ export default function GiverPage({ present }) {
   return (
     <div>
       <div className="counter">
-        <h4>Отослать до: {room.data_closed || 'Даты нет'}</h4>
+        <h4>Отослать до: {room.data_closed.slice(0,10) || 'Даты нет'}</h4>
       </div>
       <div className="container-giver">
         <div className="card-giver">
