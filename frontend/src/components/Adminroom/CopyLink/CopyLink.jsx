@@ -19,7 +19,7 @@ export default function CopyLink() {
   return (
     <>
     <Tooltip title="скопируйте ссылку для приглашения" arrow>
-            <Chip label="Ссылка на комнату" variant="outlined" color="success" size="big" onClick={() => copyToClipBoard(`http://localhost:3000/one/${link}`)} />
+            <Chip label="Ссылка на комнату" variant="filled" color="primary" size="big" onClick={() => copyToClipBoard(`http://localhost:3000/one/${link}`)} />
             </Tooltip>
             {copySuccess}
             </>
