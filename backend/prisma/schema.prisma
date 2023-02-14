@@ -38,7 +38,7 @@ model Room {
   money       Int?
   data_closed DateTime?
   background  String?
-  link        String?
+  link        String?       @unique
   admin_id    Int
   admin       User          @relation(fields: [admin_id], references: [id])
   Users       UserAndRoom[]

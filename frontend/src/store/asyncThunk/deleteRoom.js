@@ -1,29 +1,27 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getCabinet = createAsyncThunk(
-  'cabinet/getCabinet',
+export const deleteRoom = createAsyncThunk(
+  'cabinet/deleteRoom',
   async (link, { dispatch, rejectWithValue }) => {
+    console.log('DELETE START')
     try {
-      console.log('GET CABINET FETCH', link)
+      console.log('in delete thunk', link)
       const response = await fetch(`http://localhost:5005/cabinet/${link}`, {
-        method: 'GET',
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Headers':'http://localhost:5005',
         },
         credentials: 'include',
+
       });
 
       const data = await response.json()
-      console.log('getCabinet AFTER FETCH', data);
 
-      // const { data } = await axios.get(`http://localhost:5005/cabinet/${link}`, {
-      //   withCredentials: true,
-      // });
+      console.log('DELETE ROOM', data);
       return data;
+     
     } catch (err) {
-      console.log('VISHLA OSHIBKA', link)
       console.log(err);
       return rejectWithValue(err.message);
     }

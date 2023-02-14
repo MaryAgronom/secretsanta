@@ -43,6 +43,7 @@ const feedbackSlice = createSlice({
         state.isLoading = true;
         state.error = null;
     })
+    
     .addCase(addFeedback.fulfilled, (state, action) => {
         state.isLoading = false;
     })

@@ -3,14 +3,17 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const Cabinet = async (req, res) => {
+  console.log('INSIDE CONTROLLER ADM CABINET');
   const { link } = req.params;
   console.log('PARAMS IN CABINET', req.params);
   // console.log('ADMIN CABINET ID', Number(id));
   if (link) {
+    console.log('LINK ON BACK EXIST');
     try {
-      const room = await prisma.room.findFirst({
+      console.log('BEGIN OF TRY ADM CABINET CONTROLLER');
+      const room = await prisma.room.findUnique({
         where: {
-          link: link,
+          link,
         },
         select: {
           title: true,
@@ -31,14 +34,33 @@ const Cabinet = async (req, res) => {
           },
         },
       });
+      console.log('CABINET ON BACK', room);
       res.json(room);
-      console.log('ADMIN CABINET', room);
+      // console.log('ADMIN CABINET', room);
     } catch (e) {
       console.log('ADMINCABINETERRRR', e);
     }
   } else {
+    console.log('ADMINCABINET STATUS 400');
     res.sendStatus(400);
   }
 };
 
-module.exports = { Cabinet };
+const DeleteCabinet = async (req, res) => {
+  console.log('STArT DELETE');
+  try {
+    const { link } = req.params;
+    console.log('PARAMS IN CABINET', req.params);
+    const room = await prisma.room.findUnique({
+      where: {
+        link,
+      },
+    });
+    console.log(room);
+    res.json({ deleted: true });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+module.exports = { Cabinet, DeleteCabinet };

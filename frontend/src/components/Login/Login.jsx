@@ -37,8 +37,6 @@ export default function Login() {
       console.log('ERRROEEO', e);
     }
   };
-  const { id } = useParams();
-  console.log('LOGINID', id)
 
   return (
     <section className={styles.regcont} >

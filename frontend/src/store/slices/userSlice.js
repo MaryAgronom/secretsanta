@@ -105,7 +105,7 @@ const userSlice = createSlice({
     // fulfilled
     builder.addCase(acceptInvite.fulfilled, (state, action) => {
       console.log('invite slice', action.payload);
-      state.id = null;
+      state.invite = action.payload.created
       // state.name = '';
       // state.login = false;
       // state.surname = '';
