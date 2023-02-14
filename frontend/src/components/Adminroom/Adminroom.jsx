@@ -69,7 +69,6 @@ const Adminroom = () => {
 
   return (
     <div className="fullContainer">
-      <Logout />
       <div className="container-top">
         <button
           className="christmas-btn"
@@ -96,29 +95,41 @@ const Adminroom = () => {
         </div>
 
         <div className="btns-Other">
-          <span>Ограничение на стоимость подарка:</span>
-          <input
-            onChange={formHandler}
-            name="money"
-            value={input.money}
-            id="forpadding"
-            type="number"
-            placeholder="Назначить цену"
-          />
-
-          <span>Подарками нужно обменяться до:</span>
-          <input
-            onChange={formHandler}
-            name="data_closed"
-            value={input.data_closed}
-            id="forpadding"
-            type="date"
-            placeholder="Дата окончания"
-          />
+          <div className="btnOtherInputs">
+            <div className="btnOtherInput">
+              <span>Cтоимость подарка:</span>
+              <input
+                onChange={formHandler}
+                name="money"
+                value={input.money}
+                id="forpadding"
+                type="number"
+                placeholder="Назначить цену"
+              />
+            </div>
+            <div className="btnOtherInput">
+              <span>Нужно отправить до:</span>
+              <input
+                onChange={formHandler}
+                name="data_closed"
+                value={input.data_closed}
+                id="forpadding"
+                type="date"
+                placeholder="Дата окончания"
+              />
+            </div>
+          </div>
           <button
             onClick={shuffleHandler}
             type="button"
             className="christmas-btn"
+            style={{
+              width: '150px',
+              // height: '60px',
+              fontSize: '21px',
+              padding: '5px',
+              textAlign: 'center',
+            }}
           >
             Назначить пары
           </button>
@@ -133,30 +144,32 @@ const Adminroom = () => {
           <div className="after">
             {Users &&
               Users.map((user) => (
-                <h1 key={user.user.id}>
+                <h3 key={user.user.id}>
                   {user.user.name} {user.user.surname}
-                </h1>
+                </h3>
               ))}
           </div>
 
           <div className="after">
             {receiver &&
               receiver.map((el) => (
-                <h1 key={el.receiver.id}>
+                <h3 key={el.receiver.id}>
                   {el.receiver.name} {el.receiver.surname}
-                </h1>
+                </h3>
               ))}
           </div>
         </div>
       ) : (
-        <div className="before">
-          TABLE
+        <div
+          className="after"
+          style={{ backgroundColor: '#245d27', color: 'white' }}
+        >
           {Users &&
             Users.map((user) => (
-              <h1 key={user.user.id}>
+              <h3 key={user.user.id}>
                 {user.user.name} {user.user.surname}
                 {/* {user.user.surname} */}
-              </h1>
+              </h3>
             ))}
         </div>
       )}

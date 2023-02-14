@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import roomimg from '../../images/12.png';
 import { getPresents } from '../../store/asyncThunk/getPresents';
+import { getUser } from '../../store/asyncThunk/getUser';
 import Logout from '../Logout/Logout';
 import './Room.css';
 
 const Room = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const initialState = { title: '', description: '' };
   const [inputs, setInputs] = useState(initialState);
@@ -15,6 +16,7 @@ const Room = () => {
   const roomHandler = (event) => {
     setInputs((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
+
   const addHandler = async (event) => {
     event.preventDefault();
     try {
@@ -25,9 +27,10 @@ const Room = () => {
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
-      console.log('ROOM on FRONT', data)
+      console.log('ROOM on FRONT', data);
       if (data.link) {
         setInputs(initialState);
+        dispatch(getUser());
         navigate(`/all/${data.link}`);
       }
     } catch (error) {
@@ -47,15 +50,12 @@ const Room = () => {
     e.preventDefault();
 
     dispatch(getPresents());
-    navigate('/account')
-  }
+    navigate('/account');
+  };
 
   return (
     <>
       <div className="btn-container-room">
-        <button onClick={() => navigate('/all')} type="button" className="christmas-btn">
-          Мои комнаты
-        </button>
         <button
           type="button"
           onClick={accountHandler}
@@ -63,13 +63,14 @@ const Room = () => {
         >
           Аккаунт
         </button>
+        <Logout />
       </div>
       <div className="room-container">
         <div className="room-card">
           <h3>Комнаты</h3>
           <ul>
             {rooms.map((room) => (
-              <li key={room.id} className='room-li-btn'>
+              <li key={room.id} className="room-li-btn">
                 <Link to={'/all/' + room.link}>{room.title}</Link>
               </li>
             ))}
@@ -104,14 +105,11 @@ const Room = () => {
             type="button"
             onClick={addHandler}
             className="christmas-btn"
-            style={{ width: '200px', fontSize:"30px" }}
+            style={{ width: '200px', fontSize: '30px' }}
           >
             Создать комнату
           </button>
         </div>
-      </div>
-      <div id="logoutbtn">
-        <Logout />
       </div>
     </>
   );

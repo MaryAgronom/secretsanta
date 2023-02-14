@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { changeShuffle } from '../slices/adminCabinetSlice';
+import { getPresents } from './getPresents';
 
 export const getShuffle = createAsyncThunk(
   'shuffle/getShuffle',
@@ -14,6 +15,7 @@ export const getShuffle = createAsyncThunk(
       });
       console.log('INFO===', data);
       dispatch(changeShuffle());
+      dispatch(getPresents());
       return data;
     } catch (err) {
       console.log(err);
