@@ -20,8 +20,8 @@ export default function Logout() {
     navigate('/login');
   };
   return (
-    <Button onClick={logoutHandle} variant="outlined" color="error">
-      ВЫЙТИ
-    </Button>
+    <button onClick={logoutHandle} className="christmas-btn">
+      Выйти
+    </button>
   );
 }

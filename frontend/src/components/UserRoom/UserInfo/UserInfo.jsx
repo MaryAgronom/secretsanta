@@ -41,7 +41,7 @@ export default function UserInfo() {
   return (
     <div className="userInfo">
       <div className="userInfoImg">
-        <img src="" alt="avatarImg" />
+        <img src="./756660.png" alt="avatarImg" />
         {/* <SelectedAvatar
           avatar={selectedAvatar}
           style={{ width: '100px', height: '100px' }}
