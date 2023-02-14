@@ -24,7 +24,7 @@ export default function DeleteButton() {
 
   };
   return (
-    <div className="btn-close ">
+    <div className="btn-clos">
 
             <button type="button" onClick={deleteClick} className="christmas-btn">Закрыть комнату</button>
           </div>
