@@ -9,6 +9,7 @@ import DeleteButton from '../DeleteButton/DeleteButton';
 import Logout from '../Logout/Logout';
 
 import './Adminroom.css';
+import CopyLink from './CopyLink/CopyLink';
 
 const Adminroom = () => {
   const initState = { data_closed: '', money: '' };
@@ -16,9 +17,6 @@ const Adminroom = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const backHandler = () => {
-    navigate(-1);
-  };
   const { link } = useParams();
   console.log('params', link);
   
@@ -37,16 +35,16 @@ const Adminroom = () => {
   const isShuffled = useSelector((state) => state.cabinet.isShuffled)
   console.log('iS Shuffled b4', isShuffled)
 
-  useEffect(() => {
-    console.log('use effect k shaflu');
+  // useEffect(() => {
+  //   console.log('use effect k shaflu');
       
-    if(isShuffled) {
-      console.log('SANKA K SHAFFLU')
-      // setTimeout(() => {
-      dispatch(getShuffle({ input, users, link }));
-      // }, 1000)
-    }
-  }, [isShuffled, users]);
+  //   if(isShuffled) {
+  //     console.log('SANKA K SHAFFLU')
+  //     // setTimeout(() => {
+  //     dispatch(getShuffle({ input, users, link }));
+  //     // }, 1000)
+  //   }
+  // }, [isShuffled, users]);
   
   const cabinet = useSelector((state) => state.cabinet.title);
 
@@ -71,20 +69,11 @@ const Adminroom = () => {
   
   console.log('isShuffle', isShuffled)
 
-  const [copySuccess, setCopySuccess] = useState('');
-
-  const copyToClipBoard = async copyMe => {
-    try {
-      await navigator.clipboard.writeText(copyMe);
-      setCopySuccess('Copied!');
-    } catch (err) {
-      setCopySuccess('Failed to copy!');
-    }
-  };
-
   const deleteClick = () => {
     console.info('You clicked the Chip.');
   };
+
+  const [getPaits, setGetPairs] = useState('')
 
   return (
     <div className="fullContainer">
@@ -105,11 +94,7 @@ const Adminroom = () => {
           <img src={roomimg} alt="" className="img-House" style={{height: '200px', width: '200px'}}/>
           <div className="textUnderImg">
             <p>{cabinet} </p>
-            <Tooltip title="скопируйте ссылку для приглашения" arrow>
-            <Chip label="Ссылка на комнату" variant="outlined" color="success" size="big" onClick={() => copyToClipBoard(`http://localhost:3000/one/${link}`)} />
-            </Tooltip>
-            {copySuccess}
-            {/* <a href="URL">Пригласить</a> */}
+            <CopyLink />
           </div>
         </div>
 
@@ -149,8 +134,7 @@ const Adminroom = () => {
        {isShuffled ? (
         
         <div className='shuffling'>
-          table
-        <div className='before'>
+        <div className='after'>
         {users &&
               users.map((user) => (
                   
@@ -177,13 +161,6 @@ const Adminroom = () => {
         </div>
         )}   
       
-
-
-              
-          {/* <div className="btn-close ">
-
-            <button type="button" onClick={deleteClick} className="christmas-btn">Закрыть комнату</button>
-          </div> */}
           <DeleteButton />
     </div>
   );
