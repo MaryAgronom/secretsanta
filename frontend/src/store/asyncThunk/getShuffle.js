@@ -14,7 +14,6 @@ export const getShuffle = createAsyncThunk(
         withCredentials: true,
       });
       console.log('INFO===', data);
-      dispatch(changeShuffle());
       dispatch(getPresents());
       return data;
     } catch (err) {

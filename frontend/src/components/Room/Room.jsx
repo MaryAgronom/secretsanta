@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import roomimg from '../../images/12.png';
+import { addCabinet } from '../../store/asyncThunk/addCabinet';
 import { getPresents } from '../../store/asyncThunk/getPresents';
 import { getUser } from '../../store/asyncThunk/getUser';
 import Logout from '../Logout/Logout';
@@ -10,6 +11,8 @@ import './Room.css';
 const Room = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const rooms = useSelector((state) => state.user.adminRooms);
+  const newRooms = useSelector((state) => state.cabinet.rooms);
   const initialState = { title: '', description: '' };
   const [inputs, setInputs] = useState(initialState);
 
@@ -19,33 +22,15 @@ const Room = () => {
 
   const addHandler = async (event) => {
     event.preventDefault();
-    try {
-      const res = await fetch('http://localhost:5005/room', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify(inputs),
-      });
-      const data = await res.json();
-      console.log('ROOM on FRONT', data);
-      if (data.link) {
-        setInputs(initialState);
-        dispatch(getUser());
-        navigate(`/all/${data.link}`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(addCabinet(inputs));
+    setInputs(initialState);
+
   };
   console.log(inputs);
 
-  const rooms = useSelector((state) => state.user.adminRooms);
-  console.log(rooms);
+  
+  console.log(newRooms);
 
-  // useEffect(() => {
-  //   console.log('use effect shuffleSlice');
-  //   dispatch(getShuffle({ input, users, id }));
-  // }, [dispatch]);
   const accountHandler = (e) => {
     e.preventDefault();
 
@@ -71,6 +56,11 @@ const Room = () => {
           <ul>
             {rooms.map((room) => (
               <li key={room.id} className="room-li-btn">
+                <Link to={'/all/' + room.link}>{room.title}</Link>
+              </li>
+            ))}
+            {newRooms && newRooms.map((room) => (
+              <li key={room.id} className='room-li-btn'>
                 <Link to={'/all/' + room.link}>{room.title}</Link>
               </li>
             ))}

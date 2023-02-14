@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
+
 const prisma = new PrismaClient();
 
 const getUser = async (req, res) => {
@@ -30,6 +31,9 @@ const getUser = async (req, res) => {
             },
           },
           adminRooms: {
+            orderBy: {
+              id: 'asc',
+            },
             select: {
               id: true,
               title: true,
@@ -66,7 +70,7 @@ const getUser = async (req, res) => {
 };
 
 const addWish = async (req, res) => {
-  const userId = req.session.userId;
+  const { userId } = req.session;
   const { item, like } = req.body;
   console.log(req.body);
   try {
@@ -115,9 +119,11 @@ const deleteWish = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  const userId = req.session.userId;
+  const { userId } = req.session;
   console.log(req.body);
-  const { avatar, address, size, allergy } = req.body;
+  const {
+    avatar, address, size, allergy,
+  } = req.body;
   try {
     const userInfo = await prisma.userInfo.update({
       where: {
@@ -139,7 +145,7 @@ const updateUser = async (req, res) => {
 };
 
 const getPresents = async (req, res) => {
-  const userId = req.session.userId;
+  const { userId } = req.session;
   try {
     const presents = await prisma.present.findMany({
       where: {
@@ -209,7 +215,7 @@ const sendPresent = async (req, res) => {
 };
 
 const receivedPresent = async (req, res) => {
-  console.log('received present' ,req.body);
+  console.log('received present', req.body);
   const { presentId } = req.body;
   try {
     await prisma.present.update({
