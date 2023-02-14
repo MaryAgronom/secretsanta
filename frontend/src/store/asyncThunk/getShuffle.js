@@ -1,17 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { changeShuffle } from '../slices/adminCabinetSlice';
 
 export const getShuffle = createAsyncThunk(
   'shuffle/getShuffle',
-  async ({input, users, link}, { dispatch, rejectWithValue }) => {
+  async ({ input, Users, link }, { dispatch, rejectWithValue }) => {
     try {
-      const { data }  = await axios({
+      const { data } = await axios({
         method: 'post',
         url: 'http://localhost:5005/shuffle',
-        data: {input, users, link},
+        data: { input, users: Users, link },
         withCredentials: true,
       });
-      console.log('INFO===', data)
+      console.log('INFO===', data);
+      dispatch(changeShuffle());
       return data;
     } catch (err) {
       console.log(err);

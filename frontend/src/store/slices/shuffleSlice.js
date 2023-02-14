@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getShuffle } from '../asyncThunk/getShuffle';
 
 const initialState = {
-  
+  receiver: [],
+  error: null,
+  status: null,
 };
 
 const shuffleSlice = createSlice({
@@ -18,12 +20,11 @@ const shuffleSlice = createSlice({
     // fulfilled
     builder.addCase(getShuffle.fulfilled, (state, action) => {
       console.log('getShuffle slice', action.payload);
-      const { receiver } =
-        action.payload;
+      const { receiver } = action.payload;
       state.receiver = action.payload;
       // state.surname = surname;
       // state.email = email;
-    //   state.Users = Users;
+      //   state.Users = Users;
       // state.wishes = Wishes;
       // state.adminRooms = adminRooms;
       // state.userInfo = userInfo;
@@ -35,7 +36,6 @@ const shuffleSlice = createSlice({
       state.error = action.payload;
       state.status = 'rejected';
     });
-
   },
 });
 

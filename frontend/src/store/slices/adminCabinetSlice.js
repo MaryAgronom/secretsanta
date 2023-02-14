@@ -3,13 +3,20 @@ import { deleteRoom } from '../asyncThunk/deleteRoom';
 import { getCabinet } from '../asyncThunk/getCabinet';
 
 const initialState = {
-  
+  Users: [],
+  isShuffled: false,
+  status: null,
+  error: null,
 };
 
 const adminCabinetSlice = createSlice({
   name: 'cabinet',
   initialState,
-  reducers: {},
+  reducers: {
+    changeShuffle: (state) => {
+      state.isShuffled = true;
+    },
+  },
   extraReducers: (builder) => {
     // pending
     builder.addCase(getCabinet.pending, (state) => {
@@ -19,16 +26,15 @@ const adminCabinetSlice = createSlice({
     // fulfilled
     builder.addCase(getCabinet.fulfilled, (state, action) => {
       console.log('user slice', action.payload);
-      const { id, title, description, isShuffled, Users } =
-        action.payload;
-        state.id = id;
+      const { id, title, description, isShuffled, Users } = action.payload;
+      state.id = id;
       state.title = title;
       state.description = description;
       state.isShuffled = isShuffled;
       state.delete = false;
-      
+
       state.Users = Users;
-      
+
       // state.adminRooms = adminRooms;
       // state.userInfo = userInfo;
       state.status = 'fulfilled';
@@ -49,17 +55,17 @@ const adminCabinetSlice = createSlice({
     // fulfilled
     builder.addCase(deleteRoom.fulfilled, (state, action) => {
       console.log('DELete slice', action.payload);
-      state.delete = action.payload.deleted
+      state.delete = action.payload.deleted;
       // const { id, title, description, isShuffled, Users } =
       //   action.payload;
-        state.id = null;
+      state.id = null;
       state.id = null;
       state.title = '';
       state.description = '';
       state.isShuffled = false;
-      
+
       state.Users = [];
-      
+
       // state.adminRooms = adminRooms;
       // state.userInfo = userInfo;
       state.status = 'fulfilled';
@@ -70,9 +76,8 @@ const adminCabinetSlice = createSlice({
       state.error = action.payload;
       state.status = 'rejected';
     });
-
   },
 });
 
 export default adminCabinetSlice.reducer;
-export const {} = adminCabinetSlice.actions;
+export const { changeShuffle } = adminCabinetSlice.actions;

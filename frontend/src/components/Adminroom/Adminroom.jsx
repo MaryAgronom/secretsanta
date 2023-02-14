@@ -20,7 +20,9 @@ const Adminroom = () => {
   const { link } = useParams();
   console.log('params', link);
 
-  const users = useSelector((state) => state.cabinet.Users);
+  const { Users, isShuffled } = useSelector((state) => state.cabinet);
+  const cabinet = useSelector((state) => state.cabinet.title);
+  const receiver = useSelector((state) => state.shuffle.receiver);
 
   useEffect(() => {
     console.log('use effect');
@@ -30,7 +32,6 @@ const Adminroom = () => {
     }
   }, []);
 
-  const isShuffled = useSelector((state) => state.cabinet.isShuffled);
   console.log('iS Shuffled b4', isShuffled);
 
   useEffect(() => {
@@ -39,12 +40,10 @@ const Adminroom = () => {
     if (isShuffled) {
       console.log('SANKA K SHAFFLU');
       // setTimeout(() => {
-      dispatch(getShuffle({ input, users, link }));
+      dispatch(getShuffle({ input, Users, link }));
       // }, 1000)
     }
-  }, [isShuffled, users]);
-
-  const cabinet = useSelector((state) => state.cabinet.title);
+  }, [isShuffled, Users]);
 
   const formHandler = (e) => {
     console.log(input);
@@ -54,13 +53,11 @@ const Adminroom = () => {
   const shuffleHandler = (e) => {
     e.preventDefault();
     console.log('click');
-    dispatch(getShuffle({ input, users, link }));
+    dispatch(getShuffle({ input, Users, link }));
     // console.log('SENDER FRONT', sender)
   };
 
-  const receiver = useSelector((state) => state.shuffle.receiver);
-
-  console.log(users);
+  console.log(Users);
 
   console.log('isShuffle', isShuffled);
 
@@ -134,8 +131,8 @@ const Adminroom = () => {
       {isShuffled ? (
         <div className="shuffling">
           <div className="after">
-            {users &&
-              users.map((user) => (
+            {Users &&
+              Users.map((user) => (
                 <h1 key={user.user.id}>
                   {user.user.name} {user.user.surname}
                 </h1>
@@ -154,8 +151,8 @@ const Adminroom = () => {
       ) : (
         <div className="before">
           TABLE
-          {users &&
-            users.map((user) => (
+          {Users &&
+            Users.map((user) => (
               <h1 key={user.user.id}>
                 {user.user.name} {user.user.surname}
                 {/* {user.user.surname} */}
@@ -163,7 +160,6 @@ const Adminroom = () => {
             ))}
         </div>
       )}
-
       <DeleteButton />
     </div>
   );
