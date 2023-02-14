@@ -9,6 +9,7 @@ import DeleteButton from '../DeleteButton/DeleteButton';
 import Logout from '../Logout/Logout';
 
 import './Adminroom.css';
+import CopyLink from './CopyLink/CopyLink';
 
 const Adminroom = () => {
   const initState = { data_closed: '', money: '' };
@@ -16,9 +17,6 @@ const Adminroom = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const backHandler = () => {
-    navigate(-1);
-  };
   const { link } = useParams();
   console.log('params', link);
 
@@ -46,6 +44,7 @@ const Adminroom = () => {
     }
   }, [isShuffled, users]);
 
+
   const cabinet = useSelector((state) => state.cabinet.title);
 
   const formHandler = (e) => {
@@ -66,20 +65,11 @@ const Adminroom = () => {
 
   console.log('isShuffle', isShuffled);
 
-  const [copySuccess, setCopySuccess] = useState('');
-
-  const copyToClipBoard = async (copyMe) => {
-    try {
-      await navigator.clipboard.writeText(copyMe);
-      setCopySuccess('Copied!');
-    } catch (err) {
-      setCopySuccess('Failed to copy!');
-    }
-  };
-
   const deleteClick = () => {
     console.info('You clicked the Chip.');
   };
+
+  const [getPaits, setGetPairs] = useState('')
 
   return (
     <div className="fullContainer">
@@ -105,19 +95,7 @@ const Adminroom = () => {
           />
           <div className="textUnderImg">
             <p>{cabinet} </p>
-            <Tooltip title="скопируйте ссылку для приглашения" arrow>
-              <Chip
-                label="Ссылка на комнату"
-                variant="outlined"
-                color="success"
-                size="big"
-                onClick={() =>
-                  copyToClipBoard(`http://localhost:3000/one/${link}`)
-                }
-              />
-            </Tooltip>
-            {copySuccess}
-            {/* <a href="URL">Пригласить</a> */}
+            <CopyLink />
           </div>
         </div>
 
@@ -155,11 +133,11 @@ const Adminroom = () => {
         <div className="userlist"></div>
       </div>
 
-      {isShuffled ? (
-        <div className="shuffling">
-          table
-          <div className="before">
-            {users &&
+       {isShuffled ? (
+        
+        <div className='shuffling'>
+        <div className='after'>
+        {users &&
               users.map((user) => (
                 <h1 key={user.user.id}>
                   {user.user.name} {user.user.surname}
@@ -175,24 +153,10 @@ const Adminroom = () => {
               ))}
           </div>
         </div>
-      ) : (
-        <div className="before">
-          TABLE
-          {users &&
-            users.map((user) => (
-              <h1 key={user.user.id}>
-                {user.user.name} {user.user.surname}
-                {/* {user.user.surname} */}
-              </h1>
-            ))}
-        </div>
-      )}
 
-      {/* <div className="btn-close ">
+        )}   
+         <DeleteButton />
 
-            <button type="button" onClick={deleteClick} className="christmas-btn">Закрыть комнату</button>
-          </div> */}
-      <DeleteButton />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { acceptInvite } from '../../store/asyncThunk/acceptInvite';
+import { getPresents } from '../../store/asyncThunk/getPresents';
 import { getUser } from '../../store/asyncThunk/getUser';
 import styles from './UserWithLink.module.css';
 export default function Login() {
@@ -33,6 +34,7 @@ export default function Login() {
     console.log('B4 USEEFFECT IN INVITE USER');
     if(invited) {
       dispatch(getUser());
+      dispatch(getPresents());
       console.log('USEEFFECT IN INVITE USER');
       navigate('/account');
     }
