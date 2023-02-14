@@ -17,6 +17,7 @@
     padding: 10px;
     // @include border();
     ul {
+      padding: 0;
       width: 100%;
       display: flex;
       justify-content: space-evenly;
@@ -36,12 +37,16 @@
     align-items: center;
     justify-content: space-evenly;
     position: relative;
-    // @include border();
+
+    color: white;
+
+    @include border();
+    @include mainColor();
 
     .userInfoImg {
       width: 75px;
       height: 75px;
-      // @include border();
+      @include border();
       border-radius: 10px;
     }
 
@@ -71,7 +76,9 @@
       position: absolute;
       right: 11px;
       top: 7px;
-      font-size: 21px;
+      color: white;
+      font-weight: 500;
+      font-size: 23px;
 
       cursor: pointer;
     }
@@ -93,11 +100,14 @@
       max-height: 350px;
       overflow: overlay;
       border: none;
-      @include scroll();
 
       font-size: 19px;
       text-align: center;
       position: relative;
+
+      @include scroll();
+      @include border();
+      @include mainColor();
 
       .wishName {
         font-size: 21px;
@@ -107,16 +117,16 @@
         transform: translate(-50%);
         position: absolute;
       }
-      ul {
+      .wishCenter {
         height: fit-content;
         margin-top: 37px;
         padding-bottom: 15px;
         @include flex();
         //justify-content: center;
 
-        & > *:not(:last-child) {
-          margin-bottom: 10px;
-        }
+        // & > *:not(:last-child) {
+        //   margin-bottom: 10px;
+        // }
       }
 
       .addWish {
@@ -125,20 +135,25 @@
         top: 2px;
         cursor: pointer;
 
-        color: rgb(119, 119, 119);
+        color: rgb(255, 255, 255);
         font-size: 23px;
       }
       input {
+        margin-top: -25px;
         margin-bottom: 12px;
         width: 75%;
         padding: 5px;
 
-        height: 15px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
         text-align: center;
         font-size: 16px;
-      }
 
-      @include border();
+        &:focus {
+          outline: none;
+        }
+      }
     }
   }
 

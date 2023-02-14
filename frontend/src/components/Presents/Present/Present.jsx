@@ -21,10 +21,10 @@ export default function Present({ present }) {
             dispatch(receivePresent({ presentId: present.id }));
           }}
         >
-          Получил подарок!
+          Получить подарок!
         </button>
       ) : (
-        <div>✅ Получил подарок</div>
+        <button className="presentRreceived">✅ Получил подарок</button>
       )}
     </div>
   );

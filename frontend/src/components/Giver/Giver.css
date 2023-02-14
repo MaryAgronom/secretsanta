@@ -19,6 +19,9 @@
   margin-left: -230px;
   border-radius: 30px;
   margin-right: 50px;
+  background: #5e0d0c;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.25), inset 0 0 6px #a23227,
+    inset 0 80px 80px -40px #ac3223, 1px 1px 3px rgba(0, 0, 0, 0.75);
 }
 
 .avatar-container-giver {
@@ -50,22 +53,40 @@
     height: 25%; */
   display: flex;
   flex-direction: column;
+
   /* justify-content: center; */
   align-items: center;
 }
 
 .info-giver {
   height: 500px;
-  width: 250px;
+  width: 261px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
+.info-list-giver {
+  padding: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background: #5e0d0c;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.25), inset 0 0 6px #a23227,
+    inset 0 80px 80px -40px #ac3223, 1px 1px 3px rgba(0, 0, 0, 0.75);
+}
+
 .info-item {
+  display: flex;
   font-size: 22px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.info-item > div {
+  margin-left: 5px;
 }
 
 .counter {
