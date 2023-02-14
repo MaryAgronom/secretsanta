@@ -7,7 +7,7 @@ export const acceptInvite = createAsyncThunk(
     console.log('here')
     try {
       console.log('in invite thunk')
-      const {data} = await fetch(`http://localhost:5005/registration/${link}`, {
+      const response = await fetch(`http://localhost:5005/registration/${link}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -15,12 +15,9 @@ export const acceptInvite = createAsyncThunk(
         credentials: 'include',
         body: JSON.stringify(inputs),
       });
-      // const { data }  = await axios({
-      //   method: 'post',
-      //   url: `http://localhost:5005/registration/${link}`,
-      //   data: {inputs},
-      //   withCredentials: true,
-      // });
+
+      const data = await response.json()
+      // console.log('res', res);
       console.log('INVITE DATA', data);
       return data;
      

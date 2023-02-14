@@ -1,8 +1,9 @@
 import { Button, TextField } from '@mui/material';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { acceptInvite } from '../../store/asyncThunk/acceptInvite';
+import { getUser } from '../../store/asyncThunk/getUser';
 import styles from './UserWithLink.module.css';
 export default function Login() {
   const dispatch = useDispatch();
@@ -24,6 +25,19 @@ export default function Login() {
     dispatch(acceptInvite({link, inputs}))
     console.log('after dispatch')
   }
+
+  const invited = useSelector((state) => state.user.invite);
+  console.log('INVITED', invited);
+
+  useEffect(() => {
+    console.log('B4 USEEFFECT IN INVITE USER');
+    if(invited) {
+      dispatch(getUser());
+      console.log('USEEFFECT IN INVITE USER');
+      navigate('/account');
+    }
+  }, [invited]);
+  
   return (
     <>
       <div>USER</div>

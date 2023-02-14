@@ -3,6 +3,7 @@ const prisma = new PrismaClient();
 
 const getUser = async (req, res) => {
   const userId = req.session?.userId;
+  console.log('GET USER');
   if (userId) {
     try {
       const user = await prisma.user.findUnique({

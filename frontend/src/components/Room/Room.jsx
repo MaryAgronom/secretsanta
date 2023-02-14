@@ -23,9 +23,10 @@ const Room = () => {
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
-      if (data.created) {
+      console.log('ROOM on FRONT', data)
+      if (data.link) {
         setInputs(initialState);
-        navigate('/adminroom');
+        navigate(`/all/${data.link}`);
       }
     } catch (error) {
       console.log(error);

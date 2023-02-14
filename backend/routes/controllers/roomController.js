@@ -16,17 +16,15 @@ const Room = async (req, res) => {
       link,
     },
   });
-  const roomId = rooms.id;
-  const userAndRoom = await prisma.userAndRoom.create({
-    data: {
-      userId: admin_id,
-      roomId,
-    },
-  });
-  console.log('ROOOM', userAndRoom);
-  res.json({
-    created: true,
-  });
+  // const roomId = rooms.id;
+  // const userAndRoom = await prisma.userAndRoom.create({
+  //   data: {
+  //     userId: admin_id,
+  //     roomId,
+  //   },
+  // });
+  console.log('ROOOM', rooms);
+  res.json(rooms);
 };
 
 module.exports = { Room };

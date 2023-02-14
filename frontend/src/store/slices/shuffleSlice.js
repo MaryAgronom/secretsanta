@@ -20,7 +20,6 @@ const shuffleSlice = createSlice({
       console.log('getShuffle slice', action.payload);
       const { receiver } =
         action.payload;
-        console.log(action.payload)
       state.receiver = action.payload;
       // state.surname = surname;
       // state.email = email;

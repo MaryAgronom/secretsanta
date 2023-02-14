@@ -1,10 +1,14 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { getUser } from '../../store/asyncThunk/getUser';
 import styles from '../Registration/Registration.module.css';
 
 
 export default function Registration() {
+
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const initialState = { name: '', surname: '', email: '', password: '' };
   const [inputs, setInputs] = useState(initialState);
@@ -29,7 +33,9 @@ export default function Registration() {
       console.log('FRONT', data);
       if (data.created) {
         setInputs(initialState);
-        navigate('/login');
+        dispatch(getUser());
+        navigate('/rooms');
+        
       }
     } catch (e) {
       console.log('ERRROEEO', e);
