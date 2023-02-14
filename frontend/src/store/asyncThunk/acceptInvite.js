@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const acceptInvite = createAsyncThunk(
   'user/acceptInvite',

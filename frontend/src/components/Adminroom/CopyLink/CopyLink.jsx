@@ -6,7 +6,6 @@ export default function CopyLink() {
   const [copySuccess, setCopySuccess] = useState('');
 
   const { link } = useParams();
-  console.log('params', link);
 
   const copyToClipBoard = async (copyMe) => {
     try {

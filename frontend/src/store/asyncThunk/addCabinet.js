@@ -1,8 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const addCabinet = createAsyncThunk(
-  'cabinet/addCabinet',
+  'user/addCabinet',
   async (inputs, { dispatch, rejectWithValue }) => {
     try {
       console.log('ADD CABINET FETCH', inputs)

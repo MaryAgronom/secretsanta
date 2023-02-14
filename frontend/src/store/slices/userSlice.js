@@ -4,6 +4,8 @@ import { deleteWish } from '../asyncThunk/deleteWish';
 import { getUser } from '../asyncThunk/getUser';
 import { logoutUser } from '../asyncThunk/logoutUser';
 import { acceptInvite } from '../asyncThunk/acceptInvite'
+import { deleteRoom } from '../asyncThunk/deleteRoom';
+import { addCabinet } from '../asyncThunk/addCabinet';
 
 const initialState = {
   id: null,
@@ -111,6 +113,72 @@ const userSlice = createSlice({
       // state.surname = '';
 
       state.status = 'fulfilled';
+    });
+
+    // CREATE cabinet
+    builder.addCase(addCabinet.pending, (state) => {
+      state.status = 'loading';
+    });
+
+    // fulfilled
+    builder.addCase(addCabinet.fulfilled, (state, action) => {
+      console.log('ADD slice', action.payload);
+      // state.delete = action.payload.deleted;
+      const { id, title, description, isShuffled } =
+        action.payload;
+        console.log('ADDD CABINET', action.payload)
+      state.adminRooms.push(action.payload)
+      // state.id = null;
+      // state.title = '';
+      // state.description = '';
+      // state.isShuffled = false;
+
+      // state.Users = [];
+
+      // state.adminRooms = adminRooms;
+      // state.userInfo = userInfo;
+      state.status = 'fulfilled';
+    });
+
+    //rejected
+    builder.addCase(addCabinet.rejected, (state, action) => {
+      state.error = action.payload;
+      state.status = 'rejected';
+    });
+
+    // DELETE CABINET
+
+    builder.addCase(deleteRoom.pending, (state) => {
+      state.status = 'loading';
+    });
+
+    // fulfilled
+    builder.addCase(deleteRoom.fulfilled, (state, action) => {
+      console.log('DELete slice', action.payload);
+      // state.delete = action.payload.deleted;
+      // const { id, title, description, isShuffled, Users } =
+      //   action.payload;
+      console.log('DELETE ID', action.payload.id)
+      state.adminRooms = state.adminRooms.filter(
+        (room) => room.id !== action.payload.findRoom.id
+      );
+      // state.id = null;
+      // state.id = null;
+      // state.title = '';
+      // state.description = '';
+      // state.isShuffled = false;
+
+      // state.Users = [];
+
+      // state.adminRooms = adminRooms;
+      // state.userInfo = userInfo;
+      state.status = 'fulfilled';
+    });
+
+    //rejected
+    builder.addCase(deleteRoom.rejected, (state, action) => {
+      state.error = action.payload;
+      state.status = 'rejected';
     });
   },
 });

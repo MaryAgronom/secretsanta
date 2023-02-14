@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import roomimg from '../../images/12.png';
 import { addCabinet } from '../../store/asyncThunk/addCabinet';
 import { getPresents } from '../../store/asyncThunk/getPresents';
 import { getUser } from '../../store/asyncThunk/getUser';
+import { cleanShuffle } from '../../store/slices/shuffleSlice';
 import Logout from '../Logout/Logout';
 import './Room.css';
 
@@ -12,7 +13,6 @@ const Room = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const rooms = useSelector((state) => state.user.adminRooms);
-  const newRooms = useSelector((state) => state.cabinet.rooms);
   const initialState = { title: '', description: '' };
   const [inputs, setInputs] = useState(initialState);
 
@@ -28,15 +28,17 @@ const Room = () => {
   };
   console.log(inputs);
 
-  
-  console.log(newRooms);
-
   const accountHandler = (e) => {
     e.preventDefault();
 
     dispatch(getPresents());
     navigate('/account');
   };
+
+  useEffect(() => {
+    console.log('use effect');
+    dispatch(cleanShuffle());
+  }, []);
 
   return (
     <>
@@ -56,11 +58,6 @@ const Room = () => {
           <ul>
             {rooms.map((room) => (
               <li key={room.id} className="room-li-btn">
-                <Link to={'/all/' + room.link}>{room.title}</Link>
-              </li>
-            ))}
-            {newRooms && newRooms.map((room) => (
-              <li key={room.id} className='room-li-btn'>
                 <Link to={'/all/' + room.link}>{room.title}</Link>
               </li>
             ))}

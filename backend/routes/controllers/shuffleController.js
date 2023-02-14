@@ -13,19 +13,18 @@ const Shuffle = async (req, res) => {
       link,
     },
   });
-  // console.log('ROOM FOR SHUFLE', room);
-  
+  console.log('ROOM FOR SHUFLE', room);
+
   if (users && !room.isShuffled) {
     const unsorted = users.map((el) => el.user.id);
     // console.log('UNSORTED', unsorted);
 
     const cloneUnsort = [...unsorted];
 
-
     const j = Math.ceil(Math.random() * (unsorted.length - 1));
-  const cutArr = unsorted.splice(0, j);
-  const sorted = unsorted.concat(cutArr);
-  console.log('j', sorted);
+    const cutArr = unsorted.splice(0, j);
+    const sorted = unsorted.concat(cutArr);
+    console.log('j', sorted);
 
     // const sorted = [...unsorted];
     // const lastName = sorted.pop();
@@ -66,7 +65,7 @@ const Shuffle = async (req, res) => {
           isShuffled: true,
         },
       });
-      console.log('with money', updateRoom)
+      console.log('with money', updateRoom);
       const createPairs = await prisma.present.createMany({
         data: obj,
       });
@@ -108,11 +107,46 @@ const Shuffle = async (req, res) => {
         },
       },
     });
-    console.log(present);
+    console.log('SHUFFE CONTROLLER', present);
     res.json(present);
   } else {
     res.sendStatus(400);
   }
 };
 
-module.exports = { Shuffle };
+const takeReceiver = async (req, res) => {
+  const { link } = req.params;
+  console.log('takeReceiver', req.params);
+  try {
+    const room = await prisma.room.findUnique({
+      where: {
+        link,
+      },
+    });
+    console.log('ROOM FOR SHUFLE', room);
+    if (room.isShuffled === true) {
+      const present = await prisma.present.findMany({
+        where: {
+          room_id: room.id,
+        },
+        select: {
+          receiver: {
+            select: {
+              id: true,
+              name: true,
+              surname: true,
+            },
+          },
+        },
+      });
+      console.log('SHUFFE CONTROLLER', present);
+      res.json(present);
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+module.exports = { Shuffle, takeReceiver };

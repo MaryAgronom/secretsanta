@@ -42,7 +42,7 @@ export default function Registration() {
     }
   };
 
-  
+
 
   return (
     <section className={styles.regcont} >
@@ -50,7 +50,7 @@ export default function Registration() {
         <div className={styles.postsList}>
           <form onSubmit={addHandler}>
             <div className={styles.postsList_item}>
-              <TextField
+              <TextField focused
                 onChange={formHandler}
                 fullWidth
                 name="name"
@@ -62,7 +62,7 @@ export default function Registration() {
               />
             </div>
             <div className={styles.postsList_item}>
-              <TextField
+              <TextField focused
                 onChange={formHandler}
                 fullWidth
                 // required
@@ -73,7 +73,7 @@ export default function Registration() {
               />
             </div>
             <div className={styles.postsList_item}>
-              <TextField
+              <TextField focused
                 onChange={formHandler}
                 fullWidth
                 // required
@@ -84,7 +84,7 @@ export default function Registration() {
               />
             </div>
             <div className={styles.postsList_item}>
-              <TextField
+              <TextField focused
                 onChange={formHandler}
                 fullWidth
                 // required

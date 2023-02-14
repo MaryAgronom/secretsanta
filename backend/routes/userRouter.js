@@ -8,6 +8,7 @@ const {
   getPresents,
   sendPresent,
   receivedPresent,
+  deleteCabinet,
 } = require('./controllers/userController.js');
 
 // /user
@@ -18,5 +19,6 @@ router.put('/presents/received', checkUser, receivedPresent);
 router.put('/', checkUser, updateUser);
 router.post('/wish', checkUser, addWish);
 router.delete('/wish', checkUser, deleteWish);
+router.delete('/cabinet/:link', checkUser, deleteCabinet);
 
 module.exports = router;

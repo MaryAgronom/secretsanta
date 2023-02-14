@@ -82,7 +82,7 @@ textarea[type='text'] {
 
 .room-card {
   width: 25%;
-  height: 400px;
+  height: fit-content;
   background: linear-gradient(
     #9b1818b6,
     #8a1111d0,
