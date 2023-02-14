@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { changeShuffle } from '../slices/adminCabinetSlice';
 import { getPresents } from './getPresents';
 
 export const getShuffle = createAsyncThunk(

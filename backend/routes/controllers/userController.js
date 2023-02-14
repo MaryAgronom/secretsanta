@@ -233,6 +233,36 @@ const receivedPresent = async (req, res) => {
   }
 };
 
+const deleteCabinet = async (req, res) => {
+
+  console.log('STArT DELETE');
+  try {
+    const { link } = req.params;
+    console.log('PARAMS IN CABINET', req.params);
+
+    const findRoom = await prisma.room.findUnique({
+      where: {
+        link,
+      },
+    });
+    const userAndRoom = await prisma.UserAndRoom.deleteMany({
+      where: {
+        roomId: findRoom.id,
+      },
+    });
+    console.log('userAndRoom', userAndRoom);
+
+    const room = await prisma.room.delete({
+      where: {
+        link,
+      },
+    });
+    console.log('ROOM TO DELETE', room);
+    res.json({ findRoom, deleted: true });
+  } catch (e) {
+    console.log(e);
+  }
+}
 module.exports = {
   getUser,
   addWish,
@@ -241,6 +271,7 @@ module.exports = {
   getPresents,
   sendPresent,
   receivedPresent,
+  deleteCabinet,
 };
 
 // const user = await prisma.user.findUnique({

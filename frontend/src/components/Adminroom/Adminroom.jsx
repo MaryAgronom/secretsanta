@@ -11,6 +11,8 @@ import Logout from '../Logout/Logout';
 import './Adminroom.css';
 import CopyLink from './CopyLink/CopyLink';
 import ShuffleButton from './ShuffleButton/ShuffleButton';
+import ShufflingInputs from './ShuflingInputs/ShufflingInputs';
+import UsersTable from './UsersTable/UsersTable';
 
 const Adminroom = () => {
   const initState = { data_closed: '', money: '' };
@@ -25,41 +27,19 @@ const Adminroom = () => {
   const cabinet = useSelector((state) => state.cabinet.title);
   const receiver = useSelector((state) => state.shuffle.receiver);
 
-  // useEffect(() => {
-  //   console.log('use effect');
-  //   if (link) {
-  //     console.log('link exist', link);
-  //     dispatch(getCabinet(link));
-  //   }
-  // }, []);
-
   console.log('iS Shuffled b4', isShuffled);
 
   // useEffect(() => {
   //   console.log('use effect k shaflu');
-
   //   if (isShuffled) {
   //     console.log('SANKA K SHAFFLU');
-  //     // setTimeout(() => {
   //     dispatch(getShuffle({ input, Users, link }));
-  //     // }, 1000)
   //   }
-  // }, [isShuffled, Users]);
-
-  const formHandler = (e) => {
-    console.log(input);
-    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  // }, [ Users]);
 
   console.log(Users);
 
   console.log('isShuffle', isShuffled);
-
-  const deleteClick = () => {
-    console.info('You clicked the Chip.');
-  };
-
-  const [getPaits, setGetPairs] = useState('');
 
   return (
     <div className="fullContainer">
@@ -67,7 +47,7 @@ const Adminroom = () => {
         <button
           className="christmas-btn"
           onClick={() => {
-            navigate('/rooms');
+            navigate('/rooms')
           }}
         >
           Все Комнаты
@@ -89,71 +69,16 @@ const Adminroom = () => {
         </div>
 
         <div className="btns-Other">
-          <div className="btnOtherInputs">
-            <div className="btnOtherInput">
-              <span>Cтоимость подарка:</span>
-              <input
-                onChange={formHandler}
-                name="money"
-                value={input.money}
-                id="forpadding"
-                type="number"
-                placeholder="Назначить цену"
-              />
-            </div>
-            <div className="btnOtherInput">
-              <span>Нужно отправить до:</span>
-              <input
-                onChange={formHandler}
-                name="data_closed"
-                value={input.data_closed}
-                id="forpadding"
-                type="date"
-                placeholder="Дата окончания"
-              />
-            </div>
-          </div>
-          <ShuffleButton input={input} Users={Users} link={link}  />
+
+          <ShufflingInputs input={input} setInput={setInput} />
+          <ShuffleButton input={input} Users={Users} link={link} setInput={setInput}  />
         </div>
       </div>
       <div></div>
       <div className="userList-container">
         <div className="userlist"></div>
       </div>
-      {isShuffled ? (
-        <div className="shuffling">
-          <div className="after">
-            {Users &&
-              Users.map((user) => (
-                <h3 key={user.user.id}>
-                  {user.user.name} {user.user.surname}
-                </h3>
-              ))}
-          </div>
-
-          <div className="after">
-            {receiver &&
-              receiver.map((el) => (
-                <h3 key={el.receiver.id}>
-                  {el.receiver.name} {el.receiver.surname}
-                </h3>
-              ))}
-          </div>
-        </div>
-      ) : (
-        <div
-          className="after"
-          style={{ backgroundColor: '#245d27', color: 'white' }}
-        >
-          {Users &&
-            Users.map((user) => (
-              <h3 key={user.user.id}>
-                {user.user.name} {user.user.surname}
-                {/* {user.user.surname} */}
-              </h3>
-            ))}
-        </div>
-      )}
+      <UsersTable link={link} />
       <DeleteButton />
     </div>
   );
