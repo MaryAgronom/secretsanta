@@ -6,6 +6,7 @@ const Shuffle = async (req, res) => {
   //   console.log(req.body);
   const { input, users, link } = req.body;
   console.log('USERS', users);
+  console.log(input);
 
   const room = await prisma.room.findUnique({
     where: {
@@ -65,6 +66,7 @@ const Shuffle = async (req, res) => {
           isShuffled: true,
         },
       });
+      console.log('with money', updateRoom)
       const createPairs = await prisma.present.createMany({
         data: obj,
       });

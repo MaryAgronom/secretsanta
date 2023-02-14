@@ -13,7 +13,7 @@ export const getShuffle = createAsyncThunk(
         withCredentials: true,
       });
       console.log('INFO===', data);
-      dispatch(changeShuffle());
+      // dispatch(changeShuffle());
       return data;
     } catch (err) {
       console.log(err);

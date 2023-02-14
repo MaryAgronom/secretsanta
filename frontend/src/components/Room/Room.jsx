@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import roomimg from '../../images/12.png';
+import { addCabinet } from '../../store/asyncThunk/addCabinet';
 import { getPresents } from '../../store/asyncThunk/getPresents';
 import Logout from '../Logout/Logout';
 import './Room.css';
@@ -17,22 +18,24 @@ const Room = () => {
   };
   const addHandler = async (event) => {
     event.preventDefault();
-    try {
-      const res = await fetch('http://localhost:5005/room', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify(inputs),
-      });
-      const data = await res.json();
-      console.log('ROOM on FRONT', data)
-      if (data.link) {
-        setInputs(initialState);
-        navigate(`/all/${data.link}`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const res = await fetch('http://localhost:5005/room', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     credentials: 'include',
+    //     body: JSON.stringify(inputs),
+    //   });
+    //   const data = await res.json();
+    //   console.log('ROOM on FRONT', data)
+    //   if (data.link) {
+    //     setInputs(initialState);
+    //     // navigate(`/all/${data.link}`);
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    
+    dispatch(addCabinet(inputs));
   };
   console.log(inputs);
 

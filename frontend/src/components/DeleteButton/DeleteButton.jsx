@@ -5,16 +5,12 @@ import { deleteRoom } from '../../store/asyncThunk/deleteRoom';
 
 export default function DeleteButton() {
   const { link } = useParams();
-  console.log(link);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const deleted = useSelector((state) => state.cabinet.delete)
-  console.log(deleted)
 
   useEffect(() => {
-    console.log('use effect k shaflu');
-      console.log('useEFFFECt')
     if(deleted) {
       console.log('Deleted true')
       console.log('SANKA K SHAFFLU')
