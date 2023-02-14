@@ -131,7 +131,6 @@ const Adminroom = () => {
       <div className="userList-container">
         <div className="userlist"></div>
       </div>
-
       {isShuffled ? (
         <div className="shuffling">
           <div className="after">
@@ -142,6 +141,7 @@ const Adminroom = () => {
                 </h1>
               ))}
           </div>
+
           <div className="after">
             {receiver &&
               receiver.map((el) => (
@@ -152,8 +152,19 @@ const Adminroom = () => {
           </div>
         </div>
       ) : (
-        <DeleteButton />
+        <div className="before">
+          TABLE
+          {users &&
+            users.map((user) => (
+              <h1 key={user.user.id}>
+                {user.user.name} {user.user.surname}
+                {/* {user.user.surname} */}
+              </h1>
+            ))}
+        </div>
       )}
+
+      <DeleteButton />
     </div>
   );
 };
