@@ -44,7 +44,6 @@ const Adminroom = () => {
     }
   }, [isShuffled, users]);
 
-
   const cabinet = useSelector((state) => state.cabinet.title);
 
   const formHandler = (e) => {
@@ -69,7 +68,7 @@ const Adminroom = () => {
     console.info('You clicked the Chip.');
   };
 
-  const [getPaits, setGetPairs] = useState('')
+  const [getPaits, setGetPairs] = useState('');
 
   return (
     <div className="fullContainer">
@@ -133,11 +132,10 @@ const Adminroom = () => {
         <div className="userlist"></div>
       </div>
 
-       {isShuffled ? (
-        
-        <div className='shuffling'>
-        <div className='after'>
-        {users &&
+      {isShuffled ? (
+        <div className="shuffling">
+          <div className="after">
+            {users &&
               users.map((user) => (
                 <h1 key={user.user.id}>
                   {user.user.name} {user.user.surname}
@@ -153,10 +151,9 @@ const Adminroom = () => {
               ))}
           </div>
         </div>
-
-        )}   
-         <DeleteButton />
-
+      ) : (
+        <DeleteButton />
+      )}
     </div>
   );
 };
