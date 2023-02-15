@@ -10,7 +10,7 @@ export default function ShufflingInputs({input, setInput}) {
   return (
     <>
     {isShuffled ? (
-      <h3>Пары </h3>
+      ''
     ) : (
       <div className="btnOtherInputs">
             <div className="btnOtherInput">
