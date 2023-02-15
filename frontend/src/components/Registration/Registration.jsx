@@ -50,7 +50,8 @@ export default function Registration() {
         <div className={styles.postsList}>
           <form onSubmit={addHandler}>
             <div className={styles.postsList_item}>
-              <TextField focused
+              <TextField 
+              variant="filled" 
                 onChange={formHandler}
                 fullWidth
                 name="name"
@@ -62,7 +63,8 @@ export default function Registration() {
               />
             </div>
             <div className={styles.postsList_item}>
-              <TextField focused
+              <TextField
+              variant="filled" 
                 onChange={formHandler}
                 fullWidth
                 // required
@@ -73,7 +75,8 @@ export default function Registration() {
               />
             </div>
             <div className={styles.postsList_item}>
-              <TextField focused
+              <TextField 
+              variant="filled" 
                 onChange={formHandler}
                 fullWidth
                 // required
@@ -84,7 +87,8 @@ export default function Registration() {
               />
             </div>
             <div className={styles.postsList_item}>
-              <TextField focused
+              <TextField
+              variant="filled"  
                 onChange={formHandler}
                 fullWidth
                 // required

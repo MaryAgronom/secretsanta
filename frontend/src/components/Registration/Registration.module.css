@@ -40,6 +40,7 @@
   justify-content: center;
   margin: 20px;
   /* border: 2px solid rgb(59, 160, 227); */
+  background-color: white;
 }
 
 .btn {
@@ -52,7 +53,8 @@
 .knopa {
   position: relative;
   color: rgb(255, 255, 255);
-  font-weight: bold;
+  font-weight:bold;
+  font-size: x-large;
   text-decoration: none;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   /* text-shadow: -1px -1px rgb(119, 117, 117); */
