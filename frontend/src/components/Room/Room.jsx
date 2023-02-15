@@ -54,14 +54,30 @@ const Room = () => {
       </div>
       <div className="room-container">
         <div className="room-card">
-          <h3>Комнаты</h3>
-          <ul>
-            {rooms.map((room) => (
-              <li key={room.id} className="room-li-btn">
-                <Link to={'/all/' + room.link}>{room.title}</Link>
-              </li>
-            ))}
-          </ul>
+          
+            {rooms.length > 0  ? (
+              <>
+              <h3>Комнаты</h3>
+              <ul>
+                {rooms.map((room) => (
+                <li key={room.id} className="room-li-btn">
+                  <Link to={'/all/' + room.link}>{room.title}</Link>
+                </li>
+                
+                
+              ))}
+              </ul>
+              </>
+            ) : (
+              // rooms.map((room) => (
+              //   <li key={room.id} className="room-li-btn">
+              //     <Link to={'/all/' + room.link}>{room.title}</Link>
+              //   </li>
+              // ))
+              <h3>Здесь могут быть выши комнаты</h3>
+            )}
+            
+          
         </div>
 
         <div className="img-container">

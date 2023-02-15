@@ -126,7 +126,7 @@
 }
 .userList-container {
   background-color: #7b3333;
-  border: 2px dotted darkred;
+  /* border: 2px dotted darkred; */
 }
 .userlist {
   /* width: max-content; */
@@ -193,7 +193,7 @@
   flex-direction: row;
   font-style: italic;
   color: aliceblue;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   background-color: #245d27;
   width: 80%;
   max-width: 750px;
