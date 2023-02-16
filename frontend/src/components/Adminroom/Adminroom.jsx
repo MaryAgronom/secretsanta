@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import roomimg from '../../images/12.png';
-import { getCabinet } from '../../store/asyncThunk/getCabinet';
-import { getShuffle } from '../../store/asyncThunk/getShuffle';
+import { cleanShuffle } from '../../store/slices/adminCabinetSlice';
 import DeleteButton from '../DeleteButton/DeleteButton';
-import Logout from '../Logout/Logout';
 
 import './Adminroom.css';
 import CopyLink from './CopyLink/CopyLink';
@@ -41,6 +39,7 @@ const Adminroom = () => {
           className="christmas-btn"
           onClick={() => {
             navigate('/rooms')
+            dispatch(cleanShuffle());
           }}
         >
           Все Комнаты

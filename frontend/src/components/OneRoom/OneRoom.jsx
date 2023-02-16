@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getCabinet } from '../../store/asyncThunk/getCabinet';
 import Adminroom from '../Adminroom/Adminroom';
 import Lightrope from '../Lightrope/Lightrope';
+import { takeReceiver } from '../../store/asyncThunk/takeReceiver';
 
 export default function OneRoom() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export default function OneRoom() {
   useEffect(() => {
     console.log('use effect');
     dispatch(getCabinet(link));
+    dispatch(takeReceiver(link))
   }, []);
 
   // const users = useSelector((state) => state.shuffle.users)
