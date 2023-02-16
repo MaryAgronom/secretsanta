@@ -40,6 +40,11 @@
   background-color: #fff;
 }
 
+.avatar-giver img {
+  width: 100%;
+  height: 100%;
+}
+
 .lists-giver {
   margin-top: 1.5vh;
   width: 100%;
@@ -60,7 +65,7 @@
 
 .info-giver {
   height: 500px;
-  width: 261px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -80,7 +85,9 @@
 }
 
 .info-item {
+  width: 100%;
   display: flex;
+  align-items: center;
   font-size: 22px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

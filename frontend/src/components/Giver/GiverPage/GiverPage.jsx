@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { sendPresent } from '../../../store/asyncThunk/sendPresent';
+import fox from '../../../images/avatars/fox.png';
 
 export default function GiverPage({ present }) {
   console.log(present);
@@ -12,12 +13,14 @@ export default function GiverPage({ present }) {
   return (
     <div>
       <div className="counter">
-        <h4>Отослать до: {room.data_closed?.slice(0,10) || 'Даты нет'}</h4>
+        <h4>Отослать до: {room.data_closed?.slice(0, 10) || 'Даты нет'}</h4>
       </div>
       <div className="container-giver">
         <div className="card-giver">
           <div className="avatar-container-giver">
-            <div className="avatar-giver" />
+            <div className="avatar-giver">
+              <img src={fox} alt="avatarImg" />
+            </div>
           </div>
           <div className="lists-giver">
             <div className="list-giver">
@@ -41,16 +44,16 @@ export default function GiverPage({ present }) {
         <div className="info-giver">
           <div className="info-list-giver">
             <div className="info-item">
-              <h3>Имя:</h3>
-              <div>{receiver.name + ' ' + receiver.surname}</div>
+              <h4>Имя:</h4>
+              <h4>{receiver.name + ' ' + receiver.surname}</h4>
             </div>
             <div className="info-item">
-              <h3>Адрес:</h3>
-              <div>{userInfo.address || 'Адресса нет'}</div>
+              <h4>Адрес:</h4>
+              <h4>{userInfo.address || 'Адресса нет'}</h4>
             </div>
             <div className="info-item">
-              <h3>Размер одежды:</h3>
-              <div>{userInfo.size || 'Размера нет'}</div>
+              <h4>Размер одежды:</h4>
+              <h4>{userInfo.size || 'Размера нет'}</h4>
             </div>
             {present.send && (
               <div className="info-item" style={{ marginTop: '10px' }}>
