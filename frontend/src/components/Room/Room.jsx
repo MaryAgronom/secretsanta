@@ -7,6 +7,7 @@ import { getPresents } from '../../store/asyncThunk/getPresents';
 import { getUser } from '../../store/asyncThunk/getUser';
 import { cleanShuffle } from '../../store/slices/shuffleSlice';
 import Logout from '../Logout/Logout';
+import Lightrope from '../Lightrope/Lightrope';
 import './Room.css';
 
 const Room = () => {
@@ -42,6 +43,8 @@ const Room = () => {
 
   return (
     <>
+     <Lightrope />
+     {/* <div className='roomContainerr'> */}
       <div className="btn-container-room">
         <button
           type="button"
@@ -54,14 +57,30 @@ const Room = () => {
       </div>
       <div className="room-container">
         <div className="room-card">
-          <h3>Комнаты</h3>
-          <ul>
-            {rooms.map((room) => (
-              <li key={room.id} className="room-li-btn">
-                <Link to={'/all/' + room.link}>{room.title}</Link>
-              </li>
-            ))}
-          </ul>
+          
+            {rooms.length > 0  ? (
+              <>
+              <h3>Комнаты</h3>
+              <ul>
+                {rooms.map((room) => (
+                <li key={room.id} className="room-li-btn">
+                  <Link to={'/all/' + room.link}>{room.title}</Link>
+                </li>
+                
+                
+              ))}
+              </ul>
+              </>
+            ) : (
+              // rooms.map((room) => (
+              //   <li key={room.id} className="room-li-btn">
+              //     <Link to={'/all/' + room.link}>{room.title}</Link>
+              //   </li>
+              // ))
+              <h3>Здесь могут быть ваши комнаты</h3>
+            )}
+            
+          
         </div>
 
         <div className="img-container">
@@ -98,6 +117,7 @@ const Room = () => {
           </button>
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 };

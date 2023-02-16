@@ -10,16 +10,16 @@ export default function CopyLink() {
   const copyToClipBoard = async (copyMe) => {
     try {
       await navigator.clipboard.writeText(copyMe);
-      setCopySuccess('Copied!');
+      setCopySuccess('');
     } catch (err) {
       setCopySuccess('Failed to copy!');
     }
   };
   return (
     <>
-      <Tooltip title="скопируйте ссылку для приглашения" arrow>
+      {/* <Tooltip placement="top" title="скопируйте ссылку для приглашения" arrow> */}
         <Chip
-          label="Ссылка на комнату"
+          label="Пригласить"
           variant="filled"
           color="primary"
           size="big"
@@ -33,7 +33,7 @@ export default function CopyLink() {
           }}
           onClick={() => copyToClipBoard(`http://localhost:3000/one/${link}`)}
         />
-      </Tooltip>
+      {/* </Tooltip> */}
       {copySuccess}
     </>
   );

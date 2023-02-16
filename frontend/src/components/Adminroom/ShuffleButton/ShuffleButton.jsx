@@ -1,3 +1,4 @@
+import { Chip } from '@mui/material';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getShuffle } from '../../../store/asyncThunk/getShuffle';
@@ -17,24 +18,25 @@ export default function ShuffleButton({input, Users, link, setInput}) {
   const isShuffled = useSelector((state) => state.cabinet.isShuffled);
   return (
     <>
-    {/* {isShuffled ? (
-      <h3> назначены</h3>
-    ) : ( */}
-    <button
+    {isShuffled ? (
+      ''
+    ) : (
+    <Chip
             onClick={shuffleHandler}
-            type="button"
-            className="christmas-btn"
-            style={{
-              width: '150px',
-              // height: '60px',
-              fontSize: '21px',
-              padding: '5px',
-              textAlign: 'center',
-            }}
-          >
-            Назначить пары
-          </button>
-          {/* )} */}
+            label="Создать пары"
+          variant="filled"
+          color="primary"
+          size="big"
+          style={{
+            fontSize: '20px',
+            width: '220px',
+            height: '50px',
+            backgroundColor: '#5e0d0c',
+            boxShadow: `inset 1px 1px 0px rgba(255, 255, 255, 0.25), inset 0 0 6px #a23227,
+          inset 0 80px 80px -40px #ac3223, 1px 1px 3px rgba(0, 0, 0, 0.75)`,}}
+          />
+            )}
+          
           </>
   )
 }

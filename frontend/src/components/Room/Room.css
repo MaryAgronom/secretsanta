@@ -7,10 +7,11 @@
 
 .btn-container-room {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding-top: 50px;
   margin-left: 30%;
   margin-right: 30%;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 .btns {
   margin-left: 40px;
@@ -170,6 +171,10 @@ textarea[type='text'] {
     text-align: center;
     align-items: center;
   }
+  .roomContainerr {
+    display: flex;
+    flex-direction: column;
+  }
   .btn-container-room {
     display: flex;
     justify-content: center;
@@ -187,9 +192,13 @@ textarea[type='text'] {
     font-size: 100%;
   }
   .img-container {
-    width: 100%;
+    display: flex;
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
   }
   .img-container img {
+    /* justify-content: center; */
     height: 150px;
     width: 150px;
     margin: 7%;

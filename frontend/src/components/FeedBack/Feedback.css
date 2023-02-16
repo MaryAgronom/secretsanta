@@ -4,8 +4,8 @@
   background-size: 100%;
   display: flex;
   position: absolute;
-  top: -1vh;
-  right: -5vh;
+  top: 8vh;
+  left: 5%;
   align-items: center;
   justify-content: center;
   transform: scale(0.5);

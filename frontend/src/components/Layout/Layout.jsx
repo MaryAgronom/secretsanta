@@ -167,8 +167,9 @@ const downscroll = useSpring({
             <img src = {aboutImg} style={{height: "450px", width: '600px'}}/>
           </div>
           <div className='about-text'>
-            <h2 className='about-title fs-26 ls-1'>О нашем проекте</h2>
-            <p className='fs-17'>Описание проекта</p>
+            <h2 className='about-title fs-26 ls-1'>Тайный Санта<p>или Неочевидный Дед Мороз</p></h2>
+           
+            <h2 className='about-title fs-26 ls-1'>Это игра создана, чтобы усилить Новогодний настрой элементом неожиданности! <p>Подарки - это само по себе здорово. Но мы решили добавить интриги, ведь так приятно пофантазировать, от кого же пришёл сюрприз!</p></h2>
           </div>
         </div>
         <img src={sugrob} className='sugrobchik'></img>

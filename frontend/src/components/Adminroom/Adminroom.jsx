@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import roomimg from '../../images/12.png';
-import { getCabinet } from '../../store/asyncThunk/getCabinet';
-import { getShuffle } from '../../store/asyncThunk/getShuffle';
+import { cleanShuffle } from '../../store/slices/adminCabinetSlice';
 import DeleteButton from '../DeleteButton/DeleteButton';
-import Logout from '../Logout/Logout';
 
 import './Adminroom.css';
 import CopyLink from './CopyLink/CopyLink';
@@ -29,29 +27,25 @@ const Adminroom = () => {
 
   console.log('iS Shuffled b4', isShuffled);
 
-  // useEffect(() => {
-  //   console.log('use effect k shaflu');
-  //   if (isShuffled) {
-  //     console.log('SANKA K SHAFFLU');
-  //     dispatch(getShuffle({ input, Users, link }));
-  //   }
-  // }, [ Users]);
-
   console.log(Users);
 
   console.log('isShuffle', isShuffled);
 
   return (
     <div className="fullContainer">
-      <div className="container-top">
+      <div className="container-Top">
+        <div className='adminTopBtn'>
         <button
           className="christmas-btn"
           onClick={() => {
             navigate('/rooms')
+            dispatch(cleanShuffle());
           }}
         >
           Все Комнаты
         </button>
+        </div>
+        <div className='adminTopBtn'>
         <button
           className="christmas-btn"
           onClick={() => {
@@ -60,10 +54,11 @@ const Adminroom = () => {
         >
           ОДМЕН
         </button>
-        {/* <button className="btns-top-admin">Анкета</button> */}
+        </div>
       </div>
       <div className="content-Admin">
-        <div className="img-Container">
+        {isShuffled ? (
+          <div className="img-Container">
           <img
             src={roomimg}
             alt=""
@@ -72,16 +67,66 @@ const Adminroom = () => {
           />
           <div className="textUnderImg">
             <p>{cabinet} </p>
-            <CopyLink />
           </div>
+          
+        </div>
+        ) : (
+          <>
+          <div className="img-Container">
+          <img
+            src={roomimg}
+            alt=""
+            className="img-House"
+            style={{ height: '200px', width: '200px' }}
+          />
+          <div className="textUnderImg">
+            <p>{cabinet} </p>
+          </div>
+          
+        </div>
+          <div className='shuflerButtons'>
+          <div className='chipBtn'>
+        <CopyLink />
+        </div>
+        <div className='chipBtn'>
+        <ShuffleButton input={input} Users={Users} link={link} setInput={setInput}  />
+        </div>
         </div>
 
         <div className="btns-Other">
 
           <ShufflingInputs input={input} setInput={setInput} />
-          <ShuffleButton input={input} Users={Users} link={link} setInput={setInput}  />
+          
         </div>
-      </div>
+        </>
+        )}
+        {/* <div className="img-Container">
+          <img
+            src={roomimg}
+            alt=""
+            className="img-House"
+            style={{ height: '200px', width: '200px' }}
+          />
+          <div className="textUnderImg">
+            <p>{cabinet} </p>
+          </div>
+          
+        </div> 
+         <div className='shuflerButtons'>
+          <div className='chipBtn'>
+        <CopyLink />
+        </div>
+        <div className='chipBtn'>
+        <ShuffleButton input={input} Users={Users} link={link} setInput={setInput}  />
+        </div>
+        </div>
+
+        <div className="btns-Other">
+
+          <ShufflingInputs input={input} setInput={setInput} />
+          
+        </div> */}
+      </div> 
       <div></div>
       <div className="userList-container">
         <div className="userlist"></div>

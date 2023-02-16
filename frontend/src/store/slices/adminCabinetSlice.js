@@ -17,7 +17,7 @@ const adminCabinetSlice = createSlice({
   reducers: {
     cleanShuffle(state) {
       state.users = [];
-      // state.isShuffled = false;
+      state.receiver = [];
     },
   },
   extraReducers: (builder) => {
@@ -99,4 +99,4 @@ const adminCabinetSlice = createSlice({
 });
 
 export default adminCabinetSlice.reducer;
-export const { changeShuffle } = adminCabinetSlice.actions;
+export const { cleanShuffle } = adminCabinetSlice.actions;

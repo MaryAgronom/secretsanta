@@ -51,6 +51,7 @@ export default function Login() {
                 name="email"
                 className="outlined-required"
                 label="Почта"
+                variant="filled" 
                 value={inputs.email}
               />
             </div>
@@ -61,8 +62,9 @@ export default function Login() {
                 // required
                 type="password"
                 name="password"
-                className="outlined-required"
+                className="filled-basic"
                 label="Пароль"
+                variant="filled" 
                 value={inputs.password}
               />
             </div>
