@@ -72,6 +72,9 @@ const Shuffle = async (req, res) => {
       console.log('Pairs gen', createPairs);
 
       const present = await prisma.present.findMany({
+        orderBy: {
+          id: 'asc',
+        },
         where: {
           room_id: room.id,
         },
@@ -94,6 +97,9 @@ const Shuffle = async (req, res) => {
   } else if (room.isShuffled === true) {
     console.log('ShuffleDone');
     const present = await prisma.present.findMany({
+      orderBy: {
+        id: 'asc',
+      },
       where: {
         room_id: room.id,
       },
@@ -126,6 +132,9 @@ const takeReceiver = async (req, res) => {
     console.log('ROOM FOR SHUFLE', room);
     if (room.isShuffled === true) {
       const present = await prisma.present.findMany({
+        // orderBy: {
+        //   id: 'asc',
+        // },
         where: {
           room_id: room.id,
         },

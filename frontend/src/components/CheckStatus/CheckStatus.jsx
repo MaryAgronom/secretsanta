@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { checkStatus } from '../../store/asyncThunk/checkStatus';
 import './CheckStatus.css'
+import Lightrope from '../Lightrope/Lightrope';
+import sadSanta from '../../images/sad-santa.png';
+import happySanta from '../../images/cool-santa.png';
+import { Avatar, Chip } from '@mui/material';
 
 export default function CheckStatus() {
   const navigate = useNavigate();
@@ -17,6 +21,8 @@ export default function CheckStatus() {
   }, []);
   return (
     <>
+    <Lightrope />
+    <div className='upButtonStatus'>
     <button
           className="christmas-btn"
           onClick={() => {
@@ -33,23 +39,39 @@ export default function CheckStatus() {
         >
           НАЗАД
         </button>
+        </div>
           <div className='statusContainer' >
-            <div className='sender'>
-              <h1>отправитель</h1>
+            <ol className='sender'>
+              <h1>Отправитель</h1>
           {users && users.map((user) => (
             <>
-            <h4>{user.sender.name} {user.sender.surname} - {user.send ? ('Отправил подарочек') : ('Не отправил подарочек')}</h4>
+            <li>
+              <span>{user.sender.name} {user.sender.surname}</span>  {user.send ? (<div className='happySantaChip'>
+            <img src={happySanta} className='sadSanta'></img>
+            <span>санта радуется</span>
+            </div>) : (
+              <div className='sadSantaChip'>
+            <img src={sadSanta} className='sadSanta'></img>
+            <span>санта грустит</span>
+            </div>
+            )}</li>
             </>
           ))}
-            </div>
-            <div className='receiver'>
-            <h1>получатель</h1>
+            </ol>
+            <ul className='receiver'>
+            <h1>Получатель</h1>
             {users && users.map((user) => (
-            <h4>{user.receiver.name} {user.receiver.surname} - {user.received ? ('получил подарочек') : ('Не получил подарочек')}</h4>
+            <li>
+              <span>{user.receiver.name} {user.receiver.surname}</span>  {user.received ? (<div className='happySantaChip'>
+            <img src={happySanta} className='sadSanta'></img>
+            <span>санта радуется</span>
+            </div>) : (<div className='sadSantaChip'>
+            <img src={sadSanta} className='sadSanta'></img>
+            <span>санта грустит</span>
+            </div>)}</li>
           ))}
-            </div>
+            </ul>
           </div>
-
         </>
   )
 }

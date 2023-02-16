@@ -7,6 +7,7 @@ import { getPresents } from '../../store/asyncThunk/getPresents';
 import { getUser } from '../../store/asyncThunk/getUser';
 import { cleanShuffle } from '../../store/slices/shuffleSlice';
 import Logout from '../Logout/Logout';
+import Lightrope from '../Lightrope/Lightrope';
 import './Room.css';
 
 const Room = () => {
@@ -42,6 +43,8 @@ const Room = () => {
 
   return (
     <>
+     <Lightrope />
+     {/* <div className='roomContainerr'> */}
       <div className="btn-container-room">
         <button
           type="button"
@@ -114,6 +117,7 @@ const Room = () => {
           </button>
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 };

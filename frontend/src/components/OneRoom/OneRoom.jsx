@@ -1,13 +1,11 @@
-import { Button } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getCabinet } from '../../store/asyncThunk/getCabinet';
 import Adminroom from '../Adminroom/Adminroom';
-import { getShuffle } from '../../store/asyncThunk/getShuffle';
+import Lightrope from '../Lightrope/Lightrope';
 
 export default function OneRoom() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { link } = useParams();
@@ -24,6 +22,7 @@ export default function OneRoom() {
   // console.log(every)
   return (
     <>
+    <Lightrope />
     <Adminroom />
     </>
   )

@@ -1,13 +1,104 @@
 .statusContainer {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
+  margin: 30px;
+  margin-top: 150px;
+  border-radius: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  background: rgba(23, 161, 193, 0.7)
+}
+.upButtonStatus {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; */
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  margin: 10px;
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px;
 }
 
-.sender {
+/* .sender > li{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
+} */
+.sender > ol {
+  display: flex;
+  justify-content: space-between;
+}
+.sender > h1 {
+  display: flex;
+  justify-content: center;
+}
+.receiver{
+  display: flex;
+  flex-direction: column;
+}
+.receiver > h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.sender > li {
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.receiver > li {
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sadSantaChip{
+  background-color: rgb(197, 6, 6);
+  width: 222px;
+  padding: 4px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.sadSantaChip > img {
+  padding: 0px 5px;
+}
+
+.sender > li > span {
+  padding: 0 15px;
+  font-size: 25px;
+}
+.receiver > li > span {
+  padding: 0 15px;
+  font-size: 25px;
+}
+
+.happySantaChip {
+  background-color: rgb(10, 142, 23);
+  width: fit-content;
+  padding: 4px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.happySantaChip > img {
+  padding: 0px 5px;
+  size:10px;
 }

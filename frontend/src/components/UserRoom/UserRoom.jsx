@@ -6,11 +6,13 @@ import UserInfo from './UserInfo/UserInfo';
 import UserMenu from './UserMenu/UserMenu';
 import './UserRoom.scss';
 import UserWishes from './UserWishes/UserWishes';
+import Lightrope from '../Lightrope/Lightrope';
 
 export default function UserRoom() {
   const [accountNav, setAccountNav] = useState('about you');
   return (
     <div className="userRoom">
+      <Lightrope />
       <UserMenu setAccountNav={setAccountNav}>
         {(() => {
           switch (accountNav) {
