@@ -21,6 +21,7 @@ const Login = async (req, res) => {
       res.json({ logUser, logged: true });
     });
   } else {
+    return res.status(500).json({ message: 'Неверный логин или пароль' });
     console.log('oshibka');
   }
 };

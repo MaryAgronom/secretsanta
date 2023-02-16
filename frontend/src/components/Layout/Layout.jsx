@@ -160,7 +160,7 @@ const downscroll = useSpring({
   <li></li>
   <li></li>
 </ul>
-    <section className='about' style={{ backgroundColor: 'rgba(38, 99, 43, 0.729)', backgroundImage: 'none' }}>
+    <section className='about'>
       <div className='container-about'>
         <div className='about-content grid'>
           <div className='about-img'>
