@@ -4,11 +4,23 @@
   flex-direction: row;
   justify-content: space-around;
   margin: 30px;
+  padding: 10px;
+  color: rgb(255, 255, 255);
   margin-top: 150px;
   border-radius: 20px;
   margin-left: 100px;
   margin-right: 100px;
-  background: rgba(23, 161, 193, 0.7)
+  background: linear-gradient(
+    #9b1818e8,
+    #8a1111e8,
+    #740d0de8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #740d0de8,
+    #8a1111e8,
+    #9b1818e8
+  );
 }
 .upButtonStatus {
   /* display: flex;
@@ -23,13 +35,12 @@
   padding-right: 100px;
   padding-top: 50px;
 }
-
-/* .sender > li{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-} */
+.userRoom{
+  background-image: url('../../images/fon2.png');
+  background-size: 110%;
+  height: 100vh;
+  width: 100vw;
+}
 .sender > ol {
   display: flex;
   justify-content: space-between;

@@ -20,7 +20,7 @@ export default function CheckStatus() {
     dispatch(checkStatus(link));
   }, []);
   return (
-    <>
+    <div className="userRoom">
     <Lightrope />
     <div className='upButtonStatus'>
     <button
@@ -72,6 +72,6 @@ export default function CheckStatus() {
           ))}
             </ul>
           </div>
-        </>
+        </div>
   )
 }

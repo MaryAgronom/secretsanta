@@ -26,6 +26,7 @@ export default function CopyLink() {
           style={{
             fontSize: '20px',
             width: '220px',
+            fontFamily: 'Comfortaa',
             height: '50px',
             backgroundColor: '#5e0d0c',
             boxShadow: `inset 1px 1px 0px rgba(255, 255, 255, 0.25), inset 0 0 6px #a23227,

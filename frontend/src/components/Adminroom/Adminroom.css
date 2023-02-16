@@ -15,6 +15,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url('../../images/fon2.png') no-repeat;
+  background-size: 120%;
+  height: 100vh;
   /* justify-content: center; */
 }
 .btns-Top-admin {
@@ -95,7 +98,7 @@
   padding: 15px;
   font-size: 24px;
   font-weight: 600;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Comfortaa', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .btns-Other input {
   margin-bottom: 20px;
@@ -123,7 +126,7 @@
   padding: 4%;
   margin: 3%;
   border-radius: 15px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Comfortaa', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 20px;
   border: 2px solid rgb(138, 24, 24);
 }
@@ -199,14 +202,25 @@
 
 .shuffling {
   margin: 20px;
-  padding: 10px;
+  padding: 15px;
+  padding-right: 25px;
   display: flex;
   flex-direction: row;
   font-style: italic;
   color: aliceblue;
   /* border: 2px solid red; */
   /* background-color: #245d27; */
-  background: rgba(23, 161, 193, 0.7);
+  background: linear-gradient(
+    #9b1818e8,
+    #8a1111e8,
+    #740d0de8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #740d0de8,
+    #8a1111e8,
+    #9b1818e8
+  );
   width: 80%;
   max-width: 750px;
   justify-content: center;
@@ -220,7 +234,17 @@
 .before {
   /* border: 2px solid red; */
   /* background-color: #245d27; */
-  background: rgba(23, 161, 193, 0.7);
+  background: linear-gradient(
+    #9b1818e8,
+    #8a1111e8,
+    #740d0de8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #740d0de8,
+    #8a1111e8,
+    #9b1818e8
+  );
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -241,7 +265,17 @@
   justify-content: center;
   align-items: center;
   /* border: 2px solid black; */
-  background: rgba(23, 161, 193, 0.7);
+  background: linear-gradient(
+    #9b1818e8,
+    #8a1111e8,
+    #740d0de8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #740d0de8,
+    #8a1111e8,
+    #9b1818e8
+  );
   width: 50%;
   border-radius: 20px;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAXCAYAAACS5bYWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABFpJREFUeNrUV0tIo1cUvpkYjQ4xxSA6DxuNqG0dtaUKOgs3s6i0dFd3pSsXdjeIixakiGA34sZuXCkoONLFwJTK4GMYLYXg29gatTpiXurkbd7vv9/5ub+IxuhA7eiFQ5Kbc8/57ne/e87/ywRBYLdl3GG3aNwqsLJ0k0tLS+fmcnNzWUVFBVMoFGx2djarvLxcm5OTw+bm5iytra2xc4ExNjY27iqVyvvwK6CpeDzuCYVC1urq6qDA9UcfPp+PHR4esmAwKK6tr68/l5/8rgQ2Ozub1dbWyiYmJooaGxt/VqvV38jlchX9l0qlwoFA4DWS/RKLxRxFRUVf5+XlPcaaT2AP0sVPJBL2SCRiAPBpu93+vKamZo/Ae71eZjabWV1dXVqw7CKwp43ksrCw8Bhg7MJ/PLDZ5PHx8cz29vYT5JGD/bSYLgTrcDgYdk6siSc6NjZWDaAe4ZoHQL+cmZnRpZPnhWDpD8kw7uKo9ML/NMCsd2tr61vkzboMrEyv138M7TyLRqMWMBsX3sMgaZhMpp+AR5EJrCocDpuEGzKg4x8khs+CVWxubvZfR9JkMik4nU7BarUKLpeLmLsKuwIqTLynp4fqmIzASrqQT09Pf1VVVfX0KsWZ6uHBwQHTaDSsoKAgo6/H4xHLEcrVyRwuEisrKzs5XrrIVAVwiUVDKRRrL+YI32ewdVhMApuHWvcj6vids6J2u90MF4yBHUZNgKoEBaRBQalJqFSqtJfUYrGIlQX+ydXVVTN+u0tKSjQNDQ1axJVl2iTypebn55d7e3v/kqoDgZU1NTU9LCws/Py0M+2ekuGincxJ3yF+18jIyHJLS0slQJUWFxczrBeBE0vE5tHRkbixlZWVfSR8gTX/0P5gH7S1tX3Z3t7+BW8qAvwSfr8/jA0EIRM/qoFtampqbW9vTw+XA+ojUruVd3Z2tvb19T2TQFEim81GgVJoCvvj4+NLOJZgaWmpemdn5y3a6BbcnJDAw8HBwac6ne6eqCW5XDwB3qVSqM9/DAwMUNy/eVLabT7sI25qwgujThCBhWE+mAt2yNc4SQKSZrOQQE1HS22VJkmPAGTr7+//fX19fRk+Zgq0trbGeFAKEAQT98BSqKOj47vm5uaa/Px8JeIk4GcaHh6eWlxcfAU/A8xG67BxAX3fwdcbYUpSDJ06Z49Ak8ZC3OL8f3YiA4PBYKdLQ2AJ9OTk5GpXV9cQiCVh79M94QtlPLDUE/1gPNrd3f0W33W4cBoco48zQuy/IZYAMnGqlSc4c66L9JruQUaSARXeT8HGKzxAqFBekni6+h46+pMzGiJGMgTOJh1yU/KNEGDvZWvfBawkA9ppwGg0mrRa7SOI2g+gxOgbJIpdFpj72PnxSnPX8vqRxTURgBQWKisrH+GThOm+CtAzoK/9/Uiqq/6hoaHfdnd3jaOjo7/yY7yxbwqkWy3sQzpS2C6YirwvUJk0y7hurfyGRrnduPGvAAMASmo8wzeVwfsAAAAASUVORK5CYII=)
@@ -274,4 +308,30 @@ inset 0 80px 80px -40px #ac3223, 1px 1px 3px rgba(0, 0, 0, 0.75);
   padding-top: 20px;
   padding-bottom: 35px;
 
+}
+
+.textUnderImg {
+  margin-top: 15px;
+  background: linear-gradient(
+    #9b1818e8,
+    #8a1111e8,
+    #740d0de8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #5d0c0ce8,
+    #740d0de8,
+    #8a1111e8,
+    #9b1818e8
+  );
+  padding: 10px;
+  padding-top: 22px;
+  height: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.textUnderImg p {
+  color: #ffffff;
 }

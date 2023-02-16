@@ -52,7 +52,7 @@ const Adminroom = () => {
             navigate(`/status/${link}`)
           }}
         >
-          ОДМЕН
+          Главный эльф
         </button>
         </div>
       </div>
@@ -100,32 +100,6 @@ const Adminroom = () => {
         </div>
         </>
         )}
-        {/* <div className="img-Container">
-          <img
-            src={roomimg}
-            alt=""
-            className="img-House"
-            style={{ height: '200px', width: '200px' }}
-          />
-          <div className="textUnderImg">
-            <p>{cabinet} </p>
-          </div>
-          
-        </div> 
-         <div className='shuflerButtons'>
-          <div className='chipBtn'>
-        <CopyLink />
-        </div>
-        <div className='chipBtn'>
-        <ShuffleButton input={input} Users={Users} link={link} setInput={setInput}  />
-        </div>
-        </div>
-
-        <div className="btns-Other">
-
-          <ShufflingInputs input={input} setInput={setInput} />
-          
-        </div> */}
       </div> 
       <div></div>
       <div className="userList-container">

@@ -6,6 +6,7 @@ import { acceptInvite } from '../../store/asyncThunk/acceptInvite';
 import { getPresents } from '../../store/asyncThunk/getPresents';
 import { getUser } from '../../store/asyncThunk/getUser';
 import styles from './UserWithLink.module.css';
+
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -42,9 +43,7 @@ export default function Login() {
   
   return (
     <>
-      <div>USER</div>
-      <div className={styles.container}>
-      Зарегестрируйтесь что бы принять участие
+      <div className={styles.regcont}>
         <div className={styles.postsList}>
         
         <form
@@ -81,7 +80,7 @@ export default function Login() {
                 // required
                 name="email"
                 id="outlined-required"
-                label="почта"
+                label="Почта"
                 value={inputs.email}
               />
             </div>
@@ -92,14 +91,15 @@ export default function Login() {
                 // required
                 name="password"
                 id="outlined-required"
-                label="пароль"
+                label="Пароль"
+                type="password"
                 value={inputs.password}
               />
             </div>
             <div className={styles.btn}>
-              <Button type="submit" variant="contained" color="success">
-              участвовать
-              </Button>
+              <button type="submit" className={styles.knopa}>
+              Участвовать
+              </button>
             </div>
             <p
               style={{
