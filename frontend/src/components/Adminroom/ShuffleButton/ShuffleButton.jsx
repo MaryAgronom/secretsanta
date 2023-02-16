@@ -29,6 +29,7 @@ export default function ShuffleButton({input, Users, link, setInput}) {
           size="big"
           style={{
             fontSize: '20px',
+            fontFamily: 'Comfortaa',
             width: '220px',
             height: '50px',
             backgroundColor: '#5e0d0c',

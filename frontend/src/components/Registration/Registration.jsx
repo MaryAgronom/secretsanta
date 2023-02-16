@@ -82,7 +82,7 @@ export default function Registration() {
                 // required
                 name="email"
                 id="outlined-required"
-                label="почта"
+                label="Почта"
                 value={inputs.email}
               />
             </div>
@@ -91,10 +91,10 @@ export default function Registration() {
               variant="filled"  
                 onChange={formHandler}
                 fullWidth
-                // required
+                type="password"
                 name="password"
                 id="outlined-required"
-                label="пароль"
+                label="Пароль"
                 value={inputs.password}
               />
             </div>
