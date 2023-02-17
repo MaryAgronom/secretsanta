@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int           @id @default(autoincrement())
+  name        String
+  surname     String
+  email       String        @unique
+  password    String
+  userInfo    UserInfo?
+  Wishes      Wish[]
+  adminRooms  Room[]
+  sendBy      Present[]     @relation("sender")
+  receiveFrom Present[]     @relation("receiver")
+  Rooms       UserAndRoom[]
+}
+
+model UserAndRoom {
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+  room   Room @relation(fields: [roomId], references: [id])
+  roomId Int
+
+  @@id([userId, roomId])
+}
+
+model Room {
+  id          Int           @id @default(autoincrement())
+  title       String
+  description String
+  isShuffled  Boolean?      @default(false)
+  money       Int?
+  data_closed DateTime?
+  background  String?
+  link        String?       @unique
+  admin_id    Int
+  admin       User          @relation(fields: [admin_id], references: [id])
+  Users       UserAndRoom[]
+  presents    Present[]
+}
+
+model Present {
+  id          Int     @id @default(autoincrement())
+  send        Boolean?
+  received    Boolean?
+  sender_id   Int
+  receiver_id Int?
+  room_id     Int?
+  feedback    FeedBack?
+  sender      User?   @relation("sender", fields: [sender_id], references: [id])
+  receiver    User?   @relation("receiver", fields: [receiver_id], references: [id])
+  room        Room?    @relation(fields: [room_id], references: [id])
+}
+
+model UserInfo {
+  id      Int     @id @default(autoincrement())
+  avatar  String?
+  address String?
+  size    String?
+  allergy String?
+  userId  Int     @unique
+  user    User    @relation(fields: [userId], references: [id])
+}
+
+model Wish {
+  id     Int     @id @default(autoincrement())
+  item   String
+  like   Boolean
+  userId Int
+  user   User    @relation(fields: [userId], references: [id])
+}
+
+model FeedBack {
+  id      Int    @id @default(autoincrement())
+  text    String
+  present_id   Int    @unique
+  present Present @relation(fields: [present_id], references: [id])
+}

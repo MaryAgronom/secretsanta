@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;700&family=Lilita+One&family=Philosopher:ital,wght@0,400;0,700;1,700&display=swap');
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial;
+  text-shadow: 0 0 1px #000;
+}
+
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.0s;animation-delay:3s,1.0s}
+.main-container {
+    background-color: #ff6860;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: "relative";
+    height: 100vh;
+}
+
+.head-text {
+    font-family: 'Lilita One', cursive;;
+    text-align: center;
+    width: 320px;
+    margin: 0px auto;
+    color: white;
+    font-size: 98px;
+    letter-spacing: 5px;
+    top: 50%;
+    position: absolute;
+    margin-top: -410px;
+    
+    text-shadow: -1px -1px 0px #be4c46,
+      3px 3px 0px #be4c46,
+      6px 6px 0px #be4c46;
+      
+  }
+.btn-container {
+    margin-top: 470px;
+    display: flex;
+    justify-content: space-between;
+    width: 520px;
+    margin-left: -40px;
+}
+  
+.reglogbtn {
+    background-color: rgb(77, 215, 169);
+    border: none;
+    border-radius: 20px;
+    height: 55px;
+    width: 200px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: aliceblue;
+    font-family: 'Comfortaa', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-bottom: 10px;
+    margin-right: 40px;
+}
+.reglogbtn:hover {
+    box-shadow: none;
+    border: none;
+    top: 1px;
+    color: #333;
+  }
+.laylink {
+    color: aliceblue;
+    text-decoration: none;
+}
+.container-santa{
+  height: 480px;
+  width: 350px;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.container-santa svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.plane{
+  position: relative;
+  -webkit-animation: float 3s infinite;
+          animation: float 3s infinite;
+}
+@-webkit-keyframes float{
+  50%{
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px);
+  }
+}
+@keyframes float{
+  50%{
+    -webkit-transform: translateY(25px);
+            transform: translateY(25px);
+  }
+}
+.hand{
+  -webkit-transform: rotate(10deg);
+      -ms-transform: rotate(10deg);
+          transform: rotate(10deg);
+  -webkit-animation: wave 1.5s infinite;
+          animation: wave 1.5s infinite;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center; 
+}
+.blade{
+  -webkit-animation:spin 1s infinite linear;
+          animation:spin 1s infinite linear;
+  -webkit-transform-origin: 50% 54%;
+      -ms-transform-origin: 50% 54%;
+          transform-origin: 50% 54%;
+}
+@-webkit-keyframes spin{
+  100%{
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+@keyframes spin{
+  100%{
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+@-webkit-keyframes wave{
+  50%{
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+}
+@keyframes wave{
+  50%{
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+}
+
+@media screen and (min-width: 451px) {
+  a{
+    font-size: 20px;
+     padding:8px 12px 8px 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  a{
+    font-size: 14px;
+     padding:5px 8px 5px 8px;
+  }
+}
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(38, 99, 43, 0.729) !important;
+  background-image: none !important;
+  
+  }
+  .about-text {
+    background-color: rgba(172, 41, 41, 0.572);
+    width: 800px;
+    /* height: 500px; */
+    padding: 20px;
+    border-radius: 30px;
+
+  }
+  .container-about {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  }
+  .about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  align-items: center;
+  font-family: 'Comfortaa', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #fff;
+  }
+  .about-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  .about-text {
+  text-align: left;
+  padding-bottom: 30px;
+  }
+  .about-title {
+    margin-bottom: 8%;
+  }
+  .sugrobchik {
+    height: 110px;
+    width: 100vw;
+    bottom: 0px;
+    position: absolute;
+  }
+@media screen and (min-width: 800px){
+  .about-content{
+      grid-template-columns: repeat(2, 1fr);
+  }
+  .about-title{
+      margin-top: 0;
+  }
+  .about-img img{
+      margin-left: 0;
+  }
+}

@@ -1,0 +1,80 @@
+.regcont{
+  background-image: url("../../images/zimniy-peyzazh.png") !important;
+  height: 100vh;
+  width: 100vw;
+  background-size: 110%;
+  background-repeat: no-repeat !important;
+  display: flex;
+  justify-content: center;
+  /* position: absolute; */
+  
+}
+
+.container {
+  display: flex;
+  width: 1100px;
+  justify-content: center;
+  height: 100%;
+  margin-top: -55px;
+  
+}
+
+.postsList {
+  /* position: absolute; */
+  top: 80px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: none;
+  font-family: 'Comfortaa', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* border: 2px solid black; */
+}
+.postsList_item {
+  color: aliceblue;
+  display: flex;
+  /* border: 2px solid red; */
+  justify-content: center;
+  margin: 20px;
+  border: 2px solid rgb(59, 160, 227);
+  background-color: white;
+}
+
+.btn {
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.knopa {
+  position: relative;
+  color: rgb(255, 255, 255);
+  font-weight:bold;
+  font-size: x-large;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* text-shadow: -1px -1px rgb(119, 117, 117); */
+  user-select: none;
+  padding: .8em 2em;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  background-color: #21918f;
+  background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+  background-repeat: no-repeat;
+  background-size: 200% 100%, auto;
+  background-position: 200% 0, 0 0;
+  box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+} 
+.knopa:active {
+  top: 1px;
+  box-shadow: none;
+}
+.knopa:hover {
+  transition: .5s linear;
+  background-position: -200% 0, 0 0;
+}

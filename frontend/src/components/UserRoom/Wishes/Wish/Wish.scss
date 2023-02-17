@@ -1,0 +1,33 @@
+@import '../../../.././mix.scss';
+
+.wishItem {
+  width: 100%;
+  @include flex();
+  position: relative;
+  cursor: pointer;
+  color: white;
+
+  &:hover {
+    .wishItemDelete {
+      opacity: 1;
+      color: white;
+    }
+  }
+
+  .itemBorder {
+    width: fit-content;
+    // border-bottom: 1px solid black;
+  }
+  .wishes {
+    border: none;
+  }
+  .wishItemDelete {
+    position: absolute;
+    right: 10px;
+    top: 0;
+
+    opacity: 0;
+
+    transition: 0.15s all ease-in-out;
+  }
+}
